@@ -5,3 +5,6 @@ export function sendVerifyCode(data) {
 export function verifyCodeMatch(data) {
   axios.post("/",data)
 }
+export function releaseNewItem(data) {
+  axios.post("/",data)
+}

@@ -18,6 +18,7 @@ Page({
     secondEmail: "", //用户第二次(点击登录按钮)的email
   },
   async getKey() { //点击获取验证码按钮时触发
+    let that=this
     if (this.data.email && this.data.email.match(/(^[A-z])[0-9]{9,9}((@hust.edu.cn)$)/)) { //判断格式是否正确
       this.setData({
         firstEmail: this.data.email,
@@ -27,7 +28,7 @@ Page({
         await sendVerifyCode({
           email: this.data.email,
         })
-        this.setData({
+        that.setData({
           emailTrue: true,
           keyInputShow: true, //出现验证码输入框
           timeIntervalShow: true, //出现60s间隔按钮
@@ -35,12 +36,12 @@ Page({
         });
         let i = 60;
         let interval = setInterval(() => {
-          this.setData({
+          that.setData({
             time: i
           }); //设置60间隔按钮内容
           i--;
           if (i === 0) { //60s结束时
-            this.setData({
+            that.setData({
               timeIntervalShow: false, //60s按钮隐藏
               getKeyShow: true, //获取验证码按钮出现
             })
@@ -81,13 +82,14 @@ Page({
     }
   },
   async login() {
+    let that=this;
     this.setData({
       secondEmail: this.data.email
     });
     if (this.data.firstEmail == this.data.secondEmail) { //判断两次输入的邮箱是否为同一个
       const res = verifyCodeMatch({
-        email: this.data.secondEmail,
-        checkKey: this.data.keyValue,
+        email: that.data.secondEmail,
+        checkKey: that.data.keyValue,
       })
       wx.setStorageSync('token', res.data)
       wx.redirectTo({
