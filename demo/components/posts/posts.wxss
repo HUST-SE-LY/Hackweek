@@ -1,0 +1,107 @@
+.post-container {
+  background-color: white;
+  margin-bottom: 30rpx;
+  padding: 0 50rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.header .left {
+  display: flex;
+  align-items: center;
+}
+
+.header .left image {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+}
+
+.header .more {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.second-line {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.second-line .title {
+  width: 500rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.second-line .right {
+  font-size: 26rpx;
+}
+
+.second-line .right .contact {
+  position: relative;
+  width: 180rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-line .right .contact image {
+  height: 36rpx;
+  width: 36rpx;
+  margin-right: 10rpx;
+}
+
+.second-line .right .price {
+  position: absolute;
+  right: 120rpx;
+  font-weight: bold;
+}
+
+.content {
+  margin-top: 40rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.location {
+  margin-top: 20rpx;
+  align-self: flex-end;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+.footer .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 20rpx;
+}
+.footer image {
+  height: 45rpx;
+  width: 45rpx;
+  margin-right: 10rpx;
+}
+.footer .right {
+  display: flex;
+}

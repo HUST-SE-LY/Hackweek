@@ -1,0 +1,38 @@
+<view class="post-container" wx:for="{{postList}}" wx:key="index">
+  <view class="header">
+    <view class="left">
+      <image src="{{item.avatar}}"></image>
+      <text>{{item.userName}}</text>
+    </view>
+    <image class="more" src="../../static/more.svg"></image>
+  </view>
+  <view class="second-line">
+    <view class="title">{{item.title}}</view>
+    <view class="right">
+      <view class="contact">
+        <image src="../../static/contact.svg"></image>
+        <text>联系</text>
+      </view>
+      <view class="price">{{item.price}}</view>
+    </view>
+  </view>
+  <view class="content">
+    {{item.content}}</view>
+  <view class="location">
+    <text>{{item.location}} </text><text> {{item.createAt}}</text>
+  </view>
+  <view class="footer">
+    <view class="item">
+      <image src="../../static/share.svg"></image>
+      <text>分享</text>
+    </view>
+    <view class="right">
+      <view class="reply item">
+        <image src="{{item.isReplied?'../../static/replied.svg':'../../static/reply.svg'}}"></image><text>{{item.reply}}</text>
+      </view>
+      <view class="thumb item">
+        <image src="{{item.isThumb?'../../static/thumbed.svg':'../../static/thumb.svg'}}"></image><text>{{item.thumb}}</text>
+      </view>
+    </view>
+  </view>
+</view>

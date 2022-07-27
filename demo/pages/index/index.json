@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Posts": "../../components/posts/posts"
+  },
+  "navigationBarBackgroundColor": "#F8F8F8"
 }
