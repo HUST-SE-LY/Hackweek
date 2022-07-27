@@ -1,0 +1,71 @@
+/* pages/login/login.wxss */
+.logo {
+  border-radius: 50%;
+  border: 1px solid grey;
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  margin-left: 20%;
+  background-color: white;
+}
+.head_content {
+  margin-left: 20%;
+  font-weight: 700;
+  line-height: 5rem;
+  font-size: large;
+}
+.head {
+  display: flex;
+  margin-top: 40%;
+}
+.email_input {
+  width: 70%;
+  height: 2rem;
+  border: 1px grey solid;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  box-sizing: border-box;
+}
+.email_input_false {
+  width: 70%;
+  height: 2rem;
+  border: 1px red solid;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  box-sizing: border-box;
+}
+.email_container {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  line-height: 2rem;
+}
+.key_container {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  line-height: 2rem;
+}
+.key_input {
+  width: calc(70% - 0.5rem);
+  height: 2rem;
+  border: 1px grey solid;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  box-sizing: border-box;
+}
+.submit_button {
+  background-color: lightgrey;
+  width: 50%;
+  margin-top: 2rem;
+  border-radius: 0.75rem;
+  font-size: 0.5rem;
+}
+.key_input_false {
+  width: calc(70% - 0.5rem);
+  height: 2rem;
+  border: 1px red solid;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+  box-sizing: border-box;
+}
+

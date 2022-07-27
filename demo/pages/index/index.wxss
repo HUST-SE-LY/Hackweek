@@ -1,0 +1,7 @@
+/**index.wxss**/
+.username {
+  margin: 10px auto;
+  border-bottom: black 1px solid;
+  width: 50vh;
+  
+}
