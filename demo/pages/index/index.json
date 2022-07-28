@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "Posts": "../../components/posts/posts"
+    "Tabbar": "/components/tabbar/tabbar",
+    "Fair": "/components/fair/fair",
+    "My": "/components/my/my"
   },
   "navigationBarBackgroundColor": "#F8F8F8"
 }

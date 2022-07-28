@@ -27,6 +27,7 @@ Page({
         await sendVerifyCode({
           email: this.data.email,
         })
+        //成功获得响应会进行下一步
         this.setData({
           emailTrue: true,
           keyInputShow: true, //出现验证码输入框
@@ -50,7 +51,6 @@ Page({
       } catch (res) {
 
       }
-      //成功获得响应会进行下一步
     } else {
       this.setData({
         emailTrue: false,

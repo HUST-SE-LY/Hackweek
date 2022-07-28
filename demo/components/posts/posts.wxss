@@ -64,12 +64,13 @@
 }
 
 .second-line .right .price {
+  margin-top: 3rpx;
   position: absolute;
   right: 120rpx;
   font-weight: bold;
 }
 
-.content {
+.post-container .content {
   margin-top: 40rpx;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -83,12 +84,14 @@
   font-size: 26rpx;
   color: rgba(0, 0, 0, 0.6);
 }
+
 .footer {
   display: flex;
   justify-content: space-between;
   margin-top: 20rpx;
   margin-bottom: 30rpx;
 }
+
 .footer .item {
   display: flex;
   justify-content: center;
@@ -97,11 +100,55 @@
   color: rgba(0, 0, 0, 0.6);
   margin-right: 20rpx;
 }
+
 .footer image {
   height: 45rpx;
   width: 45rpx;
   margin-right: 10rpx;
 }
+
 .footer .right {
   display: flex;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.contactInfoContainer .contactInfo {
+  position: fixed;
+  top: 37vh;
+  left: 50rpx;
+  width: 650rpx;
+  height: 15vh;
+  background-color: #fff;
+  border-radius: 15rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contactInfoContainer .contactInfo .content {
+  line-height: 6vh;
+  margin: 5rpx 30rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contactInfoContainer .contactInfo .content .copy{
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  width: 100rpx;
+  line-height: 4vh;
+  text-align: center;
+  border-radius: 15rpx;
+}
+.contactInfoContainer .contactInfo .divider {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
