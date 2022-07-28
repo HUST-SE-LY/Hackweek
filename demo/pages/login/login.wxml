@@ -7,10 +7,6 @@
   <view style="display: flex;" class="email_container">
     <view>邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱@hust.edu.cn':'请输入正确的邮箱格式'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
   </view>
-  <form>
-    <view style="display: flex;" class="email_container">
-      <view>邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱':'请输入正确的邮箱格式'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}" model:value="{{email}}" />
-    </view>
     <view style="display: {{keyInputShow?'flex':'none'}};" class="key_container">
       <view>验证码：</view><input placeholder="输入验证码" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
     </view>

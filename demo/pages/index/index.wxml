@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <view style="justify-content:{{serachBarFoucus?'flex-start':'center'}}" class="search-bar">
   <image class="button" src="../../static/search.svg"></image>
   <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}"></input>
@@ -26,4 +24,3 @@
   </view>
   <Posts />
 </view>
->>>>>>> 24d0e7afe7f94475b12ff849c0052c10d27d7836

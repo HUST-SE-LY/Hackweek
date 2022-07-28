@@ -157,5 +157,12 @@ Component({
         postList: this.data.postList
       })
     }
+  },
+  methods: {
+    intoDetailPage(id) {
+      wx.navigateTo({
+        url: `../../pages/index/itemDetail/itemDetail?id=${id.currentTarget.dataset.id}`,
+      })
+    },
   }
 })
