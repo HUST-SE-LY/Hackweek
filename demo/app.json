@@ -1,11 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-<<<<<<< HEAD
     "pages/index/newItem/newItem",
-=======
     "pages/login/login",
->>>>>>> 24d0e7afe7f94475b12ff849c0052c10d27d7836
     "pages/logs/logs"
   ],
   "window":{

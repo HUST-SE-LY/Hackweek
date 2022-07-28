@@ -1,16 +1,11 @@
 <view class="back">
   <view class="head">
-<<<<<<< HEAD
   <view class="logo">logo</view>
   <view class="head_content">登录&注册</view>
 </view>
 <form>
   <view style="display: flex;" class="email_container">
     <view>邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱@hust.edu.cn':'请输入正确的邮箱格式'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
-=======
-    <view class="logo">logo</view>
-    <view class="head_content">登录&注册</view>
->>>>>>> 24d0e7afe7f94475b12ff849c0052c10d27d7836
   </view>
   <form>
     <view style="display: flex;" class="email_container">
