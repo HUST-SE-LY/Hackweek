@@ -113,4 +113,37 @@
   padding: 0 5% 5% 5%;
   border: lightgray 1px solid;
   border-radius: 5px;
+  margin-bottom: 120rpx;
+}
+.comment {
+  position: fixed;
+  bottom: 0;
+  padding: 5vw;
+  border-top: lightgray 1px solid;
+  width: 100vw;
+  background-color: white;
+  box-sizing: border-box;
+}
+.comment_input {
+  border-radius: 10px;
+  border: lightgray 1px solid;
+  height: 2em;
+  padding-left: 1em;
+  margin-bottom: 3vw;
+
+}
+.comment_reply {
+  position: fixed;
+  bottom: 0;
+  padding: 5vw;
+  border-top: lightgray 1px solid;
+  width: 100vw;
+  background-color: white;
+  box-sizing: border-box;
+}
+.comment_input_display {
+  display: none;
+}
+.comment_reply_display {
+  display: none;
 }

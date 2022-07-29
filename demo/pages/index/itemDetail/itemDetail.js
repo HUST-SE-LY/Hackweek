@@ -1,9 +1,5 @@
 // pages/index/itemDetail/itemDetail.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     id:"",
     avatar:"https://www.matto.top/avatar.png",
@@ -13,15 +9,38 @@ Page({
     content:"这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文",
     location:"韵苑校区",
     createAt:"7月29日",
+    reply:"100",
+    thumb:"100",
+    isReplied:true,
+    isThumb:true,
+    isfocus:false,//表示回复框是否聚焦
+    inputContent:"",
+    isfooter:true,
+    isReplyOthers:false,
+    placeHolderName:'',
   },
-
+  releaseComment() {
+    console.log("ok")
+    this.selectComponent("#comments").reply(this.data.inputContent);
+    this.setData({
+      inputContent:"",
+    })
+  },
+  releaseReplyOthers() {
+    this.selectComponent("#comments").reply1(this.data.inputContent);
+    this.setData({
+      inputContent:"",
+    })
+  },
+  closeInput() {
+    this.setData({isfocus:false,isfooter:true,isReplyOthers:false});
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
       let id=options.id;
       this.setData({id: id,});
-      
   },
 
   /**

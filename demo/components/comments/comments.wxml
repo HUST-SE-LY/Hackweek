@@ -1,13 +1,13 @@
 <!--components/comments/comments.wxml-->
-<view wx:for="{{commentsList}}" wx:key="{{item.id}}" class="comment_container">
+<view wx:for="{{commentsList}}" wx:key="{{item.id}}" class="comment_container" wx:for-index="firstIndex">
   <view class="comment_main">
-    <view>{{item.username}}：</view>
+    <view bindtap="replyOthers" data-name="{{item.username}}" data-index="{{firstIndex}}">{{item.username}}：</view>
     <view>{{item.commentContent}}</view>
   </view>
-  <view class="comment_second" wx:for="{{item.commentSecondList}}" wx:for-item="items">
-    <view>{{items.username1}}</view>
+  <view class="comment_second" wx:for="{{item.commentSecondList}}" wx:for-item="items" >
+    <view bindtap="replyOthers" data-index="{{firstIndex}}" data-name="{{items.username1}}">{{items.username1}}</view>
     <view>回复</view>
-    <view>{{items.username2}}：</view>
+    <view bindtap="replyOthers" data-index="{{firstIndex}}" data-name="{{items.username2}}">{{items.username2}}：</view>
     <view>{{items.content}}</view>
   </view>
 </view>

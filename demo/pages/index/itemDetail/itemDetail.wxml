@@ -29,14 +29,22 @@
     </view>
     <view class="right">
       <view class="reply item">
-        <image src="{{item.isReplied?'../../../static/replied.svg':'../../../static/reply.svg'}}"></image><text>{{item.reply}}</text>
+        <image src="{{isReplied?'../../../static/replied.svg':'../../../static/reply.svg'}}"></image><text>{{reply}}</text>
       </view>
       <view class="thumb item">
-        <image src="{{item.isThumb?'../../../static/thumbed.svg':'../../../static/thumb.svg'}}"></image><text>{{item.thumb}}</text>
+        <image src="{{isThumb?'../../../static/thumbed.svg':'../../../static/thumb.svg'}}"></image><text>{{thumb}}</text>
       </view>
     </view>
   </view>
 </view>
 <view class="commentsContainer">
-   <comments></comments>
+   <comments inputData="{{inputContent}}" id="comments" ></comments>
+</view>
+<view class="comment {{isfooter?'':'comment_input_display'}}">
+  <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" 
+   model:value="{{inputContent}}" bindconfirm="releaseComment"/>
+</view>
+<view class="comment_reply {{isReplyOthers?'':'comment_reply_display'}}">
+  <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" maxlength="500" 
+   model:value="{{inputContent}}" focus="{{isfocus}}" bindblur="closeInput"/>
 </view>
