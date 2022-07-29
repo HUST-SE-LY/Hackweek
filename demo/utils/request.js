@@ -20,7 +20,6 @@ function request(path, data, method, header) {
       // dataType:'text', // 默认不填是以 JSON 形式解析返回结果，若不想让 SDK 自己解析，可以填text
       // 其余参数同 wx.request
     }).then((res) => {
-      console.log(res)
       if (res.statusCode >= 200 && res.statusCode < 300) {
         resolve(res)
       } else {
