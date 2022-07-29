@@ -2,74 +2,24 @@
 page {
   background-color: #f7f7f7;
 }
-
-.search-bar {
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 600rpx;
-  height: 30px;
-  margin: 10rpx auto;
-  border-radius: 15px;
-  border: #BBBBBB solid 1px;
-  background-color: #FFFFFF;
+  justify-content: space-around;
+  z-index: 1;
+  background-color: #fff;
 }
 
-.search-bar .button {
-  margin-left: 15rpx;
-  width: 24px;
-  height: 24px;
-}
-
-.search-bar input {
-  margin-left: 15rpx;
-  font-size: 24rpx;
-}
-
-.swiper {
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-}
-.tag-bar {
-  display: flex;
-  flex-wrap: nowrap;
-}
-.tagsScroll {
-  white-space: nowrap;
-  margin: 0 50rpx;
-}
-.scroll-item {
-  display: inline-block;
-  margin-left: 5rpx;
-  margin-right: 20rpx;
+.tabbar-item {
+  margin: 25rpx 50rpx;
   text-align: center;
   font-size: 26rpx;
 }
-.selected-item image{
-  box-shadow: 0px 2px 4px #888888;
-}
-.tag-bar .tagsScroll .scroll-item image {
-  height: 110rpx;
-  width: 110rpx;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  margin-bottom: 5rpx;
-}
-.posts-container {
-  margin: 20rpx 0;
-}
-.sort-type-bar {
-  width: 720rpx;
-  display: flex;
-  justify-content: flex-end;
-  line-height: 40rpx;
-  font-size: 28rpx;
-  background-color: #FFFFFF;
-  padding: 10rpx 30rpx 10rpx 0;
-  margin-bottom: 5rpx;
-}
-.divider {
-  border-right: 1px solid rgba(0,0,0,0.4);
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+.tabbar-item image {
+  height: 50rpx;
+  width: 50rpx;
 }

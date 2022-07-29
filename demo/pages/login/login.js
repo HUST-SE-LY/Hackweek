@@ -51,7 +51,6 @@ Page({
       } catch (res) {
 
       }
-      //成功获得响应会进行下一步
     } else {
       this.setData({
         emailTrue: false,
