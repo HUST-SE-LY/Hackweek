@@ -187,14 +187,14 @@ Component({
       if (this.data.postList[index].isThumb) {
         this.data.postList[index].thumb--;
         this.data.postList[index].isThumb = false;
-        await likePost({
-          id
+        await toggleLikePost({
+          postid: id
         })
       } else {
         this.data.postList[index].thumb++;
         this.data.postList[index].isThumb = true;
-        await dislikePost({
-          id
+        await toggleLikePost({
+          postid: id
         })
       }
       this.setData({
@@ -209,14 +209,14 @@ Component({
       if (this.data.postList[index].isFollow) {
         this.data.postList[index].follow--;
         this.data.postList[index].isFollow = false;
-        await followPost({
-          id
+        await toggleFollowPost({
+          postid: id
         })
       } else {
         this.data.postList[index].follow++;
         this.data.postList[index].isFollow = true;
-        await unfollowPost({
-          id
+        await toggleFollowPost({
+          postid: id
         })
       }
       this.setData({
