@@ -66,7 +66,8 @@ Page({
     wx.showActionSheet({
       itemList: this.data.locationList,
       success(res) {
-        that.setData({location: that.data.locationList[res.tapIndex],});显示所选校区
+        that.setData({location: that.data.locationList[res.tapIndex],});//显示所选校区
+        console.log(that.data.location)
         if(that.data.location.replace("选择校区").length!==0) {//确定选择了校区
           that.setData({isChooseLocation: true,});
           that.canRelease();
@@ -108,7 +109,7 @@ Page({
     let detail=this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明","");
     let tag=this.data.tag;
     let location=this.data.location;
-    let price=this.data.price;
-    
+    let price=this.data.price+"￥";
+    //这里还有上传图片
   }
 })

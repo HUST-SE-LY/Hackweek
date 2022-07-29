@@ -27,5 +27,5 @@ Page({
     this.setData({
       selectedIndex: index
     })
-  }
+  },
 })

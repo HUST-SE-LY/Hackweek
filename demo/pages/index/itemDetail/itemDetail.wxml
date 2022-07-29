@@ -19,6 +19,9 @@
   </view>
   <view class="content">
     {{content}}</view>
+  <view class="image_list">
+    <image wx:for="{{imageList}}" src="{{item}}" class="image" mode="aspectFill" bindtap="imgLarge" data-url="{{item}}"></image>
+  </view>
   <view class="location">
     <text>{{location}} </text><text> {{createAt}}</text>
   </view>
@@ -48,3 +51,5 @@
   <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" maxlength="500" 
    model:value="{{inputContent}}" focus="{{isfocus}}" bindblur="closeInput"/>
 </view>
+<image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
+<view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>

@@ -147,3 +147,29 @@
 .comment_reply_display {
   display: none;
 }
+.image_list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10vw;
+  row-gap: 5vw;
+  padding-top: 30rpx;
+}
+.image {
+  width: 20vw;
+  height: 20vw;
+}
+.largeImg {
+  width: 80vw;
+  position: absolute;
+  top: 10vh;
+  z-index: 10;
+  left: 10vw; 
+}
+.gray_back {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}

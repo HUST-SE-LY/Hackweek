@@ -90,9 +90,6 @@
 .cannotRelease {
   color: grey;
 }
-.release:hover {
-  color: black;
-}
 .largeImg {
   width: 80vw;
   position: absolute;
