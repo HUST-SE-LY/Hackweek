@@ -6,7 +6,13 @@ Page({
    */
   data: {
     id:"",
-    
+    avatar:"https://www.matto.top/avatar.png",
+    userName:"matto",
+    title:"这是一个标题",
+    price:"100",
+    content:"这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文这是正文",
+    location:"韵苑校区",
+    createAt:"7月29日",
   },
 
   /**
@@ -14,6 +20,8 @@ Page({
    */
   onLoad(options) {
       let id=options.id;
+      this.setData({id: id,});
+      
   },
 
   /**

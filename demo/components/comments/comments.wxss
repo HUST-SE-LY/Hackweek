@@ -1,0 +1,15 @@
+/* components/comments/comments.wxss */
+.comment_main {
+  display: flex;
+  margin-bottom: 5%;
+}
+.comment_container {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  border-bottom: lightgray 1px solid;
+}
+.comment_second {
+  display: flex;
+  margin-bottom: 5%;
+  flex-wrap: wrap;
+}

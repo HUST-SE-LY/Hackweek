@@ -106,3 +106,11 @@
 .footer .right {
   display: flex;
 }
+.commentsContainer {
+  width: 90vw;
+  margin-left: 5vw;
+  box-sizing: border-box;
+  padding: 0 5% 5% 5%;
+  border: lightgray 1px solid;
+  border-radius: 5px;
+}
