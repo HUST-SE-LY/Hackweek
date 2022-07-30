@@ -7,12 +7,12 @@ function request(path, data, method, header) {
   return new Promise((resolve, reject) => {
     wx.cloud.callContainer({
       config: {
-        env: '填入云环境ID', // 微信云托管的环境ID
+        env: 'prod-7gigvlg43eb566e9', // 微信云托管的环境ID
       },
       path, // 填入业务自定义路径和参数，根目录，就是 / 
       method: method || "get", // 按照自己的业务开发，选择对应的方法
       header: header || {
-        'X-WX-SERVICE': 'xxx', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
+        'X-WX-SERVICE': 'demo1', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
         // 用storage来存登录时后端给的token
         'Authorization': wx.getStorageSync('token')
       },
@@ -20,6 +20,7 @@ function request(path, data, method, header) {
       // dataType:'text', // 默认不填是以 JSON 形式解析返回结果，若不想让 SDK 自己解析，可以填text
       // 其余参数同 wx.request
     }).then((res) => {
+      console.log(res)
       if (res.statusCode >= 200 && res.statusCode < 300) {
         resolve(res)
       } else {
@@ -29,6 +30,7 @@ function request(path, data, method, header) {
       }
     }).catch((err) => {
       showToast(err.errMsg);
+      console.log(err)
       reject(err)
     });
   })
