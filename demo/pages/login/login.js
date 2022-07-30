@@ -18,6 +18,7 @@ Page({
     secondEmail: "", //用户第二次(点击登录按钮)的email
   },
   async getKey() { //点击获取验证码按钮时触发
+
     let that=this
     if (this.data.email && this.data.email.match(/(^[A-z])[0-9]{9,9}((@hust.edu.cn)$)/)) { //判断格式是否正确
       this.setData({

@@ -2,6 +2,7 @@
 .comment_main {
   display: flex;
   margin-bottom: 5%;
+  
 }
 .comment_container {
   padding-top: 5%;

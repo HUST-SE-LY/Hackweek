@@ -2,28 +2,28 @@
 <view class="post-container">
   <view class="header">
     <view class="left">
-      <image src="{{item.avatar}}"></image>
-      <text>{{item.userName}}</text>
+      <image src="{{avatar}}"></image>
+      <text>{{userName}}</text>
     </view>
     <image class="more" src="../../../static/more.svg"></image>
   </view>
   <view class="second-line">
-    <view class="title">{{item.title}}</view>
+    <view class="title">{{title}}</view>
     <view class="right">
       <view class="contact">
         <image src="../../../static/contact.svg"></image>
         <text>联系</text>
       </view>
-      <view class="price">{{item.price}}</view>
+      <view class="price">{{price}}</view>
     </view>
   </view>
   <view class="content">
-    {{item.content}}</view>
+    {{content}}</view>
   <view class="image_list">
-    <image wx:for="{{item.imageList}}" src="{{item}}" class="image" mode="aspectFill" bindtap="imgLarge" data-url="{{item}}"></image>
+    <image wx:for="{{imageList}}" src="{{item}}" class="image" mode="aspectFill" bindtap="imgLarge" data-url="{{item}}"></image>
   </view>
   <view class="location">
-    <text>{{item.location}} </text><text> {{item.createAt}}</text>
+    <text>{{location}} </text><text> {{createAt}}</text>
   </view>
   <view class="footer">
     <view class="item">
