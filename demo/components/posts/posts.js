@@ -5,10 +5,8 @@ import {
   showToast
 } from "../../utils/wx-event"
 import {
-  likePost,
-  dislikePost,
-  followPost,
-  unfollowPost
+  toggleLikePost,
+  toggleFollowPost
 } from "../../utils/request";
 Component({
   data: {

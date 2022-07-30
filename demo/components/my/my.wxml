@@ -8,21 +8,21 @@
   </view>
   <view class="username">用户名</view>
   <view class="my-items">
-    <view class="item">
+    <view class="item" bindtap="navigateToMyFollowPage">
       <image src="/static/followed.svg"></image>
       <view class="words">
         <view>我的收藏</view>
         <view class="number">222</view>
       </view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="navigateToMyReplyPage">
       <image src="/static/replied.svg"></image>
       <view class="words">
         <view>我的评论</view>
         <view class="number">333</view>
       </view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="navigateToMyPostPage">
       <image src="/static/my-post.svg"></image>
       <view>
         <view>我的闲置</view>
@@ -31,8 +31,8 @@
     </view>
   </view>
   <view class="footer">
-    <text>编辑资料</text>
-    <image src="/static/edit.svg"></image>
+    <text bindtap="navigateToEditPage">编辑资料</text>
+    <image bindtap="navigateToEditPage" src="/static/edit.svg"></image>
   </view>
 </view>
 <view class="messages-bar">

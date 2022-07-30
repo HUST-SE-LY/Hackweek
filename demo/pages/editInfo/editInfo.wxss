@@ -1,0 +1,27 @@
+page {
+  background-color: #F5F5F5;
+}
+.item {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 35rpx;
+  font-size: 26rpx;
+}
+.avatar image {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  border: 1px solid #BBBBBB;
+}
+.logout image {
+  height: 40rpx;
+  width: 40rpx;
+}
+.divider {
+  border-bottom: 1px solid rgba(187, 187, 187, .25) ;
+}
+.name,.wx {
+  margin-bottom: 30rpx;
+}

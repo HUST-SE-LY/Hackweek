@@ -1,0 +1,2 @@
+<!--pages/my-post.wxml-->
+<Posts postList="{{postList}}"></Posts>

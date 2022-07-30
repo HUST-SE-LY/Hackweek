@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Post": "/components/posts/posts"
+  },
+  "navigationBarTitleText": "我的闲置"
+}

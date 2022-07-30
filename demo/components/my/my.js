@@ -40,6 +40,25 @@ Component({
     }]
   },
   methods: {
-
+    navigateToMyFollowPage() {
+      wx.navigateTo({
+        url: '/pages/my-follow/my-follow',
+      })
+    },
+    navigateToMyPostPage() {
+      wx.navigateTo({
+        url: '/pages/my-post/my-post',
+      })
+    },
+    navigateToMyReplyPage() {
+      wx.navigateTo({
+        url: '/pages/my-reply/my-reply',
+      })
+    },
+    navigateToEditPage() {
+      wx.navigateTo({
+        url: '/pages/editInfo/editInfo',
+      })
+    }
   }
 })
