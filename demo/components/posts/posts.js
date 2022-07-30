@@ -174,13 +174,13 @@ Component({
         index
       } = e.currentTarget.dataset;
       if (this.data.postList[index].isThumb) {
-        this.data.postList[index].thumb--;
+        this.data.postList[index].Thumb--;
         this.data.postList[index].isThumb = false;
         await toggleLikePost({
           postid: id
         })
       } else {
-        this.data.postList[index].thumb++;
+        this.data.postList[index].Thumb++;
         this.data.postList[index].isThumb = true;
         await toggleLikePost({
           postid: id
@@ -196,13 +196,13 @@ Component({
         index
       } = e.currentTarget.dataset;
       if (this.data.postList[index].isFollow) {
-        this.data.postList[index].follow--;
+        this.data.postList[index].Follow--;
         this.data.postList[index].isFollow = false;
         await toggleFollowPost({
           postid: id
         })
       } else {
-        this.data.postList[index].follow++;
+        this.data.postList[index].Follow++;
         this.data.postList[index].isFollow = true;
         await toggleFollowPost({
           postid: id

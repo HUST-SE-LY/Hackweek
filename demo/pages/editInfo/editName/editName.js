@@ -6,7 +6,8 @@ Page({
   data: {
     userName: ""
   },
-  onLoad: function (options) {
+  onLoad(options) {
+    console.log(App.globalData.userInfo.userName)
     this.setData({
       userName: App.globalData.userInfo.userName
     })
@@ -21,6 +22,7 @@ Page({
     else {
       App.globalData.userInfo.userName = this.data.userName
       wx.setStorageSync('userInfo', App.globalData.userInfo)
+      showToast("修改成功")
       wx.navigateBack()
     }
   }

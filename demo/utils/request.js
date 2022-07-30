@@ -2,8 +2,8 @@
 import {
   showToast
 } from "./wx-event"
+
 function request(path, data, method, header) {
-  console.log(wx.getStorageSync('token'))
   return new Promise((resolve, reject) => {
     wx.cloud.callContainer({
       config: {
@@ -15,7 +15,7 @@ function request(path, data, method, header) {
         'X-WX-SERVICE': 'demo1', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
         // 用storage来存登录时后端给的token
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': wx.getStorageSync('token'),
+        'Authorization': "Bearer " + wx.getStorageSync('token'),
       },
       data: data
       // dataType:'text', // 默认不填是以 JSON 形式解析返回结果，若不想让 SDK 自己解析，可以填text
@@ -47,7 +47,7 @@ export function releaseNewItem(data) {
 }
 export function getPostsList(data) {
   console.log(data)
-  return request("/post/getPostsList",data)
+  return request("/post/getPostsList", data)
 }
 // 点赞/取消点赞一体化
 export function toggleLikePost(data) {
