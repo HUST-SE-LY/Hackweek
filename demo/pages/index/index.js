@@ -7,7 +7,6 @@ Page({
     const {
       index
     } = e.currentTarget.dataset
-    console.log(index)
     this.setData({
       selectedTabBarIndex: index
     })

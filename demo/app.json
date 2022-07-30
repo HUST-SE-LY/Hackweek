@@ -1,14 +1,16 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/login",
     "pages/index/newItem/newItem",
     "pages/index/itemDetail/itemDetail",
-    "pages/login/login",
     "pages/logs/logs",
     "pages/my-post/my-post",
     "pages/my-follow/my-follow",
     "pages/my-reply/my-reply",
-    "pages/editInfo/editInfo"
+    "pages/editInfo/editInfo",
+    "pages/editInfo/editName/editName",
+    "pages/editInfo/editqq/editqq"
   ],
   "window": {
     "backgroundTextStyle": "light",

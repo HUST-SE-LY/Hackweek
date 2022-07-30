@@ -1,25 +1,25 @@
 <view class="post-container" wx:for="{{postList}}" wx:key="index">
   <view class="header">
     <view class="left">
-      <image src="{{item.avatar}}"></image>
+      <image src="{{item.Avatar}}"></image>
       <text>{{item.userName}}</text>
     </view>
-    <image class="more" src="../../static/more.svg" bindtap="reportPost" data-id="{{item.postId}}"></image>
+    <image class="more" src="../../static/more.svg" bindtap="reportPost" data-id="{{item.ID}}"></image>
   </view>
   <view class="second-line">
-    <view class="title">{{item.title}}</view>
+    <view class="title">{{item.Title}}</view>
     <view class="right">
-      <view class="contact" bindtap="showContactInfo" data-info="{{item.contactInfo}}">
+      <view class="contact" bindtap="showContactInfo" data-qq="{{item.QQ}}" data-wx="{{item.Wx}}">
         <image src="../../static/contact.svg"></image>
         <text>联系</text>
       </view>
-      <view class="price">{{item.price}}</view>
+      <view class="price">{{item.Price}}</view>
     </view>
   </view>
-  <view class="content" bindtap="intoDetailPage" data-id="{{index}}">
-    {{item.content}}</view>
+  <view class="content" bindtap="intoDetailPage" data-id="{{ID}}">
+    {{item.Content}}</view>
   <view class="location">
-    <text>{{item.location}} </text><text> {{item.createAt}}</text>
+    <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>
   </view>
   <view class="footer">
     <view class="item">
@@ -27,15 +27,15 @@
       <text>分享</text>
     </view>
     <view class="right">
-      <view class="follow item" data-id="{{item.postId}}" data-index="{{index}}" bindtap="toggleFollow">
+      <view class="follow item" data-id="{{item.ID}}" data-index="{{index}}" bindtap="toggleFollow">
         <image src="{{item.isFollow?'../../static/followed.svg':'../../static/follow.svg'}}">
-        </image><text>{{item.follow}}</text>
+        </image><text>{{item.Follow}}</text>
       </view>
       <view class="reply item">
-        <image src="{{item.isReplied?'../../static/replied.svg':'../../static/reply.svg'}}"></image><text>{{item.reply}}</text>
+        <image src="{{item.isReplied?'../../static/replied.svg':'../../static/reply.svg'}}"></image><text>{{item.Reply}}</text>
       </view>
-      <view class="thumb item" data-id="{{item.postId}}" data-index="{{index}}" bindtap="toggleThumbup">
-        <image src="{{item.isThumb?'../../static/thumbed.svg':'../../static/thumb.svg'}}"></image><text>{{item.thumb}}</text>
+      <view class="thumb item" data-id="{{item.ID}}" data-index="{{index}}" bindtap="toggleThumbup">
+        <image src="{{item.isThumb?'../../static/thumbed.svg':'../../static/thumb.svg'}}"></image><text>{{item.Thumb}}</text>
       </view>
     </view>
   </view>

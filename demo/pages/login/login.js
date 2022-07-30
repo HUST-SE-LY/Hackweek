@@ -86,10 +86,11 @@ Page({
       secondEmail: this.data.email
     });
     if (this.data.firstEmail == this.data.secondEmail) { //判断两次输入的邮箱是否为同一个
-      const res = verifyCodeMatch({
+      const res = await verifyCodeMatch({
         email: that.data.secondEmail,
         code: that.data.keyValue,
       })
+      console.log(res)
       wx.setStorageSync('token', res.data)
       wx.redirectTo({
         url: `../index/index`, //登陆成功跳转到index（暂定），以及传入res中需要的数据（后端完成后再说）

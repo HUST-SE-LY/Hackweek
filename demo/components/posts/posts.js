@@ -1,7 +1,4 @@
 import {
-  correctTime
-} from "../../utils/util";
-import {
   showToast
 } from "../../utils/wx-event"
 import {
@@ -162,13 +159,7 @@ Component({
     },
   },
   lifetimes: {
-    attached() {
-      this.data.postList.map((item) => {
-        item.createAt = correctTime(item.createAt)
-      })
-      this.setData({
-        postList: this.data.postList
-      })
+    ready() {
     }
   },
   methods: {
@@ -239,11 +230,15 @@ Component({
     },
     showContactInfo(e) {
       const {
-        info
+        qq,
+        wx
       } = e.currentTarget.dataset;
       this.setData({
         contactInfoShow: true,
-        contactInfo: info
+        contactInfo: {
+          qq,
+          wx
+        }
       })
     },
     hideContactInfo() {

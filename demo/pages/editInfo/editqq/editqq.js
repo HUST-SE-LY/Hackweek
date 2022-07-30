@@ -1,4 +1,4 @@
-// pages/my-post.js
+// pages/editInfo/editqq/editqq.js
 Page({
 
   /**

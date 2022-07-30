@@ -1,3 +1,4 @@
+const App = getApp();
 Component({
   properties: {
 
@@ -37,7 +38,11 @@ Component({
     }, {
       userName: "matto",
       content: "123456123456123456123456123456123456123456123456123456123456"
-    }]
+    }],
+    userName: "",
+    followNum: 111,
+    replyNum: 222,
+    itemNum: 333
   },
   methods: {
     navigateToMyFollowPage() {
@@ -58,6 +63,13 @@ Component({
     navigateToEditPage() {
       wx.navigateTo({
         url: '/pages/editInfo/editInfo',
+      })
+    }
+  },
+  pageLifetimes: {
+    show() {
+      this.setData({
+        userName: App.globalData.userInfo.userName
       })
     }
   }

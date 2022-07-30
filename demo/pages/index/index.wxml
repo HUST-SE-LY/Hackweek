@@ -1,5 +1,5 @@
-<Fair wx:if="{{selectedTabBarIndex==0}}"></Fair>
-<My wx:if="{{selectedTabBarIndex==1}}"></My>
+<Fair style="display: {{selectedTabBarIndex==0?'block':'none'}}"></Fair>
+<My style="display: {{selectedTabBarIndex==1?'block':'none'}}"></My>
 <view class="tabbar">
   <view class="tabbar-item" bindtap="switchTab" data-index="0">
     <image src="{{selectedTabBarIndex==0?'/static/index_active.png':'/static/index.png'}}">
