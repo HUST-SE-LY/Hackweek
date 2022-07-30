@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Posts": "/components/posts/posts"
+  },
+  "navigationBarTitleText": "我的收藏"
+}

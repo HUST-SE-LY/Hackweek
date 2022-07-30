@@ -1,0 +1,48 @@
+<view class="background">
+  <view></view>
+</view>
+<view class="user-bar">
+  <view class="header">
+    <image src="/static/default-avatar.svg"></image>
+    <view class="contactInfo">联系方式</view>
+  </view>
+  <view class="username">用户名</view>
+  <view class="my-items">
+    <view class="item" bindtap="navigateToMyFollowPage">
+      <image src="/static/followed.svg"></image>
+      <view class="words">
+        <view>我的收藏</view>
+        <view class="number">222</view>
+      </view>
+    </view>
+    <view class="item" bindtap="navigateToMyReplyPage">
+      <image src="/static/replied.svg"></image>
+      <view class="words">
+        <view>我的评论</view>
+        <view class="number">333</view>
+      </view>
+    </view>
+    <view class="item" bindtap="navigateToMyPostPage">
+      <image src="/static/my-post.svg"></image>
+      <view>
+        <view>我的闲置</view>
+        <view class="number">444</view>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <text bindtap="navigateToEditPage">编辑资料</text>
+    <image bindtap="navigateToEditPage" src="/static/edit.svg"></image>
+  </view>
+</view>
+<view class="messages-bar">
+  <view class="container">
+    <view class="header"><text style="font-weight: bold;">我的消息</text>{{messageNum}}</view>
+    <view class="replies">
+      <view class="message" wx:for="{{messageList}}" wx:key="index">
+        <view class="divider"></view>
+        <view class="content">{{item.userName}}：{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+</view>

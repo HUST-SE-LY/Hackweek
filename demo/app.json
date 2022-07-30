@@ -5,7 +5,10 @@
     "pages/index/itemDetail/itemDetail",
     "pages/login/login",
     "pages/logs/logs",
-    "components/comments/comments"
+    "pages/my-post/my-post",
+    "pages/my-follow/my-follow",
+    "pages/my-reply/my-reply",
+    "pages/editInfo/editInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

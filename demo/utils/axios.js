@@ -38,6 +38,7 @@ class Axios {
         },
         fail(err) {
           // 这个fail触发的话就是url没配置，请求失败的话在上面的url
+          reject(err)
           showToast(err.errMsg);
         },
       });

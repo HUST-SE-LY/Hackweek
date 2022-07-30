@@ -1,0 +1,26 @@
+<view style="justify-content:{{serachBarFoucus?'flex-start':'center'}}" class="search-bar">
+  <image class="button" src="../../static/search.svg"></image>
+  <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}"></input>
+</view>
+<view class="swiper">
+  <swiper indicator-dots="true" autoplay="true" circular="true">
+    <swiper-item wx:for="{{swiperContent}}" wx:key="index" style="background-color: {{item}};">
+    </swiper-item>
+  </swiper>
+</view>
+<view class="tag-bar">
+  <scroll-view scroll-x="true" class="tagsScroll">
+    <view wx:for="{{tags}}" wx:key="index" class="scroll-item {{selectedIndex === index?'selected-item':''}}" bindtap="chooseTag" data-index="{{index}}">
+      <image src="#"></image>
+      <view>{{item}}</view>
+    </view>
+  </scroll-view>
+</view>
+<view class="posts-container">
+  <view class="sort-type-bar">
+    <text style="font-weight:{{isSortByTime?'bold':''}}">时间</text>
+    <text class="divider"></text>
+    <text style="font-weight:{{!isSortByTime?'bold':''}}">热度</text>
+  </view>
+  <Posts />
+</view>

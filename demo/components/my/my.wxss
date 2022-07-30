@@ -1,0 +1,123 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 35vh;
+  z-index: -1;
+}
+
+.user-bar {
+  margin: 30vh 50rpx 0 50rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6rpx 10rpx rgba(0, 0, 0, 0.4);
+  border-radius: 20rpx;
+}
+
+.user-bar .header {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 8vh;
+}
+
+.user-bar .header image {
+  position: absolute;
+  top: -70rpx;
+  right: 250rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.user-bar .header .contactInfo {
+  margin: 20rpx 50rpx;
+  width: 150rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  text-align: center;
+  border: 2rpx solid rgba(0, 0, 0, 0.5);
+  border-radius: 20rpx;
+}
+
+.user-bar .username {
+  font-size: 36rpx;
+  font-weight: bold;
+  align-self: center;
+}
+
+.user-bar .my-items {
+  display: flex;
+  justify-content: center;
+}
+
+.user-bar .my-items .item {
+  display: flex;
+  margin: 50rpx 20rpx;
+  font-size: 26rpx;
+}
+
+.user-bar .my-items image {
+  height: 45rpx;
+  width: 45rpx;
+  margin-right: 20rpx;
+}
+
+.user-bar .my-items .item view {
+  margin-top: 5rpx;
+}
+
+.user-bar .my-items .item .number {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.user-bar .footer {
+  margin-bottom: 30rpx;
+  align-self: flex-end;
+  font-size: 26rpx;
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.user-bar .footer image {
+  margin-left: 20rpx;
+  margin-right: 50rpx;
+  align-self: flex-end;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.messages-bar {
+  background-color: white;
+  margin: 40rpx 50rpx;
+  width: 650rpx;
+  border-radius: 20rpx;
+}
+
+.messages-bar .container {
+  padding: 30rpx 45rpx;
+}
+
+.messages-bar .header {
+  padding-bottom: 10rpx;
+  padding: 30rpx 0;
+}
+
+.messages-bar .replies .divider {
+  border-bottom: 2rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.messages-bar .replies .content {
+  margin: 10rpx 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* 换行问题 */
+  word-break: break-all;
+}

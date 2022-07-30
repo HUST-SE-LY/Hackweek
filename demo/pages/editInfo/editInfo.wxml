@@ -1,0 +1,22 @@
+<view class="avatar item">
+  <view>头像</view>
+  <image></image>
+</view>
+<view class="divider"></view>
+<view class="name item">
+  <view>昵称</view>
+  <view>{{userName}}</view>
+</view>
+<view class="qq item">
+  <view>QQ</view>
+  <view>{{qq}}</view>
+</view>
+<view class="divider"></view>
+<view class="wx item">
+  <view>微信</view>
+  <view>{{wx}}</view>
+</view>
+<view class="logout item">
+  <view>退出登录</view>
+  <image src="/static/arrow-right.svg"></image>
+</view>

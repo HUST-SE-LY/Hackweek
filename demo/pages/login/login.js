@@ -51,7 +51,6 @@ Page({
       } catch (res) {
 
       }
-      //成功获得响应会进行下一步
     } else {
       this.setData({
         emailTrue: false,
@@ -89,7 +88,7 @@ Page({
     if (this.data.firstEmail == this.data.secondEmail) { //判断两次输入的邮箱是否为同一个
       const res = verifyCodeMatch({
         email: that.data.secondEmail,
-        checkKey: that.data.keyValue,
+        code: that.data.keyValue,
       })
       wx.setStorageSync('token', res.data)
       wx.redirectTo({

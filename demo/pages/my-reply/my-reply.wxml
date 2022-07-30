@@ -1,0 +1,4 @@
+<view class="reply" wx:for="replyList">
+  <view class="content">{{item.userName}}: {{item.content}}</view>
+  <view class="time">{{item.createAt}}</view>
+</view>

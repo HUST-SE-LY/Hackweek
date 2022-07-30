@@ -1,0 +1,12 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  font-weight: bold;
+  margin: 0 30rpx;
+}
+.navBar image {
+  height: 40rpx;
+  width: 40rpx;
+}
