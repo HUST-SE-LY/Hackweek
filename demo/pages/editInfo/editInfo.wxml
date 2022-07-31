@@ -1,18 +1,18 @@
 <view class="avatar item">
   <view>头像</view>
-  <image></image>
+  <image src="{{avatar}}"></image>
 </view>
 <view class="divider"></view>
-<view class="name item">
+<view class="name item" bindtap="navigateToEditName">
   <view>昵称</view>
   <view>{{userName}}</view>
 </view>
-<view class="qq item">
+<view class="qq item" bindtap="navigateToEditQQ">
   <view>QQ</view>
   <view>{{qq}}</view>
 </view>
 <view class="divider"></view>
-<view class="wx item">
+<view class="wx item" bindtap="navigateToEditWx">
   <view>微信</view>
   <view>{{wx}}</view>
 </view>

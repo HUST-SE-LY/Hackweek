@@ -22,6 +22,7 @@
   height: 80rpx;
   width: 80rpx;
   border-radius: 50%;
+  border: #BBBBBB solid 1px;
 }
 
 .header .more {

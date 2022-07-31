@@ -81,3 +81,13 @@
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+
+.write-post image {
+  position: fixed;
+  top: 80vh;
+  right: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  z-index: 1;
+  border-radius: 50%;
+}

@@ -1,0 +1,27 @@
+.edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50rpx 30rpx;
+  border-bottom: 1px solid rgba(187, 187, 187, 0.73);
+}
+
+.edit input {
+  font-size: 27rpx;
+  margin-left: 20rpx;
+}
+
+.edit image {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.save {
+  margin: 50rpx auto;
+  width: 100rpx;
+  line-height: 50rpx;
+  border: 1px solid rgba(187, 187, 187, 0.73);
+  border-radius: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+}

@@ -1,0 +1,6 @@
+<!--pages/editInfo/editName/editName.wxml-->
+<view class="edit">
+  <input model:value="{{userName}}"></input>
+  <image src="/static/error.svg" bindtap="clearContent"></image>
+</view>
+<view class="save" bindtap="save">保存</view>

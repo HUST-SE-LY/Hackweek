@@ -22,5 +22,8 @@
     <text class="divider"></text>
     <text style="font-weight:{{!isSortByTime?'bold':''}}">热度</text>
   </view>
-  <Posts />
+  <Posts postList="{{postList}}" />
+</view>
+<view class="write-post">
+  <image src="/static/write_post.svg"  bindtap="navigateToWritePage"></image>
 </view>
