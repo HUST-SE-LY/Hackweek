@@ -89,7 +89,7 @@ Page({
     this.setData({imageList:list,});//更新图片url
   },
   canRelease() {//判断是否能够发布的函数
-    if(this.data.title!==""&&this.data.price!=null) {
+    if(this.data.title!==""&&this.data.price) {
       if(this.data.isChooseTag&&this.data.isChooseLocation) {
         this.setData({canUpload: true,})
       }else {
@@ -106,10 +106,11 @@ Page({
   },
   async releaseItem() {
     let title=this.data.title;
-    let detail=this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明","");
+    let content=this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明","");
     let tag=this.data.tag;
     let location=this.data.location;
     let price=this.data.price+"￥";
+    
     //这里还有上传图片
   }
 })

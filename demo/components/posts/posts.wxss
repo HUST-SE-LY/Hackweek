@@ -25,6 +25,10 @@
   border: #BBBBBB solid 1px;
 }
 
+.username {
+  margin-left: 20rpx;
+}
+
 .header .more {
   height: 40rpx;
   width: 40rpx;

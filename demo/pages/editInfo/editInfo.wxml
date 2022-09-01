@@ -18,5 +18,5 @@
 </view>
 <view class="logout item">
   <view>退出登录</view>
-  <image src="/static/arrow-right.svg"></image>
+  <image src="/static/arrow-right.svg" bindtap="showModal"></image>
 </view>

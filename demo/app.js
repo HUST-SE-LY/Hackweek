@@ -2,7 +2,12 @@
 App({
   onLaunch() {
     wx.cloud.init()
-    this.globalData.userInfo = wx.getStorageSync('userInfo')
+    this.globalData.userInfo = wx.getStorageSync('userInfo');
+    if(! this.globalData.userInfo) {
+      wx.navigateTo({
+        url: './pages/login/login',
+      })
+    }
   },
   globalData: {
     userInfo: {
