@@ -55,6 +55,12 @@ export function getUserDetail(data) {
 export function getUserComments(data) {
   return request("/comment/getCommentListByUser",data)
 }
+export function getPostComments(data) {
+  return request("comment/getCommentListByPost",data)
+}
+export function releasePostComment(data) {
+  return request("/comment/create",data,"post")
+}
 // 点赞/取消点赞一体化
 export function toggleLikePost(data) {
   return request('/post/thumb', data, "post")

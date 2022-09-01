@@ -41,8 +41,8 @@ Component({
       const res=await getUserDetail();
       this.setData({
         userName:res.data.Name,
-
-      })
+      });
+      App.globalData.userInfo.userName=this.data.userName;
     },
     async getComment() {
       const res=await getUserComments();

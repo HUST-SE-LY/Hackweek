@@ -1,4 +1,4 @@
-<view class="post-container" bindtap="intoDetailPage" wx:for="{{postList}}" wx:key="index">
+<view class="post-container" bindtap="intoDetailPage" data-id="{{item.ID}}" wx:for="{{postList}}" wx:key="index" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{item.isFollow}}' data-isThumb='{{item.isThumb}}' data-isReplied='{{item.isReplied}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}'>
   <view class="header">
     <view class="left">
       <image src="{{item.Avatar}}"></image>
@@ -16,7 +16,7 @@
       <view class="price">{{item.Price}}</view>
     </view>
   </view>
-  <view class="content"  data-id="{{ID}}">
+  <view class="content" >
     {{item.Content}}</view>
   <view class="location">
     <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>

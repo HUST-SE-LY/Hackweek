@@ -31,6 +31,10 @@
       <text>分享</text>
     </view>
     <view class="right">
+      <view class="follow item">
+        <image src="{{isFollow?'../../../static/followed.svg':'../../../static/follow.svg'}}">
+        </image><text>{{follow}}</text>
+      </view>
       <view class="reply item">
         <image src="{{isReplied?'../../../static/replied.svg':'../../../static/reply.svg'}}"></image><text>{{reply}}</text>
       </view>
@@ -41,7 +45,9 @@
   </view>
 </view>
 <view class="commentsContainer">
-   <comments inputData="{{inputContent}}" id="comments" ></comments>
+   <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" id="comments" ></comments>
+</view>
+<view class="devider">
 </view>
 <view class="comment {{isfooter?'':'comment_input_display'}}">
   <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" 

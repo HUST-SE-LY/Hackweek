@@ -160,12 +160,13 @@ Component({
   },
   lifetimes: {
     ready() {
+      
     }
   },
   methods: {
-    intoDetailPage(id) {
+    intoDetailPage(e) {
       wx.navigateTo({
-        url: `../../pages/index/itemDetail/itemDetail?id=${id.currentTarget.dataset.id}`,
+        url: `../../pages/index/itemDetail/itemDetail?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&username=${e.currentTarget.dataset.username}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&time=${e.currentTarget.dataset.time}&location=${e.currentTarget.dataset.location}&isFollow=${e.currentTarget.dataset.isfollow}&isThumb=${e.currentTarget.dataset.isthumb}&isReplied=${e.currentTarget.dataset.isreplied}&follow=${e.currentTarget.dataset.follow}&reply=${e.currentTarget.dataset.reply}&thumb=${e.currentTarget.dataset.thumb}`,
       })
     },
     async toggleThumbup(e) {

@@ -41,7 +41,7 @@
     <view class="replies">
       <view class="message" wx:for="{{messageList}}" wx:key="index">
         <view class="divider"></view>
-        <view class="content">{{item.userName}}：{{item.content}}</view>
+        <view class="content">{{item.UserName}}：{{item.content}}</view>
       </view>
     </view>
   </view>
