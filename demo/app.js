@@ -2,7 +2,7 @@
 App({
   onLaunch() {
     wx.cloud.init();
-    if(! this.globalData.userInfo) {
+    if(! wx.getStorageSync('token')) {
       wx.navigateTo({
         url: './pages/login/login',
       })

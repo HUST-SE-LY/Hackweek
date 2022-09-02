@@ -1,4 +1,12 @@
-<view class="reply" wx:for="replyList">
-  <view class="content">{{item.userName}}: {{item.content}}</view>
-  <view class="time">{{item.createAt}}</view>
+<view class="header">
+  我的评论
+</view>
+<view wx:for="{{replyList}}" class="reply_container">
+  <view class="reply">
+    <view class="content">{{item.UserName}}: {{item.content}}</view>
+    <view class="time">{{item.CreatedAt}}</view>
+  </view>
+  <view class="delete">
+    删除
+  </view>
 </view>

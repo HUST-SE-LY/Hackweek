@@ -10,7 +10,7 @@
   <view class="second-line">
     <view class="title">{{title}}</view>
     <view class="right">
-      <view class="contact">
+      <view class="contact" bindtap="ContactInfo">
         <image src="../../../static/contact.svg"></image>
         <text>联系</text>
       </view>
@@ -31,14 +31,14 @@
       <text>分享</text>
     </view>
     <view class="right">
-      <view class="follow item">
+      <view class="follow item" bindtap="Follow">
         <image src="{{isFollow?'../../../static/followed.svg':'../../../static/follow.svg'}}">
         </image><text>{{follow}}</text>
       </view>
       <view class="reply item">
         <image src="{{isReplied?'../../../static/replied.svg':'../../../static/reply.svg'}}"></image><text>{{reply}}</text>
       </view>
-      <view class="thumb item">
+      <view class="thumb item" bindtap="Thumb">
         <image src="{{isThumb?'../../../static/thumbed.svg':'../../../static/thumb.svg'}}"></image><text>{{thumb}}</text>
       </view>
     </view>
@@ -59,3 +59,16 @@
 </view>
 <image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
 <view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>
+<view class="gray_back" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo"></view>
+<view  class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
+  <view class="contactInfo">
+    <view class="content" catchtap="copyContactInfo" data-qq="{{qq}}" data-type="qq"><text>Q Q： {{qq}}</text>
+      <text class="copy">copy</text>
+    </view>
+    <view class="divider"></view>
+    <view class="content" bindtap="copyContactInfo" data-wx="{{wx}}" data-type="wx">
+      <view>微信： {{wx}}</view>
+      <text class="copy">copy</text>
+    </view>
+  </view>
+</view>

@@ -121,3 +121,7 @@
   /* 换行问题 */
   word-break: break-all;
 }
+.bottom-devider {
+  width: 100vw;
+  height: 10vh;
+}

@@ -37,3 +37,38 @@ export const correctTime = formatDate => {
   } else res = '刚刚';
   return res
 }
+
+export function correctCreatedAt(date) {//将CreatedAt转换的函数
+  let Array1=date.split("-");
+  const year=parseInt(Array1[0]);
+  const month=parseInt(Array1[1]);
+  let Array2=Array1[2].split("T");
+  const day=parseInt(Array2[0]);
+  const Array3=Array2[1].split(":");
+  const hour=parseInt(Array3[0]);
+  const minute=parseInt(Array3[1]);
+  const Array4=Array3[2].split(".");
+  const second=parseInt(Array4[0]);
+  let now=new Date();
+  let yearNow=now.getFullYear();
+  let monthNow=now.getMonth();
+  let dayNow=now.getDate();
+  let hourNow=now.getHours();
+  let minuteNow=now.getMinutes();
+  let secondNow=now.getSeconds();
+  console.log(hour)
+  if(yearNow-year>=1) {
+    return `${year}年${month}月${day}日`;
+  } else if(monthNow-month>=1) {
+    return `${month}月${day}日`;
+  } else if(dayNow - day>=1) {
+    return `${dayNow - day}天前`
+  } else if(hourNow-hour-8>=1) {
+    return `${hourNow-hour-8}小时前`
+  } else if(minuteNow - minute>=1) {
+    return `${minuteNow - minute}分钟前`
+  } else {
+    return `刚刚`
+  }
+
+}

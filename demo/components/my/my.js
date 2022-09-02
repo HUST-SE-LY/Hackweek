@@ -44,7 +44,7 @@ Component({
       });
       App.globalData.userInfo.userName=this.data.userName;
     },
-    async getComment() {
+    async getComment() {//这里写错了，弄成评论了，等后端消息接口弄出来了再改
       const res=await getUserComments();
       console.log(res);
       this.setData({

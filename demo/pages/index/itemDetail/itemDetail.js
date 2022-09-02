@@ -1,7 +1,13 @@
+
 import {
   releasePostComment,
   getPostComments,
+  toggleLikePost,
+  toggleFollowPost,
 } from "../../../utils/request";
+import {
+  showToast
+} from "../../../utils/wx-event";
 // pages/index/itemDetail/itemDetail.js
 Page({
   data: {
@@ -13,6 +19,8 @@ Page({
     content:"",//正文，从点入时传入
     location:"",//地址，点入时传入
     createAt:"",//日期，点入时传入
+    qq:"",//发帖人的qq，点入时传入
+    wx:"",//发帖人的微信，点入时传入
     reply:"",//回复数,点入时传入
     thumb:"",//点赞数，点入时传入
     follow:"",//收藏数，点入时传入
@@ -26,7 +34,8 @@ Page({
     placeHolderName:'',//回复他人的输入框的placeholder
     imageList:["https://www.matto.top/avatar.png","https://www.matto.top/avatar.png","https://www.matto.top/avatar.png","https://www.matto.top/avatar.png","https://www.matto.top/avatar.png"],//帖子图片列表
     imgLargeUrl:null,//放大后的图片url
-    commentsList:[]
+    commentsList:[],
+    contactInfoShow:false,
   },
   releaseComment() {//正常回复
     if(this.data.inputContent) {
@@ -53,13 +62,37 @@ Page({
   imageLargeClose() {//关闭图片放大
     this.setData({imgLargeUrl: null,});//点击空白取消放大查看
   },
+  ContactInfo() {//获取联系方式
+    this.setData({
+      contactInfoShow: true,
+    })
+  },
+  hideContactInfo() {
+    this.setData({
+      contactInfoShow: false
+    })
+  },
+  copyContactInfo(e) {
+    const type=e.currentTarget.dataset.type;
+    const info=e.currentTarget.dataset.type==="qq"?e.currentTarget.dataset.qq:e.currentTarget.dataset.wx;
+    console.log(info)
+    wx.setClipboardData({
+      data: String(info),
+      success(res) {
+        if (type === "qq")
+          showToast("QQ号已复制")
+        else
+          showToast("微信号已复制")
+      }
+    })
+  },
   async getComments(id) {
     this.setData({id: id,});
     const res=await getPostComments({postid : id});
     this.setData({commentList:res.data});
     let commentComponent=this.selectComponent("#comments");
     commentComponent.setData({
-      commentsList: this.data.commentList,
+      commentsList: this.data.commentList?this.data.commentList:[],
     })
   },
   async Comment(responseid) {
@@ -73,6 +106,36 @@ Page({
     this.setData({//情空输入框
       inputContent:"",
     })
+  },
+  async Thumb() {
+    let num=parseInt(this.data.thumb);
+    if(this.data.isThumb===false) {
+      this.setData({
+        isThumb:true,
+        thumb:num+1,
+      });
+    } else {
+      this.setData({
+        isThumb:false,
+        thumb:num-1,
+      })
+    };
+    toggleLikePost({postid:parseInt(this.data.id)});
+  },
+  async Follow() {
+    let num=parseInt(this.data.follow);
+    if(this.data.isFollow===false) {
+      this.setData({
+        isFollow:true,
+        follow:num+1,
+      })
+    } else {
+      this.setData({
+        isFollow:false,
+        follow: num-1,
+      })
+    };
+    toggleFollowPost({postid:parseInt(this.data.id)})
   },
   /**
    * 生命周期函数--监听页面加载
@@ -93,9 +156,11 @@ Page({
         follow:options.follow,
         thumb:options.thumb,
         reply:options.reply,
+        qq:options.qq,
+        wx:options.wx,
 
       })
-      this.getComments(id);
+      this.getComments(id);//获取评论列表(后端可能要修改一下增加offset和limit)
       
   },
 

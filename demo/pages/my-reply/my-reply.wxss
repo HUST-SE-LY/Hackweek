@@ -1,1 +1,38 @@
 /* pages/my-follow/my-reply.wxss */
+.header {
+  font-size: large;
+  text-align: right;
+  margin-right: 5vw;
+  font-weight: 600;
+  padding-bottom: 20rpx;
+  margin-left: 5vw;
+  border-bottom: lightgray 1px solid;
+}
+.reply {
+  padding: 40rpx 5vw 40rpx 5vw;
+  border-bottom: lightgray 1px solid;
+  margin: 0 5vw 0 5vw;
+  display:flex;
+  width: 80vw;
+  flex-shrink: 0;
+}
+.time {
+  margin-left: auto;
+  width: 150rpx;
+  text-align: right;
+}
+.reply_container {
+  display:flex;
+  overflow: scroll;
+}
+.reply_container::-webkit-scrollbar {
+  display: none;
+}
+.delete {
+  width: 20vw;
+  text-align: center;
+  padding-top: 40rpx;
+  background-color: lightskyblue;
+  scroll-behavior: smooth;
+  flex-shrink: 0;
+}
