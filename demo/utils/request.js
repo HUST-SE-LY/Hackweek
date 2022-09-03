@@ -49,6 +49,12 @@ export function getPostsList(data) {
   console.log(data)
   return request("/post/getPostsList", data)
 }
+export function searchByTitle(data) {
+  return request("/post/selectByTitle",data)
+}
+export function searchByTag(data) {
+  return request("/post/selectByTag",data);
+}
 export function getUserDetail(data) {
   return request("/user/getUserDetail",data)
 }
@@ -61,6 +67,16 @@ export function getPostComments(data) {
 export function releasePostComment(data) {
   return request("/comment/create",data,"post")
 }
+export function editUserName(data) {
+  return request("/user/updateUserDetail",data,'put');
+}
+export function getPostById(data) {
+  return request("/post/getPostByid",data);
+}
+export function deleteComment(data) {
+  return request("/comment/delete",data,'delete');
+}
+
 // 点赞/取消点赞一体化
 export function toggleLikePost(data) {
   return request('/post/thumb', data, "post")

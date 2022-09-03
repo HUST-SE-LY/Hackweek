@@ -1,7 +1,10 @@
 const App = getApp()
 import {
   showToast
-} from "../../../utils/wx-event"
+} from "../../../utils/wx-event";
+import {
+  editUserName
+} from "../../../utils/request";
 Page({
   data: {
     userName: ""
@@ -17,11 +20,15 @@ Page({
       userName: ""
     })
   },
+  async edit() {
+    const res=await editUserName({name:this.data.userName});
+    console.log(res);
+  },
   save() {
     if (this.data.userName.length === 0) showToast("用户名不能为空哦")
     else {
-      App.globalData.userInfo.userName = this.data.userName
-      wx.setStorageSync('userInfo', App.globalData.userInfo)
+      App.globalData.userInfo.userName = this.data.userName;
+      this.edit();
       showToast("修改成功")
       wx.navigateBack()
     }

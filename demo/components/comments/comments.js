@@ -39,12 +39,12 @@ Component({
     reply1(content) {//二级评论的渲染
       let commentRend={
         username2:this.data.name,
-        username1: "ly",//这个应该是获取来的或者全局变量
+        username1: App.globalData.userInfo.userName,//这个应该是获取来的或者全局变量
         content:content,
       };
-      let array=this.properties.commentsList[this.data.index].commentSecondList;
+      let array=this.properties.commentsList[this.data.index].ReplyComments;
       array.push(commentRend);
-      this.setData({[`commentsList[${this.data.index}].commentSecondList`]:array});
+      this.setData({[`commentsList[${this.data.index}].ReplyComments`]:array});
       let page=getCurrentPages();
       let nowPage=page[page.length-1];
       nowPage.setData({isfocus:false,isfooter:true,isReplyOthers:false});//隐藏二级评论输入框，显示一级评论输入框

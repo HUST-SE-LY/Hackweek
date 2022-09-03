@@ -91,3 +91,7 @@
   z-index: 1;
   border-radius: 50%;
 }
+.bottom_divider {
+  width: 100vw;
+  height: 10vh;
+}

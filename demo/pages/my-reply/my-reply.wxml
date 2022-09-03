@@ -1,12 +1,12 @@
 <view class="header">
   我的评论
 </view>
-<view wx:for="{{replyList}}" class="reply_container">
-  <view class="reply">
-    <view class="content">{{item.UserName}}: {{item.content}}</view>
+<view wx:for="{{replyList}}" class="reply_container" >
+  <view class="reply" bindtap="navigateToPost" data-id="{{item.postid}}">
+    <view class="content">{{username}}: {{item.content}}</view>
     <view class="time">{{item.CreatedAt}}</view>
   </view>
-  <view class="delete">
+  <view class="delete" bindtap="deleteReply" data-id="{{item.ID}}" data-index="{{index}}">
     删除
   </view>
 </view>

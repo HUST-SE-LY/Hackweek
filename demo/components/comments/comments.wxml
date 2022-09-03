@@ -4,7 +4,7 @@
     <view bindtap="replyOthers" data-name="{{item.UserName}}" data-index="{{firstIndex}}">{{item.UserName}}：</view>
     <view>{{item.Content}}</view>
   </view>
-  <view class="comment_second" wx:for="{{item.commentSecondList}}" wx:for-item="items" >
+  <view class="comment_second" wx:for="{{item.ReplyComments}}" wx:for-item="items" >
     <view bindtap="replyOthers" data-index="{{firstIndex}}" data-name="{{items.username1}}">{{items.username1}}</view>
     <view>回复</view>
     <view bindtap="replyOthers" data-index="{{firstIndex}}" data-name="{{items.username2}}">{{items.username2}}：</view>

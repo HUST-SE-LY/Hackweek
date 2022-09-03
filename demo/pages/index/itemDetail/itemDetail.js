@@ -46,6 +46,7 @@ Page({
   releaseReplyOthers() {//回复他人
     if(this.data.inputContent) {
       this.selectComponent("#comments").reply1(this.data.inputContent);//触发组件reply1
+      
       this.setData({
         inputContent:"",//清空输入框
       })
@@ -88,8 +89,14 @@ Page({
   },
   async getComments(id) {
     this.setData({id: id,});
-    const res=await getPostComments({postid : id});
+    let res=await getPostComments({postid : id});
+    for(let data of res.data ) {
+      if(data.ReplyComments===null) {
+        data.ReplyComments=[];
+      }
+    }
     this.setData({commentList:res.data});
+    console.log(this.data.commentList)
     let commentComponent=this.selectComponent("#comments");
     commentComponent.setData({
       commentsList: this.data.commentList?this.data.commentList:[],

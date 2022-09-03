@@ -2,10 +2,16 @@ import {
   correctTime
 } from "../../utils/util";
 import {
-  getPostsList
+  getPostsList,
+  searchByTag,
+  searchByTitle,
 } from '../../utils/request'
 let startId = 0; //请求起始标号
+let stratIdTitle = 0;
+let steatIdTag = 0;
 let isGettingList = false; //限流
+let isSearchingByTitle=false;//限流
+let isSearchingByTag=false;//限流
 Component({
   data: {
     serachBarFoucus: false, //用于标记以改变搜索栏排版
@@ -41,12 +47,56 @@ Component({
         url: '/pages/index/newItem/newItem',
       })
     },
+    getPostsByTime() {
+      this.setData({isSortByTime:true});
+      startId=0;
+      this.getPostsList();
+    },
+    getPostsByHot() {
+      this.setData({isSortByTime:false});
+      startId=0;
+      this.getPostsList();
+    },
+    searchTitle() {
+      stratIdTitle=0;
+      this.selectByTitle();
+    },
+    async selectByTitle() {
+      if(isSearchingByTitle) {
+        return isSearchingByTitle = true;
+      }
+      try {
+        const res=await searchByTitle({
+          mode: this.data.isSortByTime?"Time":"Hot",
+          limit: 20,
+          offset: 0,
+          title : this.data.searchWords
+        })
+        console.log(res.data);
+        isSearchingByTitle=false;
+        res.data.map((item) => {
+          item.CreatedAt = correctTime(item.CreatedAt)
+        })
+        if(stratIdTitle===0) {
+          this.setData({postList:res.data});
+        } else {
+          this.setData({
+            postList: this.data.postList.concat(res.data)
+          })
+        }
+        startIdTitle += res.data.length
+        isSearchingByTitle = false
+      } catch(err) {
+        console.log(err);
+        isSearchingByTitle=false;
+      }
+    },
     async getPostsList() {
       if (isGettingList) return
       isGettingList = true
       try {
         const res = await getPostsList({
-          mode: "Time",
+          mode: this.data.isSortByTime?"Time":"Hot",
           limit: 20,
           offset: 0
         })
@@ -78,4 +128,5 @@ Component({
       this.getPostsList()
     }
   },
+
 })
