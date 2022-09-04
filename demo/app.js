@@ -2,7 +2,7 @@
 App({
   onLaunch() {
     wx.cloud.init();
-    if(! wx.getStorageSync('token')) {
+    if(!wx.getStorageSync('token')) {
       wx.navigateTo({
         url: './pages/login/login',
       })
@@ -10,6 +10,7 @@ App({
   },
   globalData: {
     userInfo: {
+      travelMode:false,
       avatar: "/static/my.png",
       userName: "热心用户",
       qq: "未设置",

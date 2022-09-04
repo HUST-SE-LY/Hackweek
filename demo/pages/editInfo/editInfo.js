@@ -43,16 +43,23 @@ Page({
     wx.showModal({
       title: "确定退出？",
       confirmColor: "black",
-      success: () => {
-        wx.setStorageSync('token', ""),
+      success: (res) => {
+        if(res.confirm) {
+          wx.setStorageSync('token', ""),
           App.globalData.userInfo = {
+            travelMode:true,
             avatar: "/static/my.png",
-            userName: "热心用户",
+            userName: "未登录",
             qq: "未设置",
             wx: "未设置",
           }
-        this.loadInfo()
-        wx.setStorageSync('userInfo', App.globalData.userInfo)
+        wx.navigateTo({
+          url: '../index/index',
+        })
+        } else if(res.cancel) {
+          
+        }
+        
       }
     })
   }

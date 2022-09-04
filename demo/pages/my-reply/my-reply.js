@@ -13,11 +13,12 @@ let isGettingList = false;
 Page({
   data: {
     replyList: [],
-    username: app.globalData.userInfo.userName,
+    username: "",
   },
   //生命周期函数--监听页面加载
   onLoad: function (options) {
     this.getMyReply();
+    this.setData({username:app.globalData.userInfo.userName})
   },
   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {

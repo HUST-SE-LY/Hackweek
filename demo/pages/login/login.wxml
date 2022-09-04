@@ -1,17 +1,22 @@
+<view class="welcome">
+  <view class="welcome_word1">与你</view>
+  <view class="welcome_word2">不期而喻</view>
+</view>
 <view class="back">
   <view class="head">
   <view class="logo">logo</view>
   <view class="head_content">登录&注册</view>
 </view>
-<form>
+<form class="form">
   <view style="display: flex;" class="email_container">
-    <view>邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱@hust.edu.cn':'请输入正确的邮箱格式'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
+    <view style="color: #7b8b6f; font-size: large;">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱@hust.edu.cn':'请输入正确的邮箱格式'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
   </view>
     <view style="display: {{keyInputShow?'flex':'none'}};" class="key_container">
-      <view>验证码：</view><input placeholder="输入验证码" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
+      <view style="color: #7b8b6f; font-size: large;">验证码：</view><input placeholder="{{verifyCodeTrue?'输入验证码':'验证码错误，请重新输入'}}" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
     </view>
-    <button class="submit_button" bindtap="getKey" style="display: {{getKeyShow?'block':'none'}};">获取验证码</button>
+    <button class="submit_button main_button" bindtap="getKey" style="display: {{getKeyShow?'block':'none'}};">获取验证码</button>
     <button class="submit_button" style="display: {{timeIntervalShow?'block':'none'}};">{{time}}s</button>
     <button bindtap="login" class="submit_button" style="display: {{loginShow?'block':'none'}};">登录&注册</button>
   </form>
 </view>
+<view class="travel_mode" bindtap="travelMode">游客模式</view>

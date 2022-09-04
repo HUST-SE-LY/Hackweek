@@ -6,6 +6,7 @@ import {
   searchByTag,
   searchByTitle,
 } from '../../utils/request'
+const app=getApp();
 let startId = 0; //请求起始标号
 let stratIdTitle = 0;
 let steatIdTag = 0;
@@ -59,7 +60,14 @@ Component({
     },
     searchTitle() {
       stratIdTitle=0;
-      this.selectByTitle();
+      if(app.globalData.userInfo.travelMode) {
+        wx.navigateTo({
+          url: '../../pages/login/login',
+        })
+      } else {
+        this.selectByTitle();
+      }
+      
     },
     async selectByTitle() {
       if(isSearchingByTitle) {
