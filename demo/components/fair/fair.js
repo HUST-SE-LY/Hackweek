@@ -8,8 +8,8 @@ import {
 } from '../../utils/request'
 const app=getApp();
 let startId = 0; //请求起始标号
-let stratIdTitle = 0;
-let steatIdTag = 0;
+let startIdTitle = 0;
+let startIdTag = 0;
 let isGettingList = false; //限流
 let isSearchingByTitle=false;//限流
 let isSearchingByTag=false;//限流
@@ -18,7 +18,7 @@ Component({
     serachBarFoucus: false, //用于标记以改变搜索栏排版
     searchWords: "",
     swiperContent: ["green", "blue", "violet", "orange"], //感觉正常情况幻灯片参数内容应该是背景图片和对应的商品id
-    tags: ["所有", "电子产品", "书籍", "书籍", "其它"],
+    tags: ["电子产品", "文具书籍", "生活用品", "服饰衣物", "其它"],
     selectedIndex: -1,
     isSortByTime: true, //排列方式
     postList: []
@@ -38,10 +38,19 @@ Component({
     },
     // 选择标签
     chooseTag(e) {
+      startIdTag=0;
       const index = e.currentTarget.dataset.index
+      if(this.data.selectedIndex===index) {
+        startId=0;
+        this.setData({selectedIndex:-1});
+        this.getPostsList()
+        return 1;
+      }
       this.setData({
         selectedIndex: index
-      })
+      });
+      this.selectByTag();
+
     },
     navigateToWritePage() {
       wx.navigateTo({
@@ -59,7 +68,7 @@ Component({
       this.getPostsList();
     },
     searchTitle() {
-      stratIdTitle=0;
+      startIdTitle=0;
       if(app.globalData.userInfo.travelMode) {
         wx.navigateTo({
           url: '../../pages/login/login',
@@ -68,6 +77,34 @@ Component({
         this.selectByTitle();
       }
       
+    },
+    async selectByTag() {
+      if(isSearchingByTag) {
+        return isSearchingByTag=true;
+      }
+      try {
+        const res=await searchByTag({
+          mode: this.data.isSortByTime?"Time":"Hot",
+          limit: 20,
+          offset: startIdTag,
+          tag : this.data.tags[this.data.selectedIndex],
+        })
+        console.log(res.data);
+        isSearchingByTag=false;
+        res.data.map((item)=>{
+          item.CreatedAt=correctTime(item.CreatedAt);
+        })
+        if(startIdTag===0) {
+          this.setData({postList:res.data})
+        } else {
+          this.setData({postList:this.data.postList.concat(res.data)})
+        }
+        startIdTag+=res.data.length;
+        isSearchingByTag=false;
+      } catch(err) {
+        console.log(err);
+        isSearchingByTitle=false;
+      }
     },
     async selectByTitle() {
       if(isSearchingByTitle) {
@@ -85,7 +122,7 @@ Component({
         res.data.map((item) => {
           item.CreatedAt = correctTime(item.CreatedAt)
         })
-        if(stratIdTitle===0) {
+        if(startIdTitle===0) {
           this.setData({postList:res.data});
         } else {
           this.setData({

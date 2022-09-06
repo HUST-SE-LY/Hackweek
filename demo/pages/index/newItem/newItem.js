@@ -10,7 +10,7 @@ Page({
     detail:"出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明",//帖子正文（模拟placeHolder内容）
     detailInput:false,//判断正文是否输入(用于模拟placeHolder内容和提交)
     tag:"选择标签",//商品标签
-    tagList:["电子产品","书籍文具","生活用品","tag4","其他"],//商品标签列表
+    tagList:["电子产品","文具书籍","生活用品","服饰衣物","其他"],//商品标签列表
     locationList:["主校区","同济医学院校区","网安基地校区"],//校区标签列表
     location:"选择校区",//校区
     isChooseTag:false,//判断是否选择了tag
