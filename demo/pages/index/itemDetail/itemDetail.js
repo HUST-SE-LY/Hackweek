@@ -153,7 +153,7 @@ Page({
       this.setData({
         content:options.content,
         userName:options.username,
-        price:options.price+"￥",
+        price:options.price,
         createAt:options.time,
         title:options.title,
         location:options.location,
@@ -165,6 +165,7 @@ Page({
         reply:options.reply,
         qq:options.qq,
         wx:options.wx,
+        avatar:options.avatar,
 
       })
       this.getComments(id);//获取评论列表(后端可能要修改一下增加offset和limit)

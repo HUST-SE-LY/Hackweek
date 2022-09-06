@@ -1,5 +1,9 @@
-<!--新建帖子-->
+<!--pages/my-post/editPost/editPost.wxml-->
+<view style="display: flex; padding-right: 10%;">
 <view class="return" bindtap="returnIndex"></view>
+<view class="delete" bindtap="deletePost">删除</view>
+</view>
+
 <view class="release_container">
 <view class="head_container">
   <view>标题：</view>
@@ -20,9 +24,6 @@
 <view class="line"></view>
 <input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
 <view class="line"></view>
-<view class="release"  bindtap="releaseItem" wx:if="{{canUpload}}">发布物品</view>
-<view class="release cannotRelease" wx:if="{{!canUpload}}">发布物品</view>
+<view class="release {{canUpload?'':'cannotRelease'}}" bindtap="releaseItem">确认修改</view>
 <image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
 <view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>
-
-

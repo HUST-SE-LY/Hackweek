@@ -77,7 +77,7 @@ Component({
         const res=await searchByTitle({
           mode: this.data.isSortByTime?"Time":"Hot",
           limit: 20,
-          offset: 0,
+          offset: startId,
           title : this.data.searchWords
         })
         console.log(res.data);

@@ -1,2 +1,2 @@
 <!--pages/my-post.wxml-->
-<Posts postList="{{postList}}"></Posts>
+<Post postList="{{postList}}" editMode='true' ></Post>

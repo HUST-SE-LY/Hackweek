@@ -1,6 +1,6 @@
-// pages/index/newItem/newItem.js
 import {
-  releaseNewItem,
+  editMyPost,
+  deleteMyPost,
 } from "../../../utils/request.js";
 const app=getApp();
 Page({
@@ -13,12 +13,23 @@ Page({
     tagList:["电子产品","书籍文具","生活用品","tag4","其他"],//商品标签列表
     locationList:["主校区","同济医学院校区","网安基地校区"],//校区标签列表
     location:"选择校区",//校区
-    isChooseTag:false,//判断是否选择了tag
-    isChooseLocation:false,//判断是否选择了校区
+    isChooseTag:true,//判断是否选择了tag
+    isChooseLocation:true,//判断是否选择了校区
     imageList:[],//存放本地图片url用于预览
     imgLargeUrl:null,//放大后的图片url
     price:"",//期望价格
-    canUpload:false,//判断条件是否填写完必要
+    canUpload:true,//判断条件是否填写完必要
+    postid:""
+  },
+  onLoad(options) {
+    this.setData({
+      title:options.title,
+      detail:options.content,
+      tag:options.tag,
+      location:options.location,
+      price:options.price,
+      postid:options.id,
+    })
   },
   clearContent() {//点击后清除placeholder
     this.setData({detail:this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明",""),
@@ -30,8 +41,8 @@ Page({
     }
   },
   returnIndex() {//点击返回详情页
-    wx.redirectTo({
-      url: '../index',//可能还有其他配置
+    wx.navigateBack({
+      delta: 0,
     })
   },
   uploadImg() {
@@ -105,13 +116,22 @@ Page({
     this.setData({price:priceNow});
     this.canRelease();
   },
-  releaseItem(){
-    this.releaseNewItem();
-    wx.navigateBack({
-      delta: 0,
+  async deletePost() {
+    const postid=this.data.postid;
+    wx.showModal({
+      title:'确认删除？',
+      success(res) {
+        if(res.confirm) {
+          const res=deleteMyPost({postid:postid});
+          wx.navigateBack({
+            delta: 0,
+          })
+        }
+      }
     });
+
   },
-  async releaseNewItem() {
+  async releaseItem() {
     // if(app.globalData.userInfo.wx==="未设置"&&app.globalData.userInfo.qq==="未设置") {//完善联系方式才能发帖
     //   wx.showToast({
     //     title: '请完善联系方式',
@@ -123,21 +143,18 @@ Page({
       const content=this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明","");
       const tag=this.data.tag;
       const location=this.data.location;
-      const price=this.data.price+"￥";
-      const avatar=app.globalData.userInfo.avatar;
-      const wx=app.globalData.userInfo.wx.replace("未设置","");
-      const qq=app.globalData.userInfo.qq.replace("未设置","");
-      const res=releaseNewItem({
-        avatar:avatar,
+      const price=this.data.price;
+      const postid=this.data.postid;  
+      const res=editMyPost({
+        postid:postid,
         title:title,
         content:content,
         price:price,
         location:location,
         tag:tag,
-        wx:wx,
-        qq:qq,
       });
       console.log(res);
+      wx.navigateBack();
     }
    
   //}

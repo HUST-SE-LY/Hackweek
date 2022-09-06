@@ -13,7 +13,8 @@ Component({
     contactInfo: {
       qq: 1175526477,
       wx: null
-    }
+    },
+    content:"",
   },
   properties: {
     postList: {
@@ -158,10 +159,14 @@ Component({
         isFollow: false
       }]
     },
+    editMode: {
+      type:Boolean,
+      value:false
+    },
   },
   lifetimes: {
     ready() {
-      
+
     }
   },
   methods: {
@@ -172,10 +177,15 @@ Component({
         })
       } else {
         wx.navigateTo({
-          url: `../../pages/index/itemDetail/itemDetail?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&username=${e.currentTarget.dataset.username}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&time=${e.currentTarget.dataset.time}&location=${e.currentTarget.dataset.location}&isFollow=${e.currentTarget.dataset.isfollow}&isThumb=${e.currentTarget.dataset.isthumb}&isReplied=${e.currentTarget.dataset.isreplied}&follow=${e.currentTarget.dataset.follow}&reply=${e.currentTarget.dataset.reply}&thumb=${e.currentTarget.dataset.thumb}&qq=${e.currentTarget.dataset.qq}&wx=${e.currentTarget.dataset.wx}`,
+          url: `../../pages/index/itemDetail/itemDetail?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&username=${e.currentTarget.dataset.username}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&time=${e.currentTarget.dataset.time}&location=${e.currentTarget.dataset.location}&isFollow=${e.currentTarget.dataset.isfollow}&isThumb=${e.currentTarget.dataset.isthumb}&isReplied=${e.currentTarget.dataset.isreplied}&follow=${e.currentTarget.dataset.follow}&reply=${e.currentTarget.dataset.reply}&thumb=${e.currentTarget.dataset.thumb}&qq=${e.currentTarget.dataset.qq}&wx=${e.currentTarget.dataset.wx}&avatar=${e.currentTarget.dataset.avatar}`,
         })
       }
       
+    },
+    navigateToEditPage(e) {
+      wx.navigateTo({
+        url: `../../pages/my-post/editPost/editPost?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&location=${e.currentTarget.dataset.location}&tag=${e.currentTarget.dataset.tag}`,
+      })
     },
     async toggleThumbup(e) {
       const {

@@ -20,8 +20,6 @@ Page({
   save() {
     console.log(App.globalData.userInfo.qq)
     App.globalData.userInfo.qq = this.data.qq
-    wx.setStorageSync('userInfo', App.globalData.userInfo)
-    console.log(123)
     wx.navigateBack()
     showToast("修改成功")
   }

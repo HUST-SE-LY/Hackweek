@@ -11,12 +11,13 @@
     "pages/editInfo/editInfo",
     "pages/editInfo/editName/editName",
     "pages/editInfo/editqq/editqq",
-    "pages/editInfo/editwx/editwx"
+    "pages/editInfo/editwx/editwx",
+    "pages/my-post/editPost/editPost"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "绿色公社",
+    "navigationBarTitleText": "不期而喻",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

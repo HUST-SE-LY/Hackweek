@@ -3,7 +3,7 @@ import {
   showToast
 } from "./wx-event"
 
-function request(path, data, method, header) {
+function request(path, data, method, type,header) {
   return new Promise((resolve, reject) => {
     wx.cloud.callContainer({
       config: {
@@ -75,6 +75,15 @@ export function getPostById(data) {
 }
 export function deleteComment(data) {
   return request("/comment/delete",data,'delete');
+}
+export function getMyPost(data) {
+  return request("/post/getPostListByUser",data);
+}
+export function editMyPost(data) {
+  return request("/post/update",data,'put');
+}
+export function deleteMyPost(data) {
+  return request("/post/delete",data,'delete')
 }
 
 // 点赞/取消点赞一体化

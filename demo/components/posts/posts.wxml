@@ -1,10 +1,11 @@
-<view class="post-container" bindtap="intoDetailPage" data-id="{{item.ID}}" wx:for="{{postList}}" wx:key="index" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{item.isFollow}}' data-isThumb='{{item.isThumb}}' data-isReplied='{{item.isReplied}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}">
+<view class="post-container" bindtap="intoDetailPage" data-id="{{item.ID}}" wx:for="{{postList}}" wx:key="index" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{item.isFollow}}' data-isThumb='{{item.isThumb}}' data-isReplied='{{item.isReplied}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}">
   <view class="header">
     <view class="left">
       <image src="{{item.Avatar}}"></image>
       <text class="username">{{item.UserName}}</text>
     </view>
-    <image class="more" src="../../static/more.svg" catchtap="reportPost" data-id="{{item.ID}}"></image>
+    <image wx:if="{{!editMode}}" class="more" src="../../static/more.svg" catchtap="reportPost" data-id="{{item.ID}}"></image>
+    <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-title="{{item.Title}}"  data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
   </view>
   <view class="second-line">
     <view class="title">{{item.Title}}</view>

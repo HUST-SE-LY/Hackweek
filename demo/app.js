@@ -13,7 +13,7 @@ App({
       travelMode:false,
       avatar: "/static/my.png",
       userName: "热心用户",
-      qq: "未设置",
+      qq: "1596087252",
       wx: "未设置",
     },
   }

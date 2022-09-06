@@ -1,4 +1,7 @@
 import {
+  correctTime
+} from "../../utils/util";
+import {
   getMyPost
 } from '../../utils/request'
 let startId = 0;
@@ -9,30 +12,36 @@ Page({
     postList: []
   },
   //生命周期函数--监听页面加载
-  onLoad: function (options) {
-    getMyPost()
+  onShow: function () {
+    startId=0;
+    this.getPost();
   },
   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
-    startId = 0;
-    getMyPost()
+    startId=0;
+    this.getPost()
   },
   onReachBottom: function () {
-    getMyPost()
+    this.getPost()
   },
-  async getMyPost() {
+  async getPost() {
     if (isGettingList) return
     isGettingList = true
     try {
+      console.log(startId);
       const res = await getMyPost({
-        limit: 20,
-        offset: startId
+        offset: startId,
+        limit: 5,
+      });
+      res.data.map((item) => {
+        item.CreatedAt = correctTime(item.CreatedAt)
       })
       isGettingList = false;
       if (startId === 0) {
         this.setData({
-          postList: res.data
+          postList: res.data.reverse()
         })
+
       } else {
         this.setData({
           postList: this.data.postList.concat(res.data)
@@ -44,5 +53,6 @@ Page({
       console.log(err)
       isGettingList = false
     }
+    console.log(this.data.postList)
   }
 })

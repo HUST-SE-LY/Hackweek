@@ -38,7 +38,7 @@ Page({
       this.setData({
         firstEmail: this.data.email,
         emailTrue: true,
-        time:60,
+        time:600,
       }) //设置firstEmail;
       try {
         await sendVerifyCode({
@@ -50,7 +50,7 @@ Page({
           timeIntervalShow: true, //出现60s间隔按钮
           getKeyShow: false, //隐藏获取验证码按钮
         });
-        let i = 60;
+        let i = 600;
         i--;
         let interval = setInterval(() => {
           that.setData({
