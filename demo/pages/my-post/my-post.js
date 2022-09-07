@@ -31,7 +31,7 @@ Page({
       console.log(startId);
       const res = await getMyPost({
         offset: startId,
-        limit: 5,
+        limit: 20,
       });
       res.data.map((item) => {
         item.CreatedAt = correctTime(item.CreatedAt)

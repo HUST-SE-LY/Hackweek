@@ -1,4 +1,4 @@
-<Fair style="display: {{selectedTabBarIndex==0?'block':'none'}}"></Fair>
+<Fair style="display: {{selectedTabBarIndex==0?'block':'none'}}" id="fair"></Fair>
 <My style="display: {{selectedTabBarIndex==1?'block':'none'}}"></My>
 <view class="tabbar">
   <view class="tabbar-item" bindtap="switchTab" data-index="0">

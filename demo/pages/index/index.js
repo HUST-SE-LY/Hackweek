@@ -17,4 +17,7 @@ Page({
       selectedTabBarIndex: index
     })
   },
+  onReachBottom() {
+    this.selectComponent("#fair").getPostsList();
+  }
 })

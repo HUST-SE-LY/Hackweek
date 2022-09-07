@@ -62,5 +62,14 @@ Page({
         
       }
     })
+  },
+  chooseAvatar() {
+    let that=this;
+    wx.chooseImage({
+      count: 1,
+      success(res) {
+        that.setData({avatar:res.tempFilePaths[0],});
+      }
+    })
   }
 })

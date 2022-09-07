@@ -114,7 +114,7 @@ Component({
         const res=await searchByTitle({
           mode: this.data.isSortByTime?"Time":"Hot",
           limit: 20,
-          offset: startId,
+          offset: startIdTitle,
           title : this.data.searchWords
         })
         console.log(res.data);
@@ -143,7 +143,7 @@ Component({
         const res = await getPostsList({
           mode: this.data.isSortByTime?"Time":"Hot",
           limit: 20,
-          offset: 0
+          offset: startId,
         })
         console.log(res.data)
         isGettingList = false;
