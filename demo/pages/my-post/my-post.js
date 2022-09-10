@@ -31,7 +31,7 @@ Page({
       console.log(startId);
       const res = await getMyPost({
         offset: startId,
-        limit: 20,
+        limit: 10,
       });
       res.data.map((item) => {
         item.CreatedAt = correctTime(item.CreatedAt)
@@ -39,7 +39,7 @@ Page({
       isGettingList = false;
       if (startId === 0) {
         this.setData({
-          postList: res.data.reverse()
+          postList: res.data,
         })
 
       } else {

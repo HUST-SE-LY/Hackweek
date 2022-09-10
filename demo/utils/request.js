@@ -85,6 +85,15 @@ export function editMyPost(data) {
 export function deleteMyPost(data) {
   return request("/post/delete",data,'delete')
 }
+export function getUserPostNum(data) {
+  return request("/user/GetUserPostsSum",data);
+}
+export function getUserReplyNum(data) {
+  return request("/user/GetUserCommentsSum",data);
+}
+export function getUserFollowNum(data) {
+  return request("/user/GetUserFollowsSum",data);
+}
 
 // 点赞/取消点赞一体化
 export function toggleLikePost(data) {

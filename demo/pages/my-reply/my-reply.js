@@ -54,25 +54,27 @@ Page({
     if (isGettingList) return
     isGettingList = true
     try {
-      const res = await getUserComments()
+      const res = await getUserComments({
+        limit:20,
+        offset:startId,
+      })
       isGettingList = false;
-      //因为后端没给范围参数，也许后面会修改
-      // if (startId === 0) {
-      //   this.setData({
-      //     replyList: res.data
-      //   })
-      // } else {
-      //   this.setData({
-      //     replyList: this.data.replyList.concat(res.data)
-      //   })
-      // }
-      // startId += res.data.length
+      if (startId === 0) {
+        this.setData({
+          replyList: res.data
+        })
+      } else {
+        this.setData({
+          replyList: this.data.replyList.concat(res.data)
+        })
+      }
+      startId += res.data.length
       this.setData({replyList:res.data});
       let arrayDate=this.data.replyList;
       for(let date of arrayDate) {
         date.CreatedAt=correctCreatedAt(date.CreatedAt);
       }
-      this.setData({replyList:arrayDate.reverse()});
+      this.setData({replyList:arrayDate});
 
     } catch (err) {
       console.log(err)

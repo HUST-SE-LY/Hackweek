@@ -18,6 +18,6 @@ Page({
     })
   },
   onReachBottom() {
-    this.selectComponent("#fair").getPostsList();
+    this.selectComponent("#fair").bottomFresh();
   }
 })

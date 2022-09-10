@@ -37,11 +37,10 @@ Component({
       nowPage.setData({isfocus:true,isfooter:false,isReplyOthers:true,placeHolderName:this.data.name});
     },
     reply1(content) {//二级评论的渲染
-      let commentRend={
-        username2:this.data.name,
-        username1: App.globalData.userInfo.userName,//这个应该是获取来的或者全局变量
+      let commentRend={//这个应该是获取来的或者全局变量
         content:content,
       };
+      console.log(this.properties.commentsList)
       let array=this.properties.commentsList[this.data.index].ReplyComments;
       array.push(commentRend);
       this.setData({[`commentsList[${this.data.index}].ReplyComments`]:array});

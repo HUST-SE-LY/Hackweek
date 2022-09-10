@@ -57,15 +57,43 @@ Component({
         url: '/pages/index/newItem/newItem',
       })
     },
+    bottomFresh() {
+      if(this.data.selectedIndex>=0) {
+        console.log("tagggg")
+        this.selectByTag();
+      } else if(this.data.searchWords!=="") {
+        this.selectByTitle();
+      } else {
+        this.getPostsList();
+      }
+    },
     getPostsByTime() {
       this.setData({isSortByTime:true});
       startId=0;
-      this.getPostsList();
+      startIdTag=0;
+      startIdTitle=0;
+      if(this.data.selectedIndex>=0) {
+        console.log("tagggg")
+        this.selectByTag();
+      } else if(this.data.searchWords!=="") {
+        this.selectByTitle();
+      } else {
+        this.getPostsList();
+      }
+      
     },
     getPostsByHot() {
       this.setData({isSortByTime:false});
       startId=0;
-      this.getPostsList();
+      startIdTag=0;
+      startIdTitle=0;
+      if(this.data.selectedIndex>=0) {
+        this.selectByTag();
+      } else if(this.data.searchWords!=='') {
+        this.selectByTitle();
+      } else {
+        this.getPostsList();
+      }
     },
     searchTitle() {
       startIdTitle=0;
