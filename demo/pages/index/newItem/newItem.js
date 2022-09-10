@@ -1,6 +1,6 @@
 // pages/index/newItem/newItem.js
 import {
-  releaseNewItem,
+  releaseNewItem,updateImg
 } from "../../../utils/request.js";
 const app=getApp();
 Page({
@@ -43,6 +43,9 @@ Page({
         success(res) {
           for(let i in res.tempFilePaths) {
             imgList.push(res.tempFilePaths[i]);//存放选择的图片的url
+            updateImg({
+              file:res.tempFilePaths[i]
+            })
           }
           that.setData({imageList: imgList},)//更新图片列表
         }

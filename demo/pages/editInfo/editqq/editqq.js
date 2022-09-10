@@ -2,12 +2,14 @@ const App = getApp()
 import {
   showToast
 } from "../../../utils/wx-event"
+import {
+  editUserName
+} from "../../../utils/request";
 Page({
   data: {
     qq: ""
   },
   onLoad(options) {
-    console.log(App.globalData.userInfo.qq)
     this.setData({
       qq: App.globalData.userInfo.qq
     })
@@ -17,8 +19,8 @@ Page({
       qq: ""
     })
   },
-  save() {
-    console.log(App.globalData.userInfo.qq)
+  async save() {
+    await editUserName({qq:this.data.qq});
     App.globalData.userInfo.qq = this.data.qq
     wx.navigateBack()
     showToast("修改成功")

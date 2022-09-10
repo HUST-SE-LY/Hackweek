@@ -12,9 +12,9 @@ Component({
     messageNum: 20,
     messageList: [],
     userName: "",
-    followNum: 111,
-    replyNum: 222,
-    itemNum: 333
+    followNum: 0,
+    replyNum: 0,
+    itemNum: 0
   },
   methods: {
     navigateToMyFollowPage() {
@@ -38,11 +38,16 @@ Component({
       })
     },
     async getUser() {
-      const res=await getUserDetail();
+      const res = (await getUserDetail()).data;
       this.setData({
-        userName:res.data.Name,
+        userName:res.Name,
       });
-      App.globalData.userInfo.userName=this.data.userName;
+      //把更新userInfo放这了，就不放App.js里了
+      App.globalData.userInfo = Object.assign(App.globalData.userInfo,{
+        userName:res.Name,
+        qq:res.QQ,
+        wx:res.Wx
+      })
     },
     async getComment() {//这里写错了，弄成评论了，等后端消息接口弄出来了再改
       const res=await getUserComments();
@@ -57,7 +62,6 @@ Component({
     show() {
       this.getUser();
       this.getComment();
-
     }
   }
 })
