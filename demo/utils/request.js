@@ -3,7 +3,7 @@ import {
   showToast
 } from "./wx-event"
 
-function request(path, data, method, type,header) {
+function request(path, data, method, contentType,header) {
   return new Promise((resolve, reject) => {
     wx.cloud.callContainer({
       config: {
@@ -14,7 +14,7 @@ function request(path, data, method, type,header) {
       header: header || {
         'X-WX-SERVICE': 'demo1', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
         // 用storage来存登录时后端给的token
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': contentType || 'application/json; charset=UTF-8' ,
         'Authorization': "Bearer " + wx.getStorageSync('token'),
       },
       data: data
@@ -36,39 +36,55 @@ function request(path, data, method, type,header) {
     });
   })
 }
+//发送验证码
 export function sendVerifyCode(data) {
   return request('/user/getcode', data, "post")
 }
+//验证验证码
 export function verifyCodeMatch(data) {
   return request('/user/login', data, "post")
 }
-export function releaseNewItem(data) {
-  return request('/post/create', data, "post")
-}
-export function getPostsList(data) {
-  console.log(data)
-  return request("/post/getPostsList", data)
-}
-export function searchByTitle(data) {
-  return request("/post/selectByTitle",data)
-}
-export function searchByTag(data) {
-  return request("/post/selectByTag",data);
-}
+//获取用户信息
 export function getUserDetail(data) {
   return request("/user/getUserDetail",data)
 }
+//获取我的评论列表
 export function getUserComments(data) {
   return request("/comment/getCommentListByUser",data)
 }
+//编辑用户信息，三个参数都是可选的
+export function editUserName(data) {
+  return request("/user/updateUserDetail",data,'put');
+}
+
+
+//发帖子
+export function releaseNewItem(data) {
+  return request('/post/create', data, "post")
+}
+//传图片
+export function updateImg(data) {
+  return request('/jpg/download',data,"post","Form-data")
+}
+//获取帖子列表
+export function getPostsList(data) {
+  return request("/post/getPostsList", data)
+}
+//搜索
+export function searchByTitle(data) {
+  return request("/post/selectByTitle",data)
+}
+//标签分类
+export function searchByTag(data) {
+  return request("/post/selectByTag",data);
+}
+//获取帖子的评论列表
 export function getPostComments(data) {
   return request("comment/getCommentListByPost",data)
 }
+//在帖子里发表评论
 export function releasePostComment(data) {
   return request("/comment/create",data,"post")
-}
-export function editUserName(data) {
-  return request("/user/updateUserDetail",data,'put');
 }
 export function getPostById(data) {
   return request("/post/getPostByid",data);

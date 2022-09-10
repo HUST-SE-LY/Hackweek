@@ -3,13 +3,13 @@ import {
 } from "../../../utils/wx-event"
 import {
   editUserName
-} from '../../../utils/request';
+} from "../../../utils/request";
 const App = getApp()
 Page({
   data: {
     wx: ""
   },
-  onLoad: function (options) {
+  onLoad (options) {
     this.setData({
       wx: App.globalData.userInfo.wx
     })
@@ -20,11 +20,8 @@ Page({
     })
   },
   async save() {
-    const res=await editUserName({
-      wx:this.data.wx,
-    })
-    console.log(res)
     App.globalData.userInfo.wx = this.data.wx
+    await editUserName({wx:this.data.wx});
     showToast("修改成功")
     wx.navigateBack()
   }
