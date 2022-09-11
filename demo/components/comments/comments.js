@@ -1,5 +1,6 @@
 const App=getApp();
 // components/comments/comments.js
+
 Component({
   /**
    * 组件的属性列表
@@ -14,6 +15,9 @@ Component({
    */
   data: {
     commentsList:[],
+    id:"",
+    name:"",
+    index:"",
   },
 
   /**
@@ -31,16 +35,28 @@ Component({
         this.setData({commentsList:array});
     },
     replyOthers(e) {//点击用户名后触发显示回复框以及设置index和name
-      this.setData({index: e.currentTarget.dataset.index,name:e.currentTarget.dataset.name});
+      console.log(e.currentTarget.dataset)
+      this.setData({
+        id: e.currentTarget.dataset.id,
+        name:e.currentTarget.dataset.name,
+        index:e.currentTarget.dataset.index,
+      });
       let page=getCurrentPages();
       let nowPage=page[page.length-1];
-      nowPage.setData({isfocus:true,isfooter:false,isReplyOthers:true,placeHolderName:this.data.name});
+      nowPage.setData({
+        isfocus:true,
+        isfooter:false,
+        isReplyOthers:true,
+        placeHolderName:this.data.name,
+        responseid:e.currentTarget.dataset.id,
+      });
     },
     reply1(content) {//二级评论的渲染
-      let commentRend={//这个应该是获取来的或者全局变量
-        content:content,
+      let commentRend={
+        Content:content,
+        UserName:App.globalData.userInfo.userName,
       };
-      console.log(this.properties.commentsList)
+      console.log(content)
       let array=this.properties.commentsList[this.data.index].ReplyComments;
       array.push(commentRend);
       this.setData({[`commentsList[${this.data.index}].ReplyComments`]:array});

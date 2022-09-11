@@ -4,6 +4,7 @@ import {
   getPostComments,
   toggleLikePost,
   toggleFollowPost,
+
 } from "../../../utils/request";
 import {
   showToast
@@ -12,6 +13,7 @@ import {
 Page({
   data: {
     id:"",//帖子唯一id，从点入时传入
+    responseid:"",
     avatar:"https://www.matto.top/avatar.png",//头像url
     userName:"",//用户名，从点入时传入
     title:"",//标题，点入时传入
@@ -44,9 +46,11 @@ Page({
     }
   },
   releaseReplyOthers() {//回复他人
+    console.log(this.data.responseid)
     if(this.data.inputContent) {
       this.selectComponent("#comments").reply1(this.data.inputContent);//触发组件reply1
-      
+      const res=this.Comment(this.data.responseid);
+      console.log(res);
       this.setData({
         inputContent:"",//清空输入框
       })
@@ -103,6 +107,7 @@ Page({
     })
   },
   async Comment(responseid) {
+    console.log(responseid);
     const id=this.data.id;
     const content=this.data.inputContent;
     const res=await releasePostComment({

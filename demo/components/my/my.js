@@ -2,6 +2,9 @@
 import {
   getUserComments,
   getUserDetail,
+  getUserPostNum,
+  getUserReplyNum,
+  getUserFollowNum,
 } from "../../utils/request/";
 const App = getApp();
 Component({
@@ -39,8 +42,14 @@ Component({
     },
     async getUser() {
       const res = (await getUserDetail()).data;
+      const follow=(await getUserFollowNum()).data.count;
+      const reply=(await getUserReplyNum()).data.count;
+      const post=(await getUserPostNum()).data.count;
       this.setData({
         userName:res.Name,
+        followNum:follow,
+        replyNum:reply,
+        itemNum:post,
       });
       //把更新userInfo放这了，就不放App.js里了
       App.globalData.userInfo = Object.assign(App.globalData.userInfo,{

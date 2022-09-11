@@ -2,11 +2,11 @@
 <view wx:if="{{commentsList.length===0}}" class="noComment">还没有评论呢</view>
 <view wx:for="{{commentsList}}" wx:key="{{item.id}}" class="comment_container" wx:for-index="firstIndex">
   <view class="comment_main">
-    <view bindtap="replyOthers" data-name="{{item.UserName}}" data-index="{{firstIndex}}">{{item.UserName}}：</view>
+    <view bindtap="replyOthers" data-name="{{item.UserName}}" data-id="{{item.ID}}" data-index="{{firstIndex}}">{{item.UserName}}：</view>
     <view>{{item.Content}}</view>
   </view>
   <view class="comment_second" wx:for="{{item.ReplyComments}}" wx:for-item="items" >
-    <view data-index="{{firstIndex}}" data-name="{{items.username1}}">{{items.username1}}：</view>
-    <view>{{items.content}}</view>
+    <view data-index="{{firstIndex}}" data-name="{{items.username1}}">{{items.UserName}}：</view>
+    <view>{{items.Content}}</view>
   </view>
 </view>
