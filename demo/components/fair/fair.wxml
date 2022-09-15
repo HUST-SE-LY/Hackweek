@@ -1,6 +1,20 @@
-<view style="justify-content:{{serachBarFoucus?'flex-start':'center'}}" class="search-bar">
+<view style="justify-content:{{isSearchBarFoucus?'flex-start':'center'}}" class="search-bar">
   <image class="button" src="../../static/search.svg"></image>
   <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle"></input>
+</view>
+<view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
+  <view class="searchHistory" catchtap="searchBarFocus" >
+    <view class="headbar">
+      <view>搜索历史</view>
+      <view class="clear" catchtap="clearHistory">清空</view>
+    </view>
+    <view wx:for="{{serachHistory}}" wx:key="index" class="historyItem" data-content="{{item}}" catchtap="chooseSearchHistory">
+      <text>
+        {{item}}
+      </text>
+    </view>
+  </view>
+
 </view>
 <view class="swiper">
   <swiper indicator-dots="true" autoplay="true" circular="true">
@@ -22,9 +36,9 @@
     <text class="divider"></text>
     <text style="font-weight:{{!isSortByTime?'bold':''}}" bindtap="getPostsByHot">热度</text>
   </view>
-  <Posts postList="{{postList}}"  />
+  <Posts postList="{{postList}}" />
   <view class="bottom_divider"></view>
 </view>
 <view class="write-post">
-  <image src="/static/write_post.svg"  bindtap="navigateToWritePage"></image>
+  <image src="/static/write_post.svg" bindtap="navigateToWritePage"></image>
 </view>

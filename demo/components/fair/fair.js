@@ -6,43 +6,75 @@ import {
   searchByTag,
   searchByTitle,
 } from '../../utils/request'
-const app=getApp();
+const app = getApp();
 let startId = 0; //请求起始标号
 let startIdTitle = 0;
 let startIdTag = 0;
 let isGettingList = false; //限流
-let isSearchingByTitle=false;//限流
-let isSearchingByTag=false;//限流
+let isSearchingByTitle = false; //限流
+let isSearchingByTag = false; //限流
 Component({
   data: {
-    serachBarFoucus: false, //用于标记以改变搜索栏排版
+    isSearchBarFoucus: false, //用于标记以改变搜索栏排版
     searchWords: "",
     swiperContent: ["green", "blue", "violet", "orange"], //感觉正常情况幻灯片参数内容应该是背景图片和对应的商品id
     tags: ["电子产品", "文具书籍", "生活用品", "服饰衣物", "其它"],
     selectedIndex: -1,
     isSortByTime: true, //排列方式
-    postList: []
+    postList: [],
+    serachHistory: ["暂无搜索记录"]
   },
   methods: {
     // 搜索框变化
     searchBarFocus() {
+      const serachHistory = wx.getStorageSync('serachHistory')
+      if (serachHistory && serachHistory.length) this.setData({
+        serachHistory
+      })
       this.setData({
-        serachBarFoucus: true
+        isSearchBarFoucus: true
       })
     },
-    searchBarBlur() {
-      if (!this.data.searchWords.length)
-        this.setData({
-          serachBarFoucus: false
-        })
+    //搜索历史相关
+    closeSearchHistory() {
+      this.setData({
+        isSearchBarFoucus: false
+      })
+    },
+    clearHistory() {
+      this.setData({
+        serachHistory: ["暂无搜索记录"]
+      })
+      wx.setStorageSync('serachHistory', [])
+    },
+    chooseSearchHistory(e) {
+      this.setData({
+        searchWords: e.currentTarget.dataset.content
+      })
+    },
+    saveSearchHistory() {
+      let serachHistory = wx.getStorageSync('serachHistory')
+      console.log(serachHistory)
+      if (!serachHistory) serachHistory = []
+      //仅保存5条
+      if (serachHistory.length == 5) {
+        serachHistory.pop()
+      }
+      serachHistory.unshift(this.data.searchWords)
+      wx.setStorageSync('serachHistory', serachHistory)
+      this.setData({
+        serachHistory
+      })
     },
     // 选择标签
     chooseTag(e) {
-      startIdTag=0;
+      startIdTag = 0;
       const index = e.currentTarget.dataset.index
-      if(this.data.selectedIndex===index) {
-        startId=0;
-        this.setData({selectedIndex:-1});
+      if (this.data.selectedIndex === index) {
+        startId = 0;
+        this.setData({
+          selectedIndex: -1
+        });
         this.getPostsList()
         return 1;
       }
@@ -58,100 +90,112 @@ Component({
       })
     },
     bottomFresh() {
-      if(this.data.selectedIndex>=0) {
+      if (this.data.selectedIndex >= 0) {
         console.log("tagggg")
         this.selectByTag();
-      } else if(this.data.searchWords!=="") {
+      } else if (this.data.searchWords !== "") {
         this.selectByTitle();
       } else {
         this.getPostsList();
       }
     },
     getPostsByTime() {
-      this.setData({isSortByTime:true});
-      startId=0;
-      startIdTag=0;
-      startIdTitle=0;
-      if(this.data.selectedIndex>=0) {
+      this.setData({
+        isSortByTime: true
+      });
+      startId = 0;
+      startIdTag = 0;
+      startIdTitle = 0;
+      if (this.data.selectedIndex >= 0) {
         console.log("tagggg")
         this.selectByTag();
-      } else if(this.data.searchWords!=="") {
+      } else if (this.data.searchWords !== "") {
         this.selectByTitle();
       } else {
         this.getPostsList();
       }
-      
+
     },
     getPostsByHot() {
-      this.setData({isSortByTime:false});
-      startId=0;
-      startIdTag=0;
-      startIdTitle=0;
-      if(this.data.selectedIndex>=0) {
+      this.setData({
+        isSortByTime: false
+      });
+      startId = 0;
+      startIdTag = 0;
+      startIdTitle = 0;
+      if (this.data.selectedIndex >= 0) {
         this.selectByTag();
-      } else if(this.data.searchWords!=='') {
+      } else if (this.data.searchWords !== '') {
         this.selectByTitle();
       } else {
         this.getPostsList();
       }
     },
     searchTitle() {
-      startIdTitle=0;
-      if(app.globalData.userInfo.travelMode) {
+      startIdTitle = 0;
+      if (app.globalData.userInfo.travelMode) {
         wx.navigateTo({
           url: '../../pages/login/login',
         })
       } else {
         this.selectByTitle();
       }
-      
+
     },
     async selectByTag() {
-      if(isSearchingByTag) {
-        return isSearchingByTag=true;
+      if (isSearchingByTag) {
+        return isSearchingByTag = true;
       }
       try {
-        const res=await searchByTag({
-          mode: this.data.isSortByTime?"Time":"Hot",
+        const res = await searchByTag({
+          mode: this.data.isSortByTime ? "Time" : "Hot",
           limit: 20,
           offset: startIdTag,
-          tag : this.data.tags[this.data.selectedIndex],
+          tag: this.data.tags[this.data.selectedIndex],
         })
         console.log(res.data);
-        isSearchingByTag=false;
-        res.data.map((item)=>{
-          item.CreatedAt=correctTime(item.CreatedAt);
+        isSearchingByTag = false;
+        res.data.map((item) => {
+          item.CreatedAt = correctTime(item.CreatedAt);
         })
-        if(startIdTag===0) {
-          this.setData({postList:res.data})
+        if (startIdTag === 0) {
+          this.setData({
+            postList: res.data
+          })
         } else {
-          this.setData({postList:this.data.postList.concat(res.data)})
+          this.setData({
+            postList: this.data.postList.concat(res.data)
+          })
         }
-        startIdTag+=res.data.length;
-        isSearchingByTag=false;
-      } catch(err) {
+        startIdTag += res.data.length;
+        isSearchingByTag = false;
+      } catch (err) {
         console.log(err);
-        isSearchingByTitle=false;
+        isSearchingByTitle = false;
       }
     },
     async selectByTitle() {
-      if(isSearchingByTitle) {
+      if (!this.data.searchWords.length) return
+      if (isSearchingByTitle) {
         return isSearchingByTitle = true;
       }
       try {
-        const res=await searchByTitle({
-          mode: this.data.isSortByTime?"Time":"Hot",
+        const res = await searchByTitle({
+          mode: this.data.isSortByTime ? "Time" : "Hot",
           limit: 20,
           offset: startIdTitle,
-          title : this.data.searchWords
+          title: this.data.searchWords
         })
-        console.log(res.data);
-        isSearchingByTitle=false;
+        //保存搜索记录
+        this.saveSearchHistory()
+        isSearchingByTitle = false;
         res.data.map((item) => {
           item.CreatedAt = correctTime(item.CreatedAt)
         })
-        if(startIdTitle===0) {
-          this.setData({postList:res.data});
+        if (startIdTitle === 0) {
+          this.setData({
+            postList: res.data
+          });
         } else {
           this.setData({
             postList: this.data.postList.concat(res.data)
@@ -159,9 +203,9 @@ Component({
         }
         startIdTitle += res.data.length
         isSearchingByTitle = false
-      } catch(err) {
+      } catch (err) {
         console.log(err);
-        isSearchingByTitle=false;
+        isSearchingByTitle = false;
       }
     },
     async getPostsList() {
@@ -169,7 +213,7 @@ Component({
       isGettingList = true
       try {
         const res = await getPostsList({
-          mode: this.data.isSortByTime?"Time":"Hot",
+          mode: this.data.isSortByTime ? "Time" : "Hot",
           limit: 20,
           offset: startId,
         })
