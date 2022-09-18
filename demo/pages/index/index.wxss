@@ -11,13 +11,14 @@ page {
   display: flex;
   justify-content: space-around;
   z-index: 1;
-  background-color: #fff;
+  background-color: #000000;
 }
 
 .tabbar-item {
   margin: 25rpx 50rpx;
   text-align: center;
   font-size: 26rpx;
+  color: white;
 }
 .tabbar-item image {
   height: 50rpx;

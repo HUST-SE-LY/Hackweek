@@ -1,6 +1,8 @@
+
 <view class="background">
-  <view></view>
+  <image src="../../static/myBackground.png" class="background_image" mode="heightFix"></image>
 </view>
+<view class="page_contatiner">
 <view class="user-bar">
   <view class="header">
     <image src="/static/default-avatar.svg"></image>
@@ -47,3 +49,5 @@
   </view>
 </view>
 <view class="bottom-devider"></view>
+
+</view>

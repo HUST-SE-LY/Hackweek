@@ -22,7 +22,8 @@ Component({
     selectedIndex: -1,
     isSortByTime: true, //排列方式
     postList: [],
-    serachHistory: ["暂无搜索记录"]
+    serachHistory: ["暂无搜索记录"],
+    tagImage:['../../static/phone.png',"../../static/book.png",'../../static/daily.png','../../static/clothes.png','../../static/other.png','../../static/phone1.png','../../static/book1.png','../../static/daily1.png','../../static/clothes1.png','../../static/other1.png']
   },
   methods: {
     // 搜索框变化

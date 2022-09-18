@@ -1,3 +1,11 @@
+page {
+  background-color: black;
+}
+.head_container {
+  background: -webkit-linear-gradient(top,rgb(255,248,29),black);
+  padding: 10rpx 0 0 0;
+
+}
 .search-bar {
   display: flex;
   justify-content: center;
@@ -9,6 +17,7 @@
   border: #BBBBBB solid 1px;
   background-color: #FFFFFF;
 }
+
 
 .search-bar .button {
   margin-left: 15rpx;
@@ -37,6 +46,12 @@
   z-index: 99;
 }
 
+.swiper {
+  width: 90vw;
+  margin: 0 auto;
+ 
+}
+
 .searchHistory .headbar {
   display: flex;
   justify-content: space-between;
@@ -58,6 +73,8 @@
 .tag-bar {
   display: flex;
   flex-wrap: nowrap;
+  color: white;
+  margin-bottom: 30rpx;
 }
 
 .tagsScroll {
@@ -77,20 +94,35 @@
   font-weight: bold;
 }
 
-.selected-item image {
-  box-shadow: 0px 2px 4px #888888;
-}
 
-.tag-bar .tagsScroll .scroll-item image {
+.tag-bar .tagsScroll .scroll-item .img_border {
   height: 110rpx;
   width: 110rpx;
   border-radius: 50%;
-  background-color: #FFFFFF;
-  margin-bottom: 5rpx;
+  margin-bottom: 20rpx;
+}
+
+.tag-bar .tagsScroll .scroll-item .img_border image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 25rpx auto;
+}
+
+.selected-item .img_border {
+  box-shadow: 0px 2px 3px rgba(255, 255, 255, 0.61);
+  background-color: #ffffff;
 }
 
 .posts-container {
-  margin: 20rpx 0;
+  
+  background-color: black;
+}
+
+.no_post {
+  margin-top: 20rpx;
+  text-align: center;
+  color: white;
+
 }
 
 .sort-type-bar {
@@ -99,9 +131,11 @@
   justify-content: flex-end;
   line-height: 40rpx;
   font-size: 28rpx;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding: 10rpx 30rpx 10rpx 0;
-  margin-bottom: 5rpx;
+  margin-bottom: 0rpx;
+  border-bottom: #e0e0e0 1px solid;
+
 }
 
 .divider {

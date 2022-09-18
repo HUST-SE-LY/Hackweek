@@ -2,12 +2,12 @@
 <My style="display: {{selectedTabBarIndex==1?'block':'none'}}"></My>
 <view class="tabbar">
   <view class="tabbar-item" bindtap="switchTab" data-index="0">
-    <image src="{{selectedTabBarIndex==0?'/static/index_active.png':'/static/index.png'}}">
+    <image src="{{selectedTabBarIndex==0?'/static/index_active.svg':'/static/index.svg'}}">
     </image>
-    <view>集市</view>
+    <view style="color: {{selectedTabBarIndex==0?'rgb(255,248,29)':'white'}};">集市</view>
   </view>
   <view class="tabbar-item" bindtap="switchTab" data-index="1">
-    <image src="{{selectedTabBarIndex==1?'/static/my_active.png':'/static/my.png'}}"></image>
-    <view>我的</view>
+    <image src="{{selectedTabBarIndex==1?'/static/my_active.svg':'/static/my.svg'}}"></image>
+    <view style="color: {{selectedTabBarIndex==1?'rgb(255,248,29)':'white'}};">我的</view>
   </view>
 </view>

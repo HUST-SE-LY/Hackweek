@@ -1,4 +1,5 @@
-<view style="justify-content:{{isSearchBarFoucus?'flex-start':'center'}}" class="search-bar">
+<view class="head_container">
+ <view style="justify-content:{{isSearchBarFoucus?'flex-start':'center'}}" class="search-bar">
   <image class="button" src="../../static/search.svg"></image>
   <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle"></input>
 </view>
@@ -22,10 +23,14 @@
     </swiper-item>
   </swiper>
 </view>
+</view>
 <view class="tag-bar">
   <scroll-view scroll-x="true" class="tagsScroll">
     <view wx:for="{{tags}}" wx:key="index" class="scroll-item {{selectedIndex === index?'selected-item':''}}" bindtap="chooseTag" data-index="{{index}}">
-      <image src="#"></image>
+      <view class="img_border">
+        <image src="{{selectedIndex === index?tagImage[index+5]:tagImage[index]}}"></image>
+      </view>
+    
       <view>{{item}}</view>
     </view>
   </scroll-view>
@@ -36,7 +41,8 @@
     <text class="divider"></text>
     <text style="font-weight:{{!isSortByTime?'bold':''}}" bindtap="getPostsByHot">热度</text>
   </view>
-  <Posts postList="{{postList}}" />
+  <view wx:if="{{postList.length===0}}" class="no_post">好像什么也没有呢，要不要发个帖子？</view>
+  <Posts postList="{{postList}}" class="post_list"/>
   <view class="bottom_divider"></view>
 </view>
 <view class="write-post">
