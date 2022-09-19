@@ -1,10 +1,8 @@
-<view class="welcome">
-  <view class="welcome_word1">与你</view>
-  <view class="welcome_word2">不期而喻</view>
-</view>
+<image src="../../static/loginBackground.png" class="backImage {{loginPage?'backImage_out':''}}" bindtap="logoOut" mode="widthFix"></image>
+<image src="../../static/loginBackground1.png" class="backImage1"></image>
+<view class="login_page" wx:if="{{loginPage}}">
 <view class="back">
   <view class="head">
-  <view class="logo">logo</view>
   <view class="head_content">登录&注册</view>
 </view>
 <form class="form">
@@ -20,3 +18,4 @@
   </form>
 </view>
 <view class="travel_mode" bindtap="travelMode">游客模式</view>
+</view>

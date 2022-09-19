@@ -6,6 +6,7 @@ import {
 let app=getApp();
 Page({
   data: {
+    loginPage:false,//判断是否logo是否消失以及登录界面出现
     email: "", //email框内输入的内容
     keyValue: "", //验证码框内输入的内容
     emailTrue: true, //判断邮箱格式是否正确
@@ -30,6 +31,9 @@ Page({
     wx.navigateTo({
       url: '../index/index',
     })
+  },
+  logoOut() {
+    this.setData({loginPage:true,});
   },
   async getKey() { //点击获取验证码按钮时触发
 
