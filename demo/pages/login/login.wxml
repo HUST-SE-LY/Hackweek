@@ -1,5 +1,5 @@
 <image src="../../static/loginBackground.png" class="backImage {{loginPage?'backImage_out':''}}" bindtap="logoOut" mode="widthFix"></image>
-<image src="../../static/loginBackground1.png" class="backImage1"></image>
+<image src="../../static/loginBackground1.png" class="backImage1" mode="widthFix"></image>
 <view class="login_page" wx:if="{{loginPage}}">
 <view class="back">
   <view class="head">

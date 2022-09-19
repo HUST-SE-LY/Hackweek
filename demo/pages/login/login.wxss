@@ -19,12 +19,17 @@
 }
 @keyframes logoOut {
   from {
-    top: 35vw;
     opacity: 1;
+    top: 35vw;
   } to {
-    top: -20vh;
     opacity: 0;
+    top: 20vw;
+    z-index: -10;
   }
+}
+
+.login_page {
+  z-index: 20;
 }
 .welcome_word1 {
   margin-left: 5vw;

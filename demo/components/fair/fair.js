@@ -86,9 +86,15 @@ Component({
 
     },
     navigateToWritePage() {
-      wx.navigateTo({
+      if (app.globalData.userInfo.travelMode) {
+        wx.reLaunch({
+          url: '../../pages/login/login',
+        })} else {
+          wx.navigateTo({
         url: '/pages/index/newItem/newItem',
       })
+    }
+      
     },
     bottomFresh() {
       if (this.data.selectedIndex >= 0) {
@@ -135,7 +141,7 @@ Component({
     searchTitle() {
       startIdTitle = 0;
       if (app.globalData.userInfo.travelMode) {
-        wx.navigateTo({
+        wx.reLaunch({
           url: '../../pages/login/login',
         })
       } else {

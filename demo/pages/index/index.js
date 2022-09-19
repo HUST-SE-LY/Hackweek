@@ -9,7 +9,7 @@ Page({
       index
     } = e.currentTarget.dataset
     if(e.currentTarget.dataset.index==1&&app.globalData.userInfo.travelMode) {
-      wx.navigateTo({
+      wx.reLaunch({
         url: '../login/login',
       })
     }

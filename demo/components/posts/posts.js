@@ -35,7 +35,7 @@ Component({
   methods: {
     intoDetailPage(e) {
       if(app.globalData.userInfo.travelMode) {
-        wx.navigateTo({
+        wx.reLaunch({
           url: '../../pages/login/login',
         })
       } else {
