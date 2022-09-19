@@ -17,6 +17,7 @@ Page({
   },
   //生命周期函数--监听页面加载
   onLoad: function (options) {
+    startId=0;
     this.getMyReply();
     this.setData({username:app.globalData.userInfo.userName})
   },
@@ -51,6 +52,7 @@ Page({
     })
   },
   async getMyReply() {
+    console.log(startId)
     if (isGettingList) return
     isGettingList = true
     try {
@@ -69,7 +71,6 @@ Page({
         })
       }
       startId += res.data.length
-      this.setData({replyList:res.data});
       let arrayDate=this.data.replyList;
       for(let date of arrayDate) {
         date.CreatedAt=correctCreatedAt(date.CreatedAt);

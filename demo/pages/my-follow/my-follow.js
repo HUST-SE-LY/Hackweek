@@ -1,5 +1,5 @@
 import {
-  getMyFollowPost
+  getUserFollow
 } from '../../utils/request'
 let startId = 0;
 //节流
@@ -10,21 +10,23 @@ Page({
   },
   //生命周期函数--监听页面加载
   onLoad: function (options) {
-    getMyFollowPost()
+    startId=0;
+    this.getMyFollowPost()
   },
   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
     startId = 0;
-    getMyFollowPost()
+    this.getMyFollowPost()
   },
   onReachBottom: function () {
-    getMyFollowPost()
+    this.getMyFollowPost()
   },
   async getMyFollowPost() {
+    console.log(startId)
     if (isGettingList) return
     isGettingList = true
     try {
-      const res = await getMyFollowPost({
+      const res = await getUserFollow({
         limit: 20,
         offset: startId
       })

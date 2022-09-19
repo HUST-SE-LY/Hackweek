@@ -2,8 +2,9 @@ import {
   showToast
 } from "../../utils/wx-event"
 import {
+  followPost,
+  cancelFollowPost,
   toggleLikePost,
-  toggleFollowPost
 } from "../../utils/request";
 let app=getApp();
 Component({
@@ -79,13 +80,13 @@ Component({
       if (this.data.postList[index].isFollow) {
         this.data.postList[index].Follow--;
         this.data.postList[index].isFollow = false;
-        await toggleFollowPost({
+        await cancelFollowPost({
           postid: id
         })
       } else {
         this.data.postList[index].Follow++;
         this.data.postList[index].isFollow = true;
-        await toggleFollowPost({
+        await followPost({
           postid: id
         })
       }

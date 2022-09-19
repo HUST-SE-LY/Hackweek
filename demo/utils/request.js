@@ -111,6 +111,18 @@ export function getUserFollowNum(data) {
   return request("/user/GetUserFollowsSum",data);
 }
 
+export function followPost(data) {
+  return request("/follow/follow",data,'post');
+}
+
+export function cancelFollowPost(data) {
+  return request("/follow/deletefollow",data,'delete');
+}
+
+export function getUserFollow(data) {
+  return request("/follow/getFollowList",data);
+}
+
 // 点赞/取消点赞一体化
 export function toggleLikePost(data) {
   return request('/post/thumb', data, "post")
@@ -118,3 +130,4 @@ export function toggleLikePost(data) {
 export function toggleFollowPost(data) {
   return request('/post/follow', data, "post")
 }
+
