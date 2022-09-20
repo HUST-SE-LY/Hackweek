@@ -1,4 +1,3 @@
-
 import {
   getUserComments,
   getUserDetail,
@@ -42,28 +41,29 @@ Component({
     },
     async getUser() {
       const res = (await getUserDetail()).data;
-      const follow=(await getUserFollowNum()).data.count;
-      const reply=(await getUserReplyNum()).data.count;
-      const post=(await getUserPostNum()).data.count;
+      const follow = (await getUserFollowNum()).data.count;
+      const reply = (await getUserReplyNum()).data.count;
+      const post = (await getUserPostNum()).data.count;
       this.setData({
-        userName:res.Name,
-        followNum:follow,
-        replyNum:reply,
-        itemNum:post,
+        userName: res.Name,
+        followNum: follow,
+        replyNum: reply,
+        itemNum: post,
       });
       //把更新userInfo放这了，就不放App.js里了
-      App.globalData.userInfo = Object.assign(App.globalData.userInfo,{
-        userName:res.Name,
-        qq:res.QQ,
-        wx:res.Wx
+      App.globalData.userInfo = Object.assign(App.globalData.userInfo, {
+        userName: res.Name,
+        qq: res.QQ,
+        wx: res.Wx,
+        userid: res.ID
       })
     },
-    async getComment() {//这里写错了，弄成评论了，等后端消息接口弄出来了再改
-      const res=await getUserComments();
+    async getComment() { //这里写错了，弄成评论了，等后端消息接口弄出来了再改
+      const res = await getUserComments();
       console.log(res);
       this.setData({
-        messageNum:res.data.length,
-        messageList:res.data,
+        messageNum: res.data.length,
+        messageList: res.data,
       })
     }
   },
