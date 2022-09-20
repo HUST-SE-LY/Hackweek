@@ -1,4 +1,7 @@
 const App = getApp()
+import {
+  uploadAvatar
+} from '../../utils/request'
 Page({
   data: {
     avatar: "",
@@ -44,31 +47,38 @@ Page({
       title: "确定退出？",
       confirmColor: "black",
       success: (res) => {
-        if(res.confirm) {
+        if (res.confirm) {
           wx.setStorageSync('token', ""),
-          App.globalData.userInfo = {
-            travelMode:true,
-            avatar: "/static/my.png",
-            userName: "未登录",
-            qq: "未设置",
-            wx: "未设置",
-          }
-        wx.navigateTo({
-          url: '../index/index',
-        })
-        } else if(res.cancel) {
-          
+            App.globalData.userInfo = {
+              travelMode: true,
+              avatar: "/static/my.png",
+              userName: "未登录",
+              qq: "未设置",
+              wx: "未设置",
+            }
+          wx.navigateTo({
+            url: '../index/index',
+          })
+        } else if (res.cancel) {
+
         }
-        
+
       }
     })
   },
   chooseAvatar() {
-    let that=this;
-    wx.chooseImage({
+    let that = this;
+    wx.chooseMedia({
+      mediaType: 'image',
       count: 1,
       success(res) {
-        that.setData({avatar:res.tempFilePaths[0],});
+        that.setData({
+          avatar: res.tempFiles[0].tempFilePath,
+        });
+        uploadAvatar({
+          filePath: res.tempFiles[0].tempFilePath,
+          userid: App.globalData.userInfo.userid
+        })
       }
     })
   }

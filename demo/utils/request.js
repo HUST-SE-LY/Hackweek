@@ -3,7 +3,7 @@ import {
   showToast
 } from "./wx-event"
 
-function request(path, data, method, contentType,header) {
+function request(path, data, method, contentType, header) {
   return new Promise((resolve, reject) => {
     wx.cloud.callContainer({
       config: {
@@ -14,7 +14,7 @@ function request(path, data, method, contentType,header) {
       header: header || {
         'X-WX-SERVICE': 'demo1', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
         // 用storage来存登录时后端给的token
-        'Content-Type': contentType || 'application/json; charset=UTF-8' ,
+        'Content-Type': contentType || 'application/json; charset=UTF-8',
         'Authorization': "Bearer " + wx.getStorageSync('token'),
       },
       data: data
@@ -46,15 +46,30 @@ export function verifyCodeMatch(data) {
 }
 //获取用户信息
 export function getUserDetail(data) {
-  return request("/user/getUserDetail",data)
+  return request("/user/getUserDetail", data)
 }
 //获取我的评论列表
 export function getUserComments(data) {
-  return request("/comment/getCommentListByUser",data)
+  return request("/comment/getCommentListByUser", data)
 }
 //编辑用户信息，三个参数都是可选的
 export function editUserName(data) {
-  return request("/user/updateUserDetail",data,'put');
+  return request("/user/updateUserDetail", data, 'put');
+}
+//上传头像
+export function uploadAvatar(data) {
+  wx.uploadFile({
+    filePath: data.filePath,
+    name: 'avatar',
+    //临时拿自己的域名解析到了后端给的ip地址上，直接填ip地址好像直接invaliUrl了
+    url: 'https://matto.top:5000/images/user',
+    formData: {
+      userid: data.userid
+    },
+    success: (res) => {
+      console.log(res)
+    },
+  })
 }
 
 
@@ -64,7 +79,7 @@ export function releaseNewItem(data) {
 }
 //传图片
 export function updateImg(data) {
-  return request('/jpg/download',data,"post","Form-data")
+  return request('/jpg/download', data, "post", "Form-data")
 }
 //获取帖子列表
 export function getPostsList(data) {
@@ -72,55 +87,55 @@ export function getPostsList(data) {
 }
 //搜索
 export function searchByTitle(data) {
-  return request("/post/selectByTitle",data)
+  return request("/post/selectByTitle", data)
 }
 //标签分类
 export function searchByTag(data) {
-  return request("/post/selectByTag",data);
+  return request("/post/selectByTag", data);
 }
 //获取帖子的评论列表
 export function getPostComments(data) {
-  return request("comment/getCommentListByPost",data)
+  return request("comment/getCommentListByPost", data)
 }
 //在帖子里发表评论
 export function releasePostComment(data) {
-  return request("/comment/create",data,"post")
+  return request("/comment/create", data, "post")
 }
 export function getPostById(data) {
-  return request("/post/getPostByid",data);
+  return request("/post/getPostByid", data);
 }
 export function deleteComment(data) {
-  return request("/comment/delete",data,'delete');
+  return request("/comment/delete", data, 'delete');
 }
 export function getMyPost(data) {
-  return request("/post/getPostListByUser",data);
+  return request("/post/getPostListByUser", data);
 }
 export function editMyPost(data) {
-  return request("/post/update",data,'put');
+  return request("/post/update", data, 'put');
 }
 export function deleteMyPost(data) {
-  return request("/post/delete",data,'delete')
+  return request("/post/delete", data, 'delete')
 }
 export function getUserPostNum(data) {
-  return request("/user/GetUserPostsSum",data);
+  return request("/user/GetUserPostsSum", data);
 }
 export function getUserReplyNum(data) {
-  return request("/user/GetUserCommentsSum",data);
+  return request("/user/GetUserCommentsSum", data);
 }
 export function getUserFollowNum(data) {
-  return request("/user/GetUserFollowsSum",data);
+  return request("/user/GetUserFollowsSum", data);
 }
 
 export function followPost(data) {
-  return request("/follow/follow",data,'post');
+  return request("/follow/follow", data, 'post');
 }
 
 export function cancelFollowPost(data) {
-  return request("/follow/deletefollow",data,'delete');
+  return request("/follow/deletefollow", data, 'delete');
 }
 
 export function getUserFollow(data) {
-  return request("/follow/getFollowList",data);
+  return request("/follow/getFollowList", data);
 }
 
 // 点赞/取消点赞一体化
@@ -130,4 +145,3 @@ export function toggleLikePost(data) {
 export function toggleFollowPost(data) {
   return request('/post/follow', data, "post")
 }
-
