@@ -32,7 +32,7 @@ page {
 
 .searchHistoryContainer {
   position: fixed;
-  top: 40px;
+  top: 50px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -122,7 +122,6 @@ page {
   margin-top: 20rpx;
   text-align: center;
   color: white;
-
 }
 
 .sort-type-bar {
@@ -135,7 +134,6 @@ page {
   padding: 10rpx 30rpx 10rpx 0;
   margin-bottom: 0rpx;
   border-bottom: #e0e0e0 1px solid;
-
 }
 
 .divider {

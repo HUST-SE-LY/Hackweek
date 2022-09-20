@@ -1,28 +1,28 @@
-<view class="head_container">
- <view style="justify-content:{{isSearchBarFoucus?'flex-start':'center'}}" class="search-bar">
-  <image class="button" src="../../static/search.svg"></image>
-  <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle"></input>
-</view>
-<view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
-  <view class="searchHistory" catchtap="searchBarFocus" >
-    <view class="headbar">
-      <view>搜索历史</view>
-      <view class="clear" catchtap="clearHistory">清空</view>
-    </view>
-    <view wx:for="{{serachHistory}}" wx:key="index" class="historyItem" data-content="{{item}}" catchtap="chooseSearchHistory">
-      <text>
-        {{item}}
-      </text>
-    </view>
+<view class="head_container" style="background: {{isSearchBarFoucus?'white':'-webkit-linear-gradient(top,rgb(255,248,29),black)'}};">
+  <view style="justify-content:{{isSearchBarFoucus?'flex-start':'center'}}" class="search-bar">
+    <image class="button" src="../../static/search.svg"></image>
+    <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle"></input>
   </view>
+  <view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
+    <view class="searchHistory" catchtap="searchBarFocus">
+      <view class="headbar">
+        <view>搜索历史</view>
+        <view class="clear" catchtap="clearHistory">清空</view>
+      </view>
+      <view wx:for="{{serachHistory}}" wx:key="index" class="historyItem" data-content="{{item}}" catchtap="chooseSearchHistory">
+        <text>
+          {{item}}
+        </text>
+      </view>
+    </view>
 
-</view>
-<view class="swiper">
-  <swiper indicator-dots="true" autoplay="true" circular="true">
-    <swiper-item wx:for="{{swiperContent}}" wx:key="index" style="background-color: {{item}};">
-    </swiper-item>
-  </swiper>
-</view>
+  </view>
+  <view class="swiper">
+    <swiper indicator-dots="true" autoplay="true" circular="true">
+      <swiper-item wx:for="{{swiperContent}}" wx:key="index" style="background-color: {{item}};">
+      </swiper-item>
+    </swiper>
+  </view>
 </view>
 <view class="tag-bar">
   <scroll-view scroll-x="true" class="tagsScroll">
@@ -30,7 +30,7 @@
       <view class="img_border">
         <image src="{{selectedIndex === index?tagImage[index+5]:tagImage[index]}}"></image>
       </view>
-    
+
       <view>{{item}}</view>
     </view>
   </scroll-view>
@@ -42,7 +42,7 @@
     <text style="font-weight:{{!isSortByTime?'bold':''}}" bindtap="getPostsByHot">热度</text>
   </view>
   <view wx:if="{{postList.length===0}}" class="no_post">好像什么也没有呢，要不要发个帖子？</view>
-  <Posts postList="{{postList}}" class="post_list"/>
+  <Posts postList="{{postList}}" class="post_list" />
   <view class="bottom_divider"></view>
 </view>
 <view class="write-post">
