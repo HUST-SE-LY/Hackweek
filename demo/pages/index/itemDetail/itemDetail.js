@@ -4,6 +4,7 @@ import {
   getPostComments,
   toggleLikePost,
   toggleFollowPost,
+  getPostById,
 
 } from "../../../utils/request";
 import {
@@ -12,6 +13,7 @@ import {
 // pages/index/itemDetail/itemDetail.js
 Page({
   data: {
+    isLogin:false,//是否登录
     id:"",//帖子唯一id，从点入时传入
     responseid:"",
     avatar:"https://www.matto.top/avatar.png",//头像url
@@ -77,6 +79,11 @@ Page({
       contactInfoShow: false
     })
   },
+  toLoginPage() {
+    wx.navigateTo({
+      url: '../../login/login',
+    })
+  },
   copyContactInfo(e) {
     const type=e.currentTarget.dataset.type;
     const info=e.currentTarget.dataset.type==="qq"?e.currentTarget.dataset.qq:e.currentTarget.dataset.wx;
@@ -120,6 +127,10 @@ Page({
     })
   },
   async Thumb() {
+    if(!this.data.isLogin) {
+      this.toLoginPage();
+      return false;
+    }
     let num=parseInt(this.data.thumb);
     if(this.data.isThumb===false) {
       this.setData({
@@ -135,6 +146,10 @@ Page({
     toggleLikePost({postid:parseInt(this.data.id)});
   },
   async Follow() {
+    if(!this.data.isLogin) {
+      this.toLoginPage();
+      return false;
+    }
     let num=parseInt(this.data.follow);
     if(this.data.isFollow===false) {
       this.setData({
@@ -152,9 +167,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {//获取id和其他数据
-      let id=options.id;
-      console.log(options)
+  async onLoad(options) {//获取id和其他数据
+    console.log(options)
+    let id=options.id;
+    console.log("ok")
+    if(wx.getStorageSync('token')) {
+      this.setData({isLogin:true});
+      const res=await getPostById({postid:id});
+      options.isFollow=res.data.isFollow?'true':'false';
+      options.isReplied=res.data.isReplied?'true':"false";
+      options.isThumb=res.data.isThumb?'true':"false";
+    }
       this.setData({
         content:options.content,
         userName:options.username,

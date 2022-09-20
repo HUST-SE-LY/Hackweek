@@ -128,8 +128,6 @@ Page({
       const location=this.data.location;
       const price=this.data.price+"￥";
       const avatar=app.globalData.userInfo.avatar;
-      const wx=app.globalData.userInfo.wx.replace("未设置","");
-      const qq=app.globalData.userInfo.qq.replace("未设置","");
       const res=releaseNewItem({
         avatar:avatar,
         title:title,
@@ -137,8 +135,6 @@ Page({
         price:price,
         location:location,
         tag:tag,
-        wx:wx,
-        qq:qq,
       });
       console.log(res);
     }

@@ -133,6 +133,9 @@ Component({
       const {
         id
       } = e.currentTarget.dataset;
+    },
+    sharePost() {
+      //阻止事件冒泡
     }
   }
 })

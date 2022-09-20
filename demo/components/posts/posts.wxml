@@ -10,7 +10,7 @@
   <view class="second-line">
     <view class="title">{{item.Title}}</view>
     <view class="right">
-      <view class="contact" catchtap="showContactInfo" data-qq="{{item.QQ}}" data-wx="{{item.Wx}}">
+      <view class="contact" catchtap="showContactInfo" data-qq="{{item.QQ}}">
         <image src="../../static/contact.svg"></image>
         <text>联系</text>
       </view>
@@ -23,10 +23,10 @@
     <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>
   </view>
   <view class="footer">
-    <view class="item">
+    <button catchtap="sharePost" class="share item" open-type='share' data-id="{{item.ID}}" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}" >
       <image src="../../static/share.svg"></image>
       <text>分享</text>
-    </view>
+    </button>
     <view class="right">
       <view class="follow item" data-id="{{item.ID}}" data-index="{{index}}" catchtap="toggleFollow">
         <image src="{{item.isFollow?'../../static/followed.svg':'../../static/follow.svg'}}">

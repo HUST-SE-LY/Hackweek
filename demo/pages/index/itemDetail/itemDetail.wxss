@@ -209,3 +209,9 @@
 .contactInfoContainer .contactInfo .divider {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+.noLogin {
+  width: 100vw;
+  text-align: center;
+  color:#d0d0d0;
+  margin-top: 50rpx;
+}

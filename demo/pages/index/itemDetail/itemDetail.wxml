@@ -44,16 +44,19 @@
     </view>
   </view>
 </view>
-<view class="commentsContainer">
+<view class="commentsContainer" wx:if="{{isLogin}}">
    <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" id="comments" ></comments>
 </view>
-<view class="devider">
+<view class="noLogin">
+  <text class="plaseLogin" bindtap="toLoginPage" wx:if="{{!isLogin}}">登录后查看&发表评论</text>
 </view>
-<view class="comment {{isfooter?'':'comment_input_display'}}">
+<view class="devider" wx:if="{{isLogin}}">
+</view>
+<view class="comment {{isfooter?'':'comment_input_display'}}" wx:if="isLogin">
   <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" 
    model:value="{{inputContent}}" bindconfirm="releaseComment"/>
 </view>
-<view class="comment_reply {{isReplyOthers?'':'comment_reply_display'}}">
+<view class="comment_reply {{isReplyOthers?'':'comment_reply_display'}}" wx:if="isLogin">
   <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" maxlength="500" 
    model:value="{{inputContent}}" focus="{{isfocus}}" bindblur="closeInput"/>
 </view>

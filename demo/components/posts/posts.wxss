@@ -74,7 +74,6 @@
   right: 120rpx;
   font-weight: bold;
 }
-
 .post-container .content {
   margin-top: 40rpx;
   display: -webkit-box;
@@ -103,13 +102,20 @@
 
 .footer .item {
   display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 26rpx;
   color: rgba(0, 0, 0, 0.6);
   margin-right: 20rpx;
+  margin-left: 0;
 }
-
+.share {
+  background: transparent;
+  display: block;
+  padding-left: 0;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  text-align: left;
+}
 .footer image {
   height: 45rpx;
   width: 45rpx;
