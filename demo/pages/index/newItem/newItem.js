@@ -34,6 +34,9 @@ Page({
       url: '../index',//可能还有其他配置
     })
   },
+  setContent(){
+    this.canRelease();
+  },
   uploadImg() {
     let that=this;
     let imgList=this.data.imageList;//获取图片url列表
@@ -93,7 +96,7 @@ Page({
     this.setData({imageList:list,});//更新图片url
   },
   canRelease() {//判断是否能够发布的函数
-    if(this.data.title!==""&&this.data.price) {
+    if(this.data.title!==""&&this.data.price&&this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明","")) {
       if(this.data.isChooseTag&&this.data.isChooseLocation) {
         this.setData({canUpload: true,})
       }else {

@@ -5,7 +5,7 @@
   <view>标题：</view>
   <input placeholder="填写标题" bindinput="canRelease" model:value="{{title}}" class="haed_input" placeholder-class="head_input" maxlength="20"/>
 </view>
-  <textarea name="" id=""  class="detail {{detailInput?'':'detail_clear'}}" bindtap="clearContent" model:value="{{detail}}" bindblur="showPlaceholder" maxlength="1000"></textarea>
+  <textarea name="" id=""  class="detail {{detailInput?'':'detail_clear'}}" bindtap="clearContent" model:value="{{detail}}" bindblur="showPlaceholder" maxlength="1000" bindinput="setContent"></textarea>
   <view class="image_container">
     <view wx:for="{{imageList}}" wx:key="{{index}}" style="position: relative;">
       <image mode="aspectFill" src="{{item}}" class="image" wx:if="{{imageList.length}}" bindtap="imgLarge" data-url="{{item}}" ></image>
