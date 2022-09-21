@@ -92,11 +92,11 @@
 }
 .footer .item {
   display: flex;
-  justify-content: center;
   align-items: center;
   font-size: 26rpx;
   color: rgba(0, 0, 0, 0.6);
   margin-right: 20rpx;
+  margin-left: 0;
 }
 .footer image {
   height: 45rpx;
@@ -208,6 +208,14 @@
 }
 .contactInfoContainer .contactInfo .divider {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.share {
+  background: transparent;
+  display: block;
+  padding-left: 0;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  text-align: left;
 }
 .noLogin {
   width: 100vw;

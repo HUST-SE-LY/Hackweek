@@ -26,10 +26,10 @@
     <text>{{location}} </text><text> {{createAt}}</text>
   </view>
   <view class="footer">
-    <view class="item">
+    <button class="share item" open-type='share' data-id="{{id}}" data-content='{{content}}' data-username='{{userName}}' data-title="{{title}}" data-time='{{createAt}}' data-price='{{price}}' data-location='{{location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{follow}}' data-thumb='{{thumb}}' data-reply='{{reply}}' data-qq='{{qq}}' data-wx="{{wx}}" data-avatar="{{avatar}}" >
       <image src="../../../static/share.svg"></image>
       <text>分享</text>
-    </view>
+    </button>
     <view class="right">
       <view class="follow item" bindtap="Follow">
         <image src="{{isFollow?'../../../static/followed.svg':'../../../static/follow.svg'}}">
