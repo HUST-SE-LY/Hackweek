@@ -43,7 +43,7 @@
 </view>
 <view class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
   <view class="contactInfo">
-    <view class="content" catchtap="searchBarFocus" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq}}</text>
+    <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq}}</text>
       <text class="copy">copy</text>
     </view>
     <view class="divider"></view>
