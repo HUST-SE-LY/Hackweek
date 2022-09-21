@@ -1,8 +1,10 @@
 /* components/comments/comments.wxss */
 .comment_main {
-  display: flex;
   margin-bottom: 5%;
-  
+  display: flex;
+}
+.comment_main_noflex {
+  margin-bottom: 5%;
 }
 .comment_container {
   padding-top: 5%;
@@ -10,11 +12,26 @@
   border-bottom: lightgray 1px solid;
 }
 .comment_second {
-  display: flex;
   margin-bottom: 5%;
   flex-wrap: wrap;
+  display: flex;
+}
+.second_container {
+  padding: 10rpx;
+}
+.comment_second_noflex {
+  margin-bottom: 5%;
 }
 .noComment {
   text-align: center;
   margin-top: 10rpx;
+}
+.username {
+
+}
+.reply_username {
+  color: #a0a0a0;
+}
+.content {
+  padding: 20rpx;
 }

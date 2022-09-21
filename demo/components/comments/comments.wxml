@@ -1,12 +1,16 @@
 <!--components/comments/comments.wxml-->
 <view wx:if="{{commentsList.length===0}}" class="noComment">还没有评论呢</view>
 <view wx:for="{{commentsList}}" wx:key="{{item.id}}" class="comment_container" wx:for-index="firstIndex">
-  <view class="comment_main">
-    <view bindtap="replyOthers" data-name="{{item.UserName}}" data-id="{{item.ID}}" data-index="{{firstIndex}}">{{item.UserName}}：</view>
-    <view>{{item.Content}}</view>
+  <view class="{{item.UserName.length+item.Content.length<25?'comment_main':'comment_main_noflex'}}">
+    <view class="username" bindtap="replyOthers" data-name="{{item.UserName}}" data-id="{{item.ID}}" data-index="{{firstIndex}}">{{item.UserName}}：</view>
+    <view class="{{item.UserName.length+item.Content.length<25?'':'content'}}">{{item.Content}}</view>
   </view>
-  <view class="comment_second" wx:for="{{item.ReplyComments}}" wx:for-item="items" >
-    <view data-index="{{firstIndex}}" data-name="{{items.username1}}">{{items.UserName}}：</view>
-    <view>{{items.Content}}</view>
+  <view class="second_container">
+<view class="{{items.UserName.length+items.Content.length<25?'comment_second':'comment_second_noflex'}}" wx:for="{{item.ReplyComments}}" wx:for-item="items" >
+    <view class="reply_username" data-index="{{firstIndex}}" data-name="{{items.username1}}">{{items.UserName}}：</view>
+    <view class="{{items.UserName.length+items.Content.length<25?'':'content'}}">{{items.Content}}</view>
   </view>
+
+  </view>
+  
 </view>

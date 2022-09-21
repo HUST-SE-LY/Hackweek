@@ -21,10 +21,12 @@ Page({
     canUpload:false,//判断条件是否填写完必要
   },
   clearContent() {//点击后清除placeholder
+    this.canRelease();
     this.setData({detail:this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明",""),
       detailInput:true,})
   },
   showPlaceholder() {//清空输入栏后出现placeHolder语句
+    this.canRelease();
     if(!this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明")) {
       this.setData({detailInput: false,detail:"出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明"})
     }
