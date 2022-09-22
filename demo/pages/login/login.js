@@ -4,6 +4,7 @@ import {
 } from "../../utils/request";
 // pages/login/login.js
 let app=getApp();
+let isGettingKey;
 Page({
   data: {
     loginPage:false,//判断是否logo是否消失以及登录界面出现
@@ -36,7 +37,10 @@ Page({
     this.setData({loginPage:true,});
   },
   async getKey() { //点击获取验证码按钮时触发
-
+    if(isGettingKey) {
+      return isGettingKey=true;
+    }
+    isGettingKey=true;
     let that=this
     if (this.data.email && this.data.email.match(/(^[A-z])[0-9]{9,9}((@hust.edu.cn)$)/)) { //判断格式是否正确
       this.setData({
@@ -54,6 +58,7 @@ Page({
           timeIntervalShow: true, //出现60s间隔按钮
           getKeyShow: false, //隐藏获取验证码按钮
         });
+        isGettingKey=false;
         let i = 600;
         i--;
         let interval = setInterval(() => {
@@ -77,6 +82,7 @@ Page({
 
       }
     } else {
+      isGettingKey=false;
       this.setData({
         emailTrue: false,
         email: null, //清空输入框

@@ -23,7 +23,9 @@ Component({
     isSortByTime: true, //排列方式
     postList: [],
     serachHistory: ["暂无搜索记录"],
-    tagImage:['../../static/phone.png',"../../static/book.png",'../../static/daily.png','../../static/clothes.png','../../static/other.png','../../static/phone1.png','../../static/book1.png','../../static/daily1.png','../../static/clothes1.png','../../static/other1.png']
+    tagImage:['../../static/phone.png',"../../static/book.png",'../../static/daily.png','../../static/clothes.png','../../static/other.png','../../static/phone1.png','../../static/book1.png','../../static/daily1.png','../../static/clothes1.png','../../static/other1.png'],
+    isLoading:false,
+    noPost:false,
   },
   methods: {
     // 搜索框变化
@@ -49,6 +51,9 @@ Component({
       wx.setStorageSync('serachHistory', [])
     },
     chooseSearchHistory(e) {
+      if(e.currentTarget.dataset.content==="暂无搜索记录") {
+        return ;
+      }
       this.setData({
         searchWords: e.currentTarget.dataset.content
       })
@@ -70,6 +75,7 @@ Component({
     // 选择标签
     chooseTag(e) {
       startIdTag = 0;
+      this.setData({postList:[]})
       const index = e.currentTarget.dataset.index
       if (this.data.selectedIndex === index) {
         startId = 0;
@@ -98,16 +104,17 @@ Component({
     },
     bottomFresh() {
       if (this.data.selectedIndex >= 0) {
-        console.log("tagggg")
         this.selectByTag();
       } else if (this.data.searchWords !== "") {
         this.selectByTitle();
       } else {
+        console.log(startId)
         this.getPostsList();
       }
     },
     getPostsByTime() {
       this.setData({
+        postList:[],
         isSortByTime: true
       });
       startId = 0;
@@ -125,6 +132,7 @@ Component({
     },
     getPostsByHot() {
       this.setData({
+        postList:[],
         isSortByTime: false
       });
       startId = 0;
@@ -150,16 +158,19 @@ Component({
 
     },
     async selectByTag() {
+      
       if (isSearchingByTag) {
         return isSearchingByTag = true;
       }
       try {
+        this.setData({isLoading:true,noPost:false})
         const res = await searchByTag({
           mode: this.data.isSortByTime ? "Time" : "Hot",
           limit: 20,
           offset: startIdTag,
           tag: this.data.tags[this.data.selectedIndex],
         })
+        this.setData({isLoading:false})
         console.log(res.data);
         isSearchingByTag = false;
         res.data.map((item) => {
@@ -174,6 +185,9 @@ Component({
             postList: this.data.postList.concat(res.data)
           })
         }
+        if(res.data.length===0) {
+          this.setData({noPost:true})
+        }
         startIdTag += res.data.length;
         isSearchingByTag = false;
       } catch (err) {
@@ -187,12 +201,14 @@ Component({
         return isSearchingByTitle = true;
       }
       try {
+        this.setData({isLoading:true,noPost:false})
         const res = await searchByTitle({
           mode: this.data.isSortByTime ? "Time" : "Hot",
           limit: 20,
           offset: startIdTitle,
           title: this.data.searchWords
         })
+        this.setData({isLoading:false})
         //保存搜索记录
         this.saveSearchHistory()
         isSearchingByTitle = false;
@@ -208,6 +224,9 @@ Component({
             postList: this.data.postList.concat(res.data)
           })
         }
+        if(res.data.length===0) {
+          this.setData({noPost:true})
+        }
         startIdTitle += res.data.length
         isSearchingByTitle = false
       } catch (err) {
@@ -219,11 +238,16 @@ Component({
       if (isGettingList) return
       isGettingList = true
       try {
+        this.setData({
+          isLoading:true,
+          noPost:false,
+        })
         const res = await getPostsList({
           mode: this.data.isSortByTime ? "Time" : "Hot",
           limit: 20,
           offset: startId,
         })
+        this.setData({isLoading:false})
         console.log(res.data)
         isGettingList = false;
         res.data.map((item) => {
@@ -238,6 +262,9 @@ Component({
             postList: this.data.postList.concat(res.data)
           })
         }
+        if(res.data.length===0) {
+          this.setData({noPost:true})
+        }
         startId += res.data.length
         isGettingList = false
       } catch (err) {
@@ -248,8 +275,17 @@ Component({
   },
   pageLifetimes: {
     show() {
-      startId = 0
-      this.getPostsList()
+      startId = 0;
+      startIdTag = 0;
+      startIdTitle = 0;
+      if (this.data.selectedIndex >= 0) {
+        this.selectByTag();
+      } else if (this.data.searchWords !== "") {
+        this.selectByTitle();
+      } else {
+        console.log(startId)
+        this.getPostsList();
+      }
     }
   },
 
