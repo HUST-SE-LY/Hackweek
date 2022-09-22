@@ -185,7 +185,7 @@ Component({
             postList: this.data.postList.concat(res.data)
           })
         }
-        if(res.data.length===0) {
+        if(this.data.postList.length===0) {
           this.setData({noPost:true})
         }
         startIdTag += res.data.length;
@@ -224,7 +224,7 @@ Component({
             postList: this.data.postList.concat(res.data)
           })
         }
-        if(res.data.length===0) {
+        if(this.data.postList.length===0) {
           this.setData({noPost:true})
         }
         startIdTitle += res.data.length
@@ -262,7 +262,7 @@ Component({
             postList: this.data.postList.concat(res.data)
           })
         }
-        if(res.data.length===0) {
+        if(this.data.postList.length===0) {
           this.setData({noPost:true})
         }
         startId += res.data.length
@@ -275,6 +275,7 @@ Component({
   },
   pageLifetimes: {
     show() {
+      this.setData({postList:[]})
       startId = 0;
       startIdTag = 0;
       startIdTitle = 0;
