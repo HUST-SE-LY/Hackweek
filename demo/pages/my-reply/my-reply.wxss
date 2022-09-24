@@ -18,7 +18,7 @@
 }
 .time {
   margin-left: auto;
-  width: 150rpx;
+  min-width: 4em;
   text-align: right;
 }
 .reply_container {

@@ -11,7 +11,7 @@ App({
   globalData: {
     userInfo: {
       travelMode: false,
-      avatar: "/static/my.png",
+      avatar: "",
       userName: "热心用户",
       qq: "未设置",
       wx: "未设置",
