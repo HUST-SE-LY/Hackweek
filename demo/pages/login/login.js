@@ -7,8 +7,9 @@ let app=getApp();
 let isGettingKey;
 Page({
   data: {
+    canFresh:false,
     loginPage:false,//判断是否logo是否消失以及登录界面出现
-    email: "", //email框内输入的内容
+    email: "@hust.edu.cn", //email框内输入的内容
     keyValue: "", //验证码框内输入的内容
     emailTrue: true, //判断邮箱格式是否正确
     keyTrue: true, //判断验证码格式是否正确
@@ -36,6 +37,11 @@ Page({
   logoOut() {
     this.setData({loginPage:true,});
   },
+  freshPage() {
+    wx.redirectTo({
+      url: './login',
+    })
+  },
   async getKey() { //点击获取验证码按钮时触发
     if(isGettingKey) {
       return isGettingKey=true;
@@ -57,6 +63,7 @@ Page({
           keyInputShow: true, //出现验证码输入框
           timeIntervalShow: true, //出现60s间隔按钮
           getKeyShow: false, //隐藏获取验证码按钮
+          canFresh:true,
         });
         isGettingKey=false;
         let i = 600;
@@ -74,6 +81,7 @@ Page({
               keyValue:"",
               verifyCodeTrue:true,
               loginShow:false,
+              canFresh:false,
             })
             clearInterval(interval);
           }

@@ -150,3 +150,10 @@
   top: 0;
 
 }
+.fresh_button {
+  text-align: center;
+  margin-top: 40rpx;
+  color: #656565;
+  font-size: small;
+  
+}

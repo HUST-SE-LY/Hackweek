@@ -1,5 +1,5 @@
 import {
-  getUserComments,
+  getMyMessage,
   getUserDetail,
   getUserPostNum,
   getUserReplyNum,
@@ -58,19 +58,25 @@ Component({
         userid: res.ID
       })
     },
-    async getComment() { //这里写错了，弄成评论了，等后端消息接口弄出来了再改
-      const res = await getUserComments();
-      console.log(res);
+    async getMessage() {
+      const res=await getMyMessage({
+        offset:0,
+        limit:20,
+      });
       this.setData({
-        messageNum: res.data.length,
-        messageList: res.data,
+        messageNum:res.data.length,
+        messageList:res.data,
       })
     }
+  },
+  async toDetailPage(e) {
+    const postid=e.currentTarget.dataset.postid;
+    
   },
   pageLifetimes: {
     show() {
       this.getUser();
-      this.getComment();
+      this.getMessage();
     }
   }
 })

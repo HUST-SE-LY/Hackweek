@@ -138,6 +138,10 @@ export function getUserFollow(data) {
   return request("/follow/getFollowList", data);
 }
 
+export function getMyMessage(data) {
+  return request("/comment/getCommentListByMyself",data)
+}
+
 // 点赞/取消点赞一体化
 export function toggleLikePost(data) {
   return request('/post/thumb', data, "post")

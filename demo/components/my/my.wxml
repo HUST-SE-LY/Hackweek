@@ -40,7 +40,7 @@
   <view class="container">
     <view class="header"><text style="font-weight: bold;">我的消息</text>{{messageNum}}</view>
     <view class="replies">
-      <view class="message" wx:for="{{messageList}}" wx:key="index">
+      <view class="message" wx:for="{{messageList}}" wx:key="index" bindtap="toDetailPage" data-postid="{{item.postid}}" >
         <view class="divider"></view>
         <view class="content">{{item.UserName}}：{{item.content}}</view>
       </view>

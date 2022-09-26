@@ -4,6 +4,7 @@
   padding: 0 50rpx;
   display: flex;
   flex-direction: column;
+  border-bottom: lightgray solid 1px;
 }
 
 .header {
