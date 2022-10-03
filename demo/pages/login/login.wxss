@@ -1,27 +1,37 @@
 /* pages/login/login.wxss */
-
+page {
+  background-color: #252505;
+}
 
 @keyframes transYbottom {
   from {
     opacity: 0;
     margin-top: 35rem;
-  } to {
+  }
+
+  to {
     opacity: 1;
     margin-top: 2rem;
   }
 }
+
 @keyframes opacityChange {
   from {
     opacity: 0;
-  } to {
+  }
+
+  to {
     opacity: 1;
   }
 }
+
 @keyframes logoOut {
   from {
     opacity: 1;
     top: 35vw;
-  } to {
+  }
+
+  to {
     opacity: 0;
     top: 20vw;
     z-index: -10;
@@ -31,14 +41,17 @@
 .login_page {
   z-index: 20;
 }
+
 .welcome_word1 {
   margin-left: 5vw;
   font-size: 2.75rem;
 }
+
 .welcome_word2 {
   margin-left: 5vw;
   margin-top: 5vw;
 }
+
 .logo {
   border-radius: 50%;
   border: 1px solid #8696a7;
@@ -50,6 +63,7 @@
   margin-left: 15%;
   background-color: white;
 }
+
 .head_content {
   font-weight: 400;
   line-height: 5rem;
@@ -57,12 +71,21 @@
   color: #8696a7;
   text-align: center;
   width: 100vw;
-  
+
 }
+
 .head {
   display: flex;
   margin-top: 30vh;
 }
+
+.email_container {
+  animation: transYbottom 1s forwards;
+  margin-left: 2rem;
+  line-height: 2rem;
+  position: relative;
+}
+
 .email_input {
   width: 70%;
   height: 2rem;
@@ -70,7 +93,9 @@
   border-bottom: #656565 1px solid;
   padding-left: 1rem;
   box-sizing: border-box;
+  position: relative;
 }
+
 .email_input_false {
   width: 70%;
   height: 2rem;
@@ -78,17 +103,24 @@
   border-bottom: red 1px solid;
   padding-left: 1rem;
   box-sizing: border-box;
+  position: relative;
 }
-.email_container {
-  animation: transYbottom 1s forwards;
-  margin-left: 2rem;
-  line-height: 2rem;
+
+.email_input::after {
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  content: "@hust.edu.cn";
+  color: #7b8b6f;
+  height: 2rem;
 }
+
 .key_container {
   margin-top: 2rem;
   margin-left: 1rem;
   line-height: 2rem;
 }
+
 .key_input {
   width: calc(70% - 0.5rem);
   height: 2rem;
@@ -97,6 +129,7 @@
   padding-left: 1rem;
   box-sizing: border-box;
 }
+
 .submit_button {
   background-color: #e0e5df;
   color: #7b8b6f;
@@ -112,9 +145,11 @@
   letter-spacing: 1px;
   box-shadow: #ececea 1px 1px 5px;
 }
+
 .main_button {
   animation: opacityChange 1s forwards;
 }
+
 .key_input_false {
   width: calc(70% - 0.5rem);
   height: 2rem;
@@ -123,11 +158,13 @@
   padding-left: 1rem;
   box-sizing: border-box;
 }
+
 .travel_mode {
   text-align: center;
   margin-top: 40rpx;
   color: #656565;
 }
+
 .backImage {
   position: absolute;
   z-index: 10;
@@ -137,6 +174,7 @@
   transition: all 0.3s;
   opacity: 1;
 }
+
 .backImage_out {
   animation: logoOut 0.3s forwards;
 }
@@ -148,12 +186,12 @@
   width: 100vw;
   height: 100vh;
   top: 0;
-
 }
+
 .fresh_button {
   text-align: center;
   margin-top: 40rpx;
   color: #656565;
   font-size: small;
-  
+
 }

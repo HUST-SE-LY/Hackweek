@@ -9,7 +9,7 @@ Page({
   data: {
     canFresh:false,
     loginPage:false,//判断是否logo是否消失以及登录界面出现
-    email: "@hust.edu.cn", //email框内输入的内容
+    email: "", //email框内输入的内容
     keyValue: "", //验证码框内输入的内容
     emailTrue: true, //判断邮箱格式是否正确
     keyTrue: true, //判断验证码格式是否正确
@@ -48,7 +48,7 @@ Page({
     }
     isGettingKey=true;
     let that=this
-    if (this.data.email && this.data.email.match(/(^[A-z])[0-9]{9,9}((@hust.edu.cn)$)/)) { //判断格式是否正确
+    if (this.data.email && this.data.email.match(/(^[A-z])[0-9]{9,9}/)) { //判断格式是否正确
       this.setData({
         firstEmail: this.data.email,
         emailTrue: true,
@@ -56,7 +56,7 @@ Page({
       }) //设置firstEmail;
       try {
         await sendVerifyCode({
-          email: this.data.email,
+          email: this.data.email + "@hust.edu.cn",
         })
         that.setData({
           emailTrue: true,
@@ -127,7 +127,7 @@ Page({
     if (this.data.firstEmail == this.data.secondEmail) { //判断两次输入的邮箱是否为同一个
      try{
       const res = await verifyCodeMatch({
-        email: that.data.secondEmail,
+        email: that.data.secondEmail+ "@hust.edu.cn", 
         code: that.data.keyValue,
       })
       console.log(res)

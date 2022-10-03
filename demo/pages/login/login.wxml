@@ -7,7 +7,7 @@
 </view>
 <form class="form">
   <view style="display: flex;" class="email_container">
-    <view style="color: #7b8b6f; font-size: large;">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱@hust.edu.cn':'请输入正确的邮箱格式'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
+    <view style="color: #7b8b6f; font-size: large;">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱':'请输入正确的邮箱号'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
   </view>
     <view style="display: {{keyInputShow?'flex':'none'}};" class="key_container">
       <view style="color: #7b8b6f; font-size: large;">验证码：</view><input placeholder="{{verifyCodeTrue?'输入验证码':'验证码错误，请重新输入'}}" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
