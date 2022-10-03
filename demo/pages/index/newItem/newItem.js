@@ -1,6 +1,6 @@
 // pages/index/newItem/newItem.js
 import {
-  releaseNewItem,updateImg
+  releaseNewItem,updateImg,
 } from "../../../utils/request.js";
 const app=getApp();
 Page({
@@ -127,13 +127,25 @@ Page({
     //     duration:2000,
     //   })
     // } else {
+      let filelist=[];
+      let time;
+      for(let i = 0 ;i<this.data.imgList.length;i++) {
+        time=(new Data()).getTime();
+        filelist.push(`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/${time}`);
+        updateImg({
+          file:this.data.imgList[i],
+          fileName:time,
+        })
+
+      }
       const title=this.data.title;
       const content=this.data.detail.replace("出：品牌/新旧/入手渠道/转手原因\n收：需求/其他说明","");
       const tag=this.data.tag;
       const location=this.data.location;
       const price=this.data.price+"￥";
-      const avatar=app.globalData.userInfo.avatar;
-      const res=releaseNewItem({
+      const avatar=app.globalData.userInfo.avatarId;
+      const res=await releaseNewItem({
+        fileid:filelist,
         avatar:avatar,
         title:title,
         content:content,

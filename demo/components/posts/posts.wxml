@@ -19,6 +19,9 @@
   </view>
   <view class="content" >
     {{item.Content}}</view>
+  <view wx:for="{{item.Fileid}}" wx:for-index='imgIndex' wx:for-item="img">
+    <image src="{{img}}"></image>
+  </view> 
   <view class="location">
     <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>
   </view>

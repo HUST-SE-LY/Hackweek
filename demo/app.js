@@ -10,6 +10,7 @@ App({
   },
   globalData: {
     userInfo: {
+      avatarId:"",
       travelMode: false,
       avatar: "",
       userName: "热心用户",

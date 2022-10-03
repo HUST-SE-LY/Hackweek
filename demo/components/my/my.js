@@ -78,6 +78,7 @@ Component({
             avatar:res.fileList[0].tempFileURL,
           });
           App.globalData.userInfo.avatar=this.data.avatar;
+          App.globalData.userInfo.avatarId=`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/avatar/avatar-${this.data.id}`;
 
         },
         fail: console.error

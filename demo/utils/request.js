@@ -77,7 +77,15 @@ export function releaseNewItem(data) {
 }
 //传图片
 export function updateImg(data) {
-  return request('/jpg/download', data, "post", "Form-data")
+  wx.cloud.uploadFile({
+    cloudPath: `postImg/${data.fileName}`, // 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
+    filePath: data.file, // 微信本地文件，通过选择图片，聊天文件等接口获取
+    config: {
+      env: 'prod-7gigvlg43eb566e9' // 微信云托管环境ID
+    },
+    success: console.log,
+    fail: console.error
+  })
 }
 //获取帖子列表
 export function getPostsList(data) {
