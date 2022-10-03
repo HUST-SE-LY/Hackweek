@@ -14,6 +14,7 @@ Page({
   },
   // 下面有一次复用，所以写成了函数
   loadInfo() {
+    console.log(App.globalData.userInfo)
     const {
       avatar,
       userName,

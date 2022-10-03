@@ -5,7 +5,7 @@
 <view class="page_contatiner">
 <view class="user-bar">
   <view class="header">
-    <image src="/static/default-avatar.svg"></image>
+    <image src="{{avatar?avatar:'/static/default-avatar.svg'}}"></image>
   </view>
   <view class="username">{{userName}}</view>
   <view class="my-items">
@@ -42,7 +42,7 @@
     <view class="replies">
       <view class="message" wx:for="{{messageList}}" wx:key="index" bindtap="toDetailPage" data-postid="{{item.postid}}" >
         <view class="divider"></view>
-        <view class="content">{{item.UserName}}：{{item.content}}</view>
+        <view class="content">{{item.UserName}}：{{item.Content}}</view>
       </view>
     </view>
   </view>

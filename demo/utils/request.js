@@ -58,19 +58,17 @@ export function editUserName(data) {
 }
 //上传头像
 export function uploadAvatar(data) {
-  wx.uploadFile({
-    filePath: data.filePath,
-    name: 'avatar',
-    //临时拿自己的域名解析到了后端给的ip地址上，直接填ip地址好像直接invaliUrl了
-    url: 'https://matto.top:5000/images/user',
-    formData: {
-      userid: data.userid
+  wx.cloud.uploadFile({
+    cloudPath: `avatar/avatar-${data.userid}`, // 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
+    filePath: data.filePath, // 微信本地文件，通过选择图片，聊天文件等接口获取
+    config: {
+      env: 'prod-7gigvlg43eb566e9' // 微信云托管环境ID
     },
-    success: (res) => {
-      console.log(res)
-    },
+    success: console.log,
+    fail: console.error
   })
 }
+
 
 
 //发帖子

@@ -6,7 +6,7 @@ page {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20rpx 35rpx;
+  padding: 40rpx 35rpx;
   font-size: 26rpx;
 }
 .avatar image {

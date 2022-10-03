@@ -16,9 +16,14 @@
 </view>
 <view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag">{{tag}}</view>
 <view class="line"></view>
-<view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation">{{location}}</view>
+<view class="input_container">
+  <image src='../../../static/location.svg' class="price_svg"></image>
+  <view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation" style="padding-left: 20rpx;">{{location}}</view>
+</view>
 <view class="line"></view>
-<input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
+<view class="input_container">
+  <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
+</view>
 <view class="line"></view>
 <view class="release"  bindtap="releaseItem" wx:if="{{canUpload}}">发布物品</view>
 <view class="release cannotRelease" wx:if="{{!canUpload}}">发布物品</view>

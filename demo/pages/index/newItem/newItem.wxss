@@ -12,6 +12,16 @@
   box-sizing: border-box;
   border-bottom: lightgray 1px solid;
 }
+.price_svg {
+  height: 50rpx;
+  width: 50rpx;
+}
+.input_container {
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+}
+
 .head_container {
   display: flex;
   margin-bottom: 10%;
@@ -72,7 +82,7 @@
   font-size: large;
   height: 3em;
   line-height: 3em;
-  padding-left: 10%;
+  padding-left: 20rpx;
   box-sizing: border-box;
 }
 .release {

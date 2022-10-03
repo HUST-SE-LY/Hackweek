@@ -1,22 +1,22 @@
 <view class="avatar item" bindtap="chooseAvatar">
-  <view>头像</view>
+  <view style="font-weight: 700;">头像</view>
   <image src="{{avatar}}"></image>
 </view>
 <view class="divider"></view>
 <view class="name item" bindtap="navigateToEditName">
-  <view>昵称</view>
+  <view style="font-weight: 700;">昵称</view>
   <view>{{userName}}</view>
 </view>
 <view class="qq item" bindtap="navigateToEditQQ">
-  <view>QQ</view>
+  <view style="font-weight: 700;">QQ</view>
   <view>{{qq}}</view>
 </view>
 <view class="divider"></view>
 <view class="wx item" bindtap="navigateToEditWx">
-  <view>微信</view>
+  <view style="font-weight: 700;">微信</view>
   <view>{{wx}}</view>
 </view>
 <view class="logout item">
-  <view>退出登录</view>
+  <view style="font-weight: 700;">退出登录</view>
   <image src="/static/arrow-right.svg" bindtap="showModal"></image>
 </view>
