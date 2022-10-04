@@ -3,9 +3,9 @@
 <view class="release_container">
 <view class="head_container">
   <view>标题：</view>
-  <input placeholder="填写标题" bindinput="canRelease" model:value="{{title}}" class="haed_input" placeholder-class="head_input" maxlength="20"/>
+  <input placeholder="填写标题" model:value="{{title}}" class="haed_input" placeholder-class="head_input" maxlength="20"/>
 </view>
-  <textarea name="" id=""  class="detail {{detailInput?'':'detail_clear'}}" bindtap="clearContent" model:value="{{detail}}" bindblur="showPlaceholder" maxlength="1000" bindinput="setContent"></textarea>
+  <textarea name="" id=""  class="detail {{detailInput?'':'detail_clear'}}" bindtap="clearContent" model:value="{{detail}}" placeholder="出：品牌/新旧/入手渠道/转手原因 \n收：需求/其他说明" bindblur="showPlaceholder" maxlength="1000"></textarea>
   <view class="image_container">
     <view wx:for="{{imageList}}" wx:key="index" style="position: relative;">
       <image mode="aspectFill" src="{{item}}" class="image" wx:if="{{imageList.length}}" bindtap="imgLarge" data-url="{{item}}" ></image>
@@ -25,8 +25,7 @@
   <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
 </view>
 <view class="line"></view>
-<view class="release"  bindtap="releaseItem" wx:if="{{canUpload}}">发布物品</view>
-<view class="release cannotRelease" wx:if="{{!canUpload}}">发布物品</view>
+<view class="release {{title.length&&detail.length&&isChooseTag&&isChooseLocation&&price.length?'':'cannotRelease'}}" bindtap="releaseItem">发布物品</view>
 <image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
 <view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>
 
