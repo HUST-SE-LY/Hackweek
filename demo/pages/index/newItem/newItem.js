@@ -23,6 +23,8 @@ Page({
     imgLargeUrl: null, //放大后的图片url
     price: "", //期望价格
     canUpload: false, //判断条件是否填写完必要
+    qq:app.globalData.userInfo.qq,
+    wx:app.globalData.userInfo.wx,
   },
   clearContent() { //点击后清除placeholder
     this.setData({
@@ -74,6 +76,8 @@ Page({
     })
   },
   chooseLocation() { //选择校区函数
+    console.log(this.data.qq)
+    console.log(this.data.wx)
     let that = this;
     wx.showActionSheet({
       itemList: this.data.locationList,
@@ -130,6 +134,10 @@ Page({
       showToast("请填写期望售价")
       return false
     }
+    if(!(this.data.qq.length&&this.data.wx.length)) {
+      showToast("请至少完善一种联系方式")
+      return false
+    }
     return true
   },
   priceCheck() {
@@ -146,7 +154,8 @@ Page({
     });
   },
   async releaseNewItem() {
-    // if(app.globalData.userInfo.wx==="未设置"&&app.globalData.userInfo.qq==="未设置") {//完善联系方式才能发帖
+
+    // if(app.globalData.userInfo.wx===""&&app.globalData.userInfo.qq==="") {//完善联系方式才能发帖
     //   wx.showToast({
     //     title: '请完善联系方式',
     //     icon:"none",
@@ -183,5 +192,5 @@ Page({
     console.log(res);
   }
 
-  //}
+  // }
 })

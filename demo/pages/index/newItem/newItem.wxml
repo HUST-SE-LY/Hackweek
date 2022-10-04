@@ -25,7 +25,7 @@
   <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
 </view>
 <view class="line"></view>
-<view class="release {{title.length&&detail.length&&isChooseTag&&isChooseLocation&&price.length?'':'cannotRelease'}}" bindtap="releaseItem">发布物品</view>
+<view class="release {{title.length&&detail.length&&isChooseTag&&isChooseLocation&&price.length&&(wx.length||qq.length)?'':'cannotRelease'}}" bindtap="releaseItem">发布物品</view>
 <image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
 <view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>
 

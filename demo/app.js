@@ -14,8 +14,8 @@ App({
       travelMode: false,
       avatar: "",
       userName: "热心用户",
-      qq: "未设置",
-      wx: "未设置",
+      qq: "",
+      wx: "",
       userid: 1
     },
   }
