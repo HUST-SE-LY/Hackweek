@@ -48,9 +48,6 @@ Page({
         success(res) {
           for(let i in res.tempFilePaths) {
             imgList.push(res.tempFilePaths[i]);//存放选择的图片的url
-            updateImg({
-              file:res.tempFilePaths[i]
-            })
           }
           that.setData({imageList: imgList},)//更新图片列表
         }
@@ -129,11 +126,11 @@ Page({
     // } else {
       let filelist=[];
       let time;
-      for(let i = 0 ;i<this.data.imgList.length;i++) {
-        time=(new Data()).getTime();
+      for(let i = 0 ;i<this.data.imageList.length;i++) {
+        time=(new Date()).getTime();
         filelist.push(`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/${time}`);
         updateImg({
-          file:this.data.imgList[i],
+          file:this.data.imageList[i],
           fileName:time,
         })
 
@@ -144,6 +141,7 @@ Page({
       const location=this.data.location;
       const price=this.data.price+"￥";
       const avatar=app.globalData.userInfo.avatarId;
+      console.log(filelist)
       const res=await releaseNewItem({
         fileid:filelist,
         avatar:avatar,
