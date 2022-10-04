@@ -3,7 +3,7 @@ import {
   releasePostComment,
   getPostComments,
   toggleLikePost,
-  toggleFollowPost,
+  followPost,cancelFollowPost,
   getPostById,
 
 } from "../../../utils/request";
@@ -152,17 +152,18 @@ Page({
     }
     let num=parseInt(this.data.follow);
     if(this.data.isFollow===false) {
+      followPost({postid:parseInt(this.data.id)})
       this.setData({
         isFollow:true,
         follow:num+1,
       })
     } else {
+      cancelFollowPost({postid:parseInt(this.data.id)})
       this.setData({
         isFollow:false,
         follow: num-1,
       })
     };
-    toggleFollowPost({postid:parseInt(this.data.id)})
   },
   /**
    * 生命周期函数--监听页面加载

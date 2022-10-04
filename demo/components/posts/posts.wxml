@@ -19,7 +19,7 @@
   </view>
   <view class="content" >
     {{item.Content}}</view>
-  <view wx:for="{{item.Fileid}}" wx:for-index='imgIndex' wx:for-item="img">
+  <view wx:for="{{item.Fileid}}" wx:key="index" wx:for-index='imgIndex' wx:for-item="img">
     <image src="{{img}}"></image>
   </view> 
   <view class="location">
