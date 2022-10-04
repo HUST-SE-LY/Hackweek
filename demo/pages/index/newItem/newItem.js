@@ -130,7 +130,7 @@ Page({
         time=(new Date()).getTime();
         filelist.push(`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/${time}`);
         updateImg({
-          file:this.data.imageList[i],
+          filePath:this.data.imageList[i],
           fileName:time,
         })
 
