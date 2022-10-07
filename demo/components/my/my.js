@@ -15,7 +15,7 @@ Component({
   data: {
     id:null,//用户id
     avatar:null,
-    messageNum: 20,
+    messageNum: 0,
     messageList: [],
     userName: "",
     followNum: 0,

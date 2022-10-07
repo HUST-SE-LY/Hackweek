@@ -1,11 +1,13 @@
 page {
   background-color: black;
 }
+
 .head_container {
-  background: -webkit-linear-gradient(top,rgb(255,248,29),black);
+  background: -webkit-linear-gradient(top, rgb(255, 248, 29), black);
   padding: 10rpx 0 0 0;
 
 }
+
 .search-bar {
   display: flex;
   justify-content: center;
@@ -28,6 +30,15 @@ page {
 .search-bar input {
   margin-left: 15rpx;
   font-size: 24rpx;
+  width: 120rpx;
+}
+
+.search-bar-focused {
+  justify-content: flex-start;
+}
+
+.search-bar-focused input {
+  width: 80%;
 }
 
 .searchHistoryContainer {
@@ -49,7 +60,7 @@ page {
 .swiper {
   width: 90vw;
   margin: 0 auto;
- 
+
 }
 
 .searchHistory .headbar {
@@ -114,7 +125,7 @@ page {
 }
 
 .posts-container {
-  
+
   background-color: black;
 }
 
@@ -156,24 +167,29 @@ page {
   width: 100vw;
   height: 10vh;
 }
+
 @keyframes loading {
   from {
     transform: rotate(0deg);
-  } to {
+  }
+
+  to {
     transform: rotate(360deg);
   }
 }
+
 .loading_container {
   width: 80rpx;
   height: 80rpx;
   position: relative;
-  background:  -webkit-linear-gradient(white,white,white,transparent,transparent);
+  background: -webkit-linear-gradient(white, white, white, transparent, transparent);
   margin: 30rpx auto;
   border-radius: 50%;
   box-sizing: border-box;
   animation: loading 1s infinite linear;
- 
+
 }
+
 .loading_hider {
   position: absolute;
   top: 10rpx;

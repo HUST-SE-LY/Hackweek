@@ -1,7 +1,7 @@
 <view class="head_container" style="background: {{isSearchBarFoucus?'white':'-webkit-linear-gradient(top,rgb(255,248,29),black)'}};">
-  <view style="justify-content:{{isSearchBarFoucus?'flex-start':'center'}}" class="search-bar">
+  <view class="search-bar {{isSearchBarFoucus?'search-bar-focused':''}}">
     <image class="button" src="../../static/search.svg"></image>
-    <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle"></input>
+    <input placeholder="搜搜你想要" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle" contenteditable="true"></input>
   </view>
   <view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
     <view class="searchHistory" catchtap="searchBarFocus">

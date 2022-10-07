@@ -1,5 +1,5 @@
 <!--新建帖子-->
-<view class="return" bindtap="returnIndex"></view>
+<!-- <view class="return" bindtap="returnIndex"></view> -->
 <view class="release_container">
 <view class="head_container">
   <view>标题：</view>
