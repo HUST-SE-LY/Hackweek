@@ -1,6 +1,6 @@
 <!--pages/editInfo/editqq/editqq.wxml-->
-<view class="edit">
-  <input model:value="{{qq}}"></input>
+<view class="edit" bindtap="focusInput">
+  <input model:value="{{qq}}" focus="{{isFocus}}"></input>
   <image src="/static/error.svg" bindtap="clearContent"></image>
 </view>
 <view class="save" bindtap="save">保存</view>

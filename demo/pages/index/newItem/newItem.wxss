@@ -88,15 +88,17 @@
 }
 .release {
   margin-top: 2em;
-  width: 6em;
-  height: 2em;
-  line-height: 2em;
+  width: 10em;
+  height: 3em;
+  line-height: 3em;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20vh;
   font-size: larger;
   text-align: center;
   font-weight: 700;
+  border:solid 2rpx lightgray;
+  border-radius: 20rpx;
 }
 .cannotRelease {
   color: grey;

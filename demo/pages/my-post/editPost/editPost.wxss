@@ -1,4 +1,3 @@
-/* pages/my-post/editPost/editPost.wxss */
 .return {
   width: 20px;
   height: 20px;
@@ -6,16 +5,22 @@
   background-size: cover;
   margin-left: 20px;
 }
-.delete {
-  margin-left: auto;
-  
-}
 .release_container {
   width: 100vw;
   padding: 10%;
   box-sizing: border-box;
   border-bottom: lightgray 1px solid;
 }
+.price_svg {
+  height: 50rpx;
+  width: 50rpx;
+}
+.input_container {
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+}
+
 .head_container {
   display: flex;
   margin-bottom: 10%;
@@ -23,8 +28,8 @@
 
 .detail {
   width: 100%;
-  letter-spacing: 0.0015em;
-  line-height: 1.5em;
+  height: 5em;
+  white-space: pre-line
 }
 .detail_clear {
   color: grey
@@ -77,20 +82,22 @@
   font-size: large;
   height: 3em;
   line-height: 3em;
-  padding-left: 10%;
+  padding-left: 20rpx;
   box-sizing: border-box;
 }
 .release {
   margin-top: 2em;
-  width: 6em;
-  height: 2em;
-  line-height: 2em;
+  width: 10em;
+  height: 3em;
+  line-height: 3em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20vh;
+  margin-bottom: 1em;
   font-size: larger;
   text-align: center;
   font-weight: 700;
+  border:solid 2rpx lightgray;
+  border-radius: 20rpx;
 }
 .cannotRelease {
   color: grey;
@@ -119,4 +126,20 @@
   background-color: gray;
   right: 0px;
   top: 0px;
+}
+
+.delete {
+  margin-top: 2em;
+  width: 10em;
+  height: 3em;
+  line-height: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  font-size: larger;
+  text-align: center;
+  font-weight: 700;
+  border:solid 2rpx lightgray;
+  border-radius: 20rpx;
+  color: rgb(177,122, 125);
 }

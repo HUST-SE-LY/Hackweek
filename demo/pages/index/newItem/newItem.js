@@ -26,6 +26,12 @@ Page({
     qq:app.globalData.userInfo.qq,
     wx:app.globalData.userInfo.wx,
   },
+  onLoad() {
+    this.setData({
+      wx:app.globalData.userInfo.wx,
+      qq:app.globalData.userInfo.qq,
+    })
+  },
   clearContent() { //点击后清除placeholder
     this.setData({
       detailInput: true,
@@ -35,11 +41,6 @@ Page({
     //其实可以
     this.setData({
       detailInput: false,
-    })
-  },
-  returnIndex() { //点击返回详情页
-    wx.redirectTo({
-      url: '../index', //可能还有其他配置
     })
   },
   uploadImg() {

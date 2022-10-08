@@ -7,7 +7,8 @@ import {
 } from "../../../utils/request";
 Page({
   data: {
-    qq: ""
+    qq: "",
+    isFocus:false,
   },
   onLoad(options) {
     this.setData({
@@ -17,6 +18,12 @@ Page({
   clearContent() {
     this.setData({
       qq: ""
+    })
+  },
+  focusInput() {
+    console.log("okk")
+    this.setData({
+      isFocus:true,
     })
   },
   async save() {

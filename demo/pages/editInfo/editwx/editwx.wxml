@@ -1,5 +1,5 @@
-<view class="edit">
-  <input model:value="{{wx}}"></input>
+<view class="edit" bindtap="focusInput">
+  <input model:value="{{wx}}"  focus="{{isFocus}}"></input>
   <image src="/static/error.svg" bindtap="clearContent"></image>
 </view>
 <view class="save" bindtap="save">保存</view>

@@ -7,11 +7,18 @@ import {
 const App = getApp()
 Page({
   data: {
-    wx: ""
+    wx: "",
+    isFocus:false,
   },
   onLoad (options) {
     this.setData({
       wx: App.globalData.userInfo.wx
+    })
+  },
+  focusInput() {
+    console.log("okk")
+    this.setData({
+      isFocus:true,
     })
   },
   clearContent() {

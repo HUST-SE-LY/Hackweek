@@ -65,13 +65,13 @@
 <view class="gray_back" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo"></view>
 <view  class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
   <view class="contactInfo">
-    <view class="content" catchtap="copyContactInfo" data-qq="{{qq}}" data-type="qq"><text>Q Q： {{qq}}</text>
-      <text class="copy">copy</text>
+    <view class="content" catchtap="copyContactInfo" data-qq="{{qq}}" data-type="qq"><text>Q Q： {{qq?qq:'用户未设置'}}</text>
+      <text class="copy" wx:if="{{qq}}">copy</text>
     </view>
     <view class="divider"></view>
     <view class="content" bindtap="copyContactInfo" data-wx="{{wx}}" data-type="wx">
-      <view>微信： {{wx}}</view>
-      <text class="copy">copy</text>
+      <view>微信： {{wx?wx:'用户未设置'}}</view>
+      <text class="copy" wx:if="{{wx}}">copy</text>
     </view>
   </view>
 </view>

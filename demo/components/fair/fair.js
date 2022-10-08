@@ -17,7 +17,7 @@ Component({
   data: {
     isSearchBarFoucus: false, //用于标记以改变搜索栏排版
     searchWords: "",
-    swiperContent: ["green", "blue", "violet", "orange"], //感觉正常情况幻灯片参数内容应该是背景图片和对应的商品id
+    swiperContent: ["../../static/animeDemo.png", "../../static/animeDemo1.jpg", "../../static/animeDemo2.jpg", "../../static/animeDemo3.png"], //感觉正常情况幻灯片参数内容应该是背景图片和对应的商品id
     tags: ["电子产品", "文具书籍", "生活用品", "服饰衣物", "其他"],
     selectedIndex: -1,
     isSortByTime: true, //排列方式
