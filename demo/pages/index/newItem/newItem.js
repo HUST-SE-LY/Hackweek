@@ -180,9 +180,8 @@ Page({
     const location = this.data.location;
     const price = this.data.price + "￥";
     const avatar = app.globalData.userInfo.avatarId;
-    console.log(filelist)
     const res = await releaseNewItem({
-      fileid: filelist,
+      fileid: String(filelist),
       avatar: avatar,
       title: title,
       content: content,
@@ -190,7 +189,7 @@ Page({
       location: location,
       tag: tag,
     });
-    console.log(res);
+    console.log(res,String(filelist));
   }
 
   // }

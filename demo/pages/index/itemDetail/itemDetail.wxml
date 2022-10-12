@@ -19,14 +19,12 @@
   </view>
   <view class="content">
     {{content}}</view>
-  <view class="image_list">
-    <image wx:for="{{imageList}}" src="{{item}}" class="image" mode="aspectFill" bindtap="imgLarge" data-url="{{item}}"></image>
-  </view>
+  <nine-grid-images images="{{imageList}}"></nine-grid-images>
   <view class="location">
     <text>{{location}} </text><text> {{createAt}}</text>
   </view>
   <view class="footer">
-    <button class="share item" open-type='share' data-id="{{id}}" data-content='{{content}}' data-username='{{userName}}' data-title="{{title}}" data-time='{{createAt}}' data-price='{{price}}' data-location='{{location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{follow}}' data-thumb='{{thumb}}' data-reply='{{reply}}' data-qq='{{qq}}' data-wx="{{wx}}" data-avatar="{{avatar}}" >
+    <button class="share item" open-type='share' data-id="{{id}}" data-content='{{content}}' data-username='{{userName}}' data-title="{{title}}" data-time='{{createAt}}' data-price='{{price}}' data-location='{{location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{follow}}' data-thumb='{{thumb}}' data-reply='{{reply}}' data-qq='{{qq}}' data-wx="{{wx}}" data-avatar="{{avatar}}">
       <image src="../../../static/share.svg"></image>
       <text>分享</text>
     </button>
@@ -45,7 +43,7 @@
   </view>
 </view>
 <view class="commentsContainer" wx:if="{{isLogin}}">
-   <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" id="comments" ></comments>
+  <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" id="comments"></comments>
 </view>
 <view class="noLogin">
   <text class="plaseLogin" bindtap="toLoginPage" wx:if="{{!isLogin}}">登录后查看&发表评论</text>
@@ -53,17 +51,13 @@
 <view class="devider" wx:if="{{isLogin}}">
 </view>
 <view class="comment {{isfooter?'':'comment_input_display'}}" wx:if="{{isLogin}}">
-  <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" 
-   model:value="{{inputContent}}" bindconfirm="releaseComment"/>
+  <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" model:value="{{inputContent}}" bindconfirm="releaseComment" />
 </view>
 <view class="comment_reply {{isReplyOthers?'':'comment_reply_display'}}" wx:if="{{isLogin}}">
-  <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" maxlength="500" 
-   model:value="{{inputContent}}" focus="{{isfocus}}" bindblur="closeInput"/>
+  <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" maxlength="500" model:value="{{inputContent}}" focus="{{isfocus}}" bindblur="closeInput" />
 </view>
-<image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
-<view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>
 <view class="gray_back" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo"></view>
-<view  class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
+<view class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
   <view class="contactInfo">
     <view class="content" catchtap="copyContactInfo" data-qq="{{qq}}" data-type="qq"><text>Q Q： {{qq?qq:'用户未设置'}}</text>
       <text class="copy" wx:if="{{qq}}">copy</text>

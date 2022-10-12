@@ -161,22 +161,6 @@
   width: 20vw;
   height: 20vw;
 }
-.largeImg {
-  width: 80vw;
-  position: absolute;
-  top: 10vh;
-  z-index: 10;
-  left: 10vw; 
-}
-.gray_back {
-  width: 100vw;
-  height: 100vh;
-  position: sticky;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-
-}
 .contactInfoContainer .contactInfo {
   position: fixed;
   top: 37vh;

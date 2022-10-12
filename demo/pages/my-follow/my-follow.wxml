@@ -1,6 +1,2 @@
 <!-- 还是用原生的吧 -->
-<!-- <view class="navBar">
-  <image src="/static/arrow-left.svg"></image>
-  <view>我的收藏</view>
-</view> -->
 <Posts postList="{{postList}}"></Posts>

@@ -1,0 +1,9 @@
+<!--components/nine-grid-images.wxml-->
+<view wx:if="{{images}}" class="images-container">
+  <view wx:for="{{images}}" wx:key="index" wx:for-item="img" class="image-container">
+    <image catchtap="imgLarge" data-url="{{img}}" mode="aspectFill" src="{{img}}"></image>
+  </view>
+</view>
+
+<image mode="widthFix" catchtap="null" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}" catchtap="imageLargeClose"></image>
+<view class="gray_back" wx:if="{{imgLargeUrl}}" catchtap="imageLargeClose"></view>

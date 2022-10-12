@@ -5,7 +5,7 @@
       <text class="username">{{item.UserName}}</text>
     </view>
     <image wx:if="{{!editMode}}" class="more" src="../../static/more.svg" catchtap="reportPost" data-id="{{item.ID}}"></image>
-    <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-title="{{item.Title}}"  data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
+    <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-title="{{item.Title}}" data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
   </view>
   <view class="second-line">
     <view class="title">{{item.Title}}</view>
@@ -17,16 +17,14 @@
       <view class="price">{{item.Price}}</view>
     </view>
   </view>
-  <view class="content" >
+  <view class="content">
     {{item.Content}}</view>
-  <view wx:for="{{item.Fileid}}" wx:key="index" wx:for-index='imgIndex' wx:for-item="img">
-    <image src="{{img}}"></image>
-  </view> 
+  <nine-gird-images images="{{item.Fileid}}"></nine-gird-images>
   <view class="location">
     <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>
   </view>
   <view class="footer">
-    <button catchtap="sharePost" class="share item" open-type='share' data-id="{{item.ID}}" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}" >
+    <button catchtap="sharePost" class="share item" open-type='share' data-id="{{item.ID}}" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}">
       <image src="../../static/share.svg"></image>
       <text>分享</text>
     </button>

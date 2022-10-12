@@ -13,12 +13,12 @@ Page({
   },
   //生命周期函数--监听页面加载
   onShow: function () {
-    startId=0;
+    startId = 0;
     this.getPost();
   },
   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
-    startId=0;
+    startId = 0;
     this.getPost()
   },
   onReachBottom: function () {
@@ -35,6 +35,8 @@ Page({
       });
       res.data.map((item) => {
         item.CreatedAt = correctTime(item.CreatedAt)
+        if (item.Fileid == "") item.Fileid = []
+        else item.Fileid = item.Fileid.split(",")
       })
       isGettingList = false;
       if (startId === 0) {

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "comments":"../../../components/comments/comments"
+    "comments":"../../../components/comments/comments",
+    "nine-grid-images":"/components/nine-grid-images/nine-grid-images"
   }
 }
