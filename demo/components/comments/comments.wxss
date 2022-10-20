@@ -1,7 +1,8 @@
 /* components/comments/comments.wxss */
 .comment_main {
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   display: flex;
+  margin-top: 3%;
 }
 .comment_main_noflex {
   margin-bottom: 5%;
@@ -25,9 +26,6 @@
 .noComment {
   text-align: center;
   margin-top: 10rpx;
-}
-.username {
-
 }
 .reply_username {
   color: #a0a0a0;
