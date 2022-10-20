@@ -2,7 +2,7 @@
 <view class="post-container">
   <view class="header">
     <view class="left">
-      <image src="{{avatar}}"></image>
+      <image src="{{avatar}}" ></image>
       <text>{{userName}}</text>
     </view>
     <image class="more" src="../../../static/more.svg"></image>

@@ -2,9 +2,16 @@
   background-color: white;
   margin-bottom: 30rpx;
   padding: 0 50rpx;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  border-bottom: lightgray solid 1px;
+  margin-left: 5vw;
+  width: 90vw;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+  background-color: rgb(169,169,169);
+  color: #333333;
+
 }
 
 .header {
@@ -56,11 +63,13 @@
   width: 180rpx;
   height: 60rpx;
   border-radius: 30rpx;
-  border: 1px solid rgba(0, 0, 0, 0.4);
   color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #c1cbd7;
+  color:black;
+  font-weight: 100;
 }
 
 .second-line .right .contact image {

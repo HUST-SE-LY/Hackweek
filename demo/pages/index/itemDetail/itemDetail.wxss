@@ -1,10 +1,19 @@
 /* pages/index/itemDetail/itemDetail.wxss */
+page {
+  background-color: #575757;
+}
 .post-container {
-  background-color: white;
+  background-color: rgb(169, 169, 169);
   margin-bottom: 30rpx;
   padding: 0 50rpx;
   display: flex;
   flex-direction: column;
+  border-radius:40rpx 40rpx;
+  color: #333333;
+  width: 90vw;
+  margin-left: 5vw;
+  margin-top: 20rpx;
+  box-sizing: border-box;
 }
 
 .header {
@@ -17,6 +26,7 @@
 .header .left {
   display: flex;
   align-items: center;
+  gap:20rpx;
 }
 
 .header .left image {
@@ -51,7 +61,7 @@
   width: 180rpx;
   height: 60rpx;
   border-radius: 30rpx;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  background-color: #c1cbd7;
   color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
@@ -112,7 +122,8 @@
   box-sizing: border-box;
   padding: 0 5% 5% 5%;
   border: lightgray 1px solid;
-  border-radius: 5px;
+  border-radius: 40rpx;
+  background-color: rgb(169, 169, 169);
 }
 .devider {
   height: 10vh;
@@ -124,8 +135,9 @@
   padding: 5vw;
   border-top: lightgray 1px solid;
   width: 100vw;
-  background-color: white;
+  background-color: rgb(169, 169, 169);
   box-sizing: border-box;
+  color: #333333;
 }
 .comment_input {
   border-radius: 10px;
@@ -133,6 +145,7 @@
   height: 2em;
   padding-left: 1em;
   margin-bottom: 3vw;
+  background-color: white;
 
 }
 .comment_reply {

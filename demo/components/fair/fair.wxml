@@ -1,8 +1,11 @@
-<view class="head_container" style="background: {{isSearchBarFoucus?'white':'-webkit-linear-gradient(top,rgb(255,248,29),black)'}};">
+<view class="header">
   <view class="search-bar {{isSearchBarFoucus?'search-bar-focused':''}}">
     <image class="button" src="../../static/search.svg"></image>
     <input placeholder="搜搜你想要" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle" contenteditable="true"></input>
   </view>
+</view>
+<view class="head_container">
+  
   <view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
     <view class="searchHistory" catchtap="searchBarFocus">
       <view class="headbar">
@@ -38,9 +41,9 @@
 </view>
 <view class="posts-container">
   <view class="sort-type-bar">
-    <text style="font-weight:{{isSortByTime?'bold':''}}" bindtap="getPostsByTime">时间</text>
+    <text style="color:{{isSortByTime?'rgb(255,248,29)':''}};font-weight: {{isSortByTime?'bold':''}};" bindtap="getPostsByTime">时间</text>
     <text class="divider"></text>
-    <text style="font-weight:{{!isSortByTime?'bold':''}}" bindtap="getPostsByHot">热度</text>
+    <text style="color:{{!isSortByTime?'rgb(255,248,29)':''}};font-weight:  {{!isSortByTime?'bold':''}} ;" bindtap="getPostsByHot">热度</text>
   </view>
   <view wx:if="{{isLoading}}" class="loading_container">
     <view class="loading_hider"></view>

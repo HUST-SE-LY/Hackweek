@@ -3,8 +3,9 @@
   margin: 10px 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 5px;
+  grid-gap:5px;
 }
+
 
 .images-container .image-container {
   width: 100%;
