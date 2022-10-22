@@ -1,6 +1,7 @@
 import {
   editMyPost,
   deleteMyPost,
+  updateImg,
 } from "../../../utils/request.js";
 import {
   showToast
@@ -35,9 +36,11 @@ Page({
           location:options.location,
           price:options.price,
           postid:options.id,
+          originListLength:options.fileid.split(",")[0]?options.fileid.split(",").length:0,
+          imageList:options.fileid.split(",")[0]?options.fileid.split(","):[],
           wx:app.globalData.userInfo.wx,
-          qq:app.globalData.userInfo.qq,
-        })
+          qq:app.globalData.userInfo.qq,        })
+          console.log(this.data.imageList)
   },
   clearContent() { //点击后清除placeholder
     this.setData({
@@ -142,7 +145,7 @@ Page({
       showToast("请填写期望售价")
       return false
     }
-    if(!(this.data.qq.length&&this.data.wx.length)) {
+    if(!(this.data.qq.length||this.data.wx.length)) {
       showToast("请至少完善一种联系方式")
       return false
     }
@@ -186,8 +189,11 @@ Page({
     //   })
     // } else {
     let filelist = [];
+    for(let i = 0 ;i < this.data.originListLength;i++) {
+      filelist.push(this.data.imageList[i]);
+    }
     let time;
-    for (let i = 0; i < this.data.imageList.length; i++) {
+    for (let i = this.data.originListLength; i < this.data.imageList.length; i++) {
       time = (new Date()).getTime();
       filelist.push(`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/${time}`);
       //加个await保证时间戳不同
@@ -203,7 +209,8 @@ Page({
     const price = this.data.price + "￥";
     const avatar = app.globalData.userInfo.avatarId;
     console.log(filelist)
-    const res = await releaseNewItem({
+    const res = await editMyPost({
+      postid:this.data.postid,
       fileid: filelist,
       avatar: avatar,
       title: title,

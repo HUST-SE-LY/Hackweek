@@ -48,7 +48,7 @@ Page({
   async getPost(id) {
     const res=await getPostById({postid:id});
     wx.navigateTo({
-      url: `../../pages/index/itemDetail/itemDetail?id=${res.data.ID}&content=${res.data.Content}&username=${res.data.UserName}&price=${res.data.Price}&title=${res.data.Title}&time=${res.data.CreatedAt.split("T")[0]}&location=${res.data.Location}&isFollow=${res.data.isFollow}&isThumb=${res.data.isThumb}&isReplied=${res.data.isreplied}&follow=${res.data.Follow}&reply=${res.data.Reply}&thumb=${res.data.Thumb}&qq=${res.data.QQ}&wx=${res.data.Wx}`,
+      url: `../../pages/index/itemDetail/itemDetail?id=${res.data.ID}&content=${res.data.Content}&username=${res.data.UserName}&price=${res.data.Price}&title=${res.data.Title}&time=${res.data.CreatedAt.split("T")[0]}&location=${res.data.Location}&isFollow=${res.data.isFollow}&isThumb=${res.data.isThumb}&isReplied=${res.data.isreplied}&follow=${res.data.Follow}&reply=${res.data.Reply}&thumb=${res.data.Thumb}&qq=${res.data.QQ}&wx=${res.data.Wx}&avatar=${res.data.Avatar}`,
     })
   },
   async getMyReply() {

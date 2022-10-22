@@ -46,8 +46,9 @@ Component({
       
     },
     navigateToEditPage(e) {
+      console.log(e.currentTarget.dataset.fileid)
       wx.navigateTo({
-        url: `../../pages/my-post/editPost/editPost?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&location=${e.currentTarget.dataset.location}&tag=${e.currentTarget.dataset.tag}`,
+        url: `../../pages/my-post/editPost/editPost?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&location=${e.currentTarget.dataset.location}&tag=${e.currentTarget.dataset.tag}&fileid=${e.currentTarget.dataset.fileid}`,
       })
     },
     async toggleThumbup(e) {

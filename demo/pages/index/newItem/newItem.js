@@ -135,7 +135,7 @@ Page({
       showToast("请填写期望售价")
       return false
     }
-    if(!(this.data.qq.length&&this.data.wx.length)) {
+    if(!(this.data.qq.length||this.data.wx.length)) {
       showToast("请至少完善一种联系方式")
       return false
     }

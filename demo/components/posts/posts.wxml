@@ -5,7 +5,7 @@
       <text class="username">{{item.UserName}}</text>
     </view>
     <image wx:if="{{!editMode}}" class="more" src="../../static/more.svg" catchtap="reportPost" data-id="{{item.ID}}"></image>
-    <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-title="{{item.Title}}" data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
+    <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-fileid="{{item.Fileid}}" data-title="{{item.Title}}" data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
   </view>
   <view class="second-line">
     <view class="title">{{item.Title}}</view>
