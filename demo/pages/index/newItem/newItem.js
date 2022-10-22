@@ -178,7 +178,7 @@ Page({
     const content = this.data.detail;
     const tag = this.data.tag;
     const location = this.data.location;
-    const price = this.data.price + "￥";
+    const price = this.data.price;
     const avatar = app.globalData.userInfo.avatarId;
     const res = await releaseNewItem({
       fileid: String(filelist),
