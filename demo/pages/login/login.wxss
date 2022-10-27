@@ -90,7 +90,7 @@ page {
   width: 70%;
   height: 2rem;
   text-decoration: none;
-  border-bottom: #656565 1px solid;
+  border-bottom: black 1px solid;
   padding-left: 1rem;
   box-sizing: border-box;
   position: relative;
@@ -111,7 +111,7 @@ page {
   bottom: -1px;
   right: 0;
   content: "@hust.edu.cn";
-  color: #7b8b6f;
+  color: black;
   height: 2rem;
 }
 
