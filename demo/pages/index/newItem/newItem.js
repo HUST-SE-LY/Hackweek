@@ -144,7 +144,7 @@ Page({
   priceCheck() {
     let priceNow = this.data.price.match(/[0-9]{1,6}/g); //对价格栏正则筛选
     this.setData({
-      price: priceNow
+      price: priceNow[0]
     });
   },
   releaseItem() {
