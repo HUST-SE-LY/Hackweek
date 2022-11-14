@@ -148,7 +148,6 @@ Component({
 
     },
     async selectByTag() {
-
       if (isSearchingByTag) {
         return isSearchingByTag = true;
       }
@@ -203,6 +202,7 @@ Component({
         this.setData({
           isLoading: true,
           noPost: false
+          postList: []
         })
         const res = await searchByTitle({
           mode: this.data.isSortByTime ? "Time" : "Hot",
