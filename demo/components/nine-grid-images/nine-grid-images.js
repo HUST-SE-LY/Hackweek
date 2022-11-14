@@ -15,6 +15,7 @@ Component({
    */
   data: {
     images: [],
+    container_mode:"zero",
   },
 
   /**
@@ -35,7 +36,112 @@ Component({
     },
     null() {
       return
+    },
+    fresh() {
+      this.setData({
+        images:this.properties.images,
+      })
+      console.log(this.properties.images)
+      switch(this.data.images.length) {
+        case 0:
+          break;
+        case 1:
+          this.setData({
+            container_mode:"one"
+          })
+          break;
+        case 2:
+          this.setData({
+            container_mode:"two"
+          })
+          break;
+        case 3:
+          this.setData({
+            container_mode:"three"
+          })
+          break;
+        case 4:
+          this.setData({
+            container_mode:"four"
+          })
+          break; 
+        case 5:
+          this.setData({
+            container_mode:"five"
+          })
+          break;
+        case 6:
+          this.setData({
+            container_mode:"six"
+          })
+          break;    
+        case 7:
+          this.setData({
+            container_mode:"seven"
+          })
+          break;
+        case 8:
+          this.setData({
+            container_mode:"eight"
+          })
+          break;
+      }
+
+      console.log(this.data.container_mode)
     }
   },
-  lifetimes: {}
+  lifetimes: {
+    attached() {
+      this.setData({
+        images:this.properties.images,
+      })
+      console.log(this.properties.images)
+      switch(this.data.images.length) {
+        case 0:
+          break;
+        case 1:
+          this.setData({
+            container_mode:"one"
+          })
+          break;
+        case 2:
+          this.setData({
+            container_mode:"two"
+          })
+          break;
+        case 3:
+          this.setData({
+            container_mode:"three"
+          })
+          break;
+        case 4:
+          this.setData({
+            container_mode:"four"
+          })
+          break; 
+        case 5:
+          this.setData({
+            container_mode:"five"
+          })
+          break;
+        case 6:
+          this.setData({
+            container_mode:"six"
+          })
+          break;    
+        case 7:
+          this.setData({
+            container_mode:"seven"
+          })
+          break;
+        case 8:
+          this.setData({
+            container_mode:"eight"
+          })
+          break;
+      }
+
+      console.log(this.data.container_mode)
+    }
+  }
 })

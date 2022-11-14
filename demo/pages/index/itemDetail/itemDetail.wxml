@@ -19,7 +19,7 @@
   </view>
   <view class="content">
     {{content}}</view>
-  <nine-grid-images images="{{imageList}}"></nine-grid-images>
+  <nine-grid-images images="{{imageList}}" class="nine_grid_images"></nine-grid-images>
   <view class="location">
     <text>{{location}} </text><text> {{createAt}}</text>
   </view>

@@ -103,6 +103,9 @@ Page({
     let res = await getPostComments({
       postid: id
     });
+    if(!res.data) {
+      return ;
+    }
     for (let data of res.data) {
       if (data.ReplyComments === null) {
         data.ReplyComments = [];
@@ -213,8 +216,8 @@ Page({
       avatar: options.avatar,
       imageList: options.Fileid
     })
-    console.log(this.data.imageList)
     this.getComments(id); //获取评论列表(后端可能要修改一下增加offset和limit)
+    this.selectComponent(".nine_grid_images").fresh();
 
   },
 
