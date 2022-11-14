@@ -46,7 +46,7 @@ Page({
   uploadImg() {
     let that = this;
     let imgList = this.data.imageList; //获取图片url列表
-    if (imgList.length < 8) { //图片数小于八才能选择
+    if (imgList.length < 9) { //图片数小于八才能选择
       wx.chooseImage({
         count: 1,
         success(res) {

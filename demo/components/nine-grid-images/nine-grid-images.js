@@ -84,6 +84,11 @@ Component({
             container_mode:"eight"
           })
           break;
+        case 9:
+          this.setData({
+            container_mode:"nine"
+          })
+          break;
       }
     }
   },
@@ -133,6 +138,11 @@ Component({
         case 8:
           this.setData({
             container_mode:"eight"
+          })
+          break;
+        case 9:
+          this.setData({
+            container_mode:"nine"
           })
           break;
       }
