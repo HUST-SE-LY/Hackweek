@@ -14,7 +14,6 @@ Page({
   },
   // 下面有一次复用，所以写成了函数
   loadInfo() {
-    console.log(App.globalData.userInfo)
     const {
       avatar,
       userName,
@@ -76,6 +75,7 @@ Page({
         that.setData({
           avatar: res.tempFiles[0].tempFilePath,
         });
+        console.log(that.data.avatar)
         uploadAvatar({
           filePath: res.tempFiles[0].tempFilePath,
           userid: App.globalData.userInfo.userid

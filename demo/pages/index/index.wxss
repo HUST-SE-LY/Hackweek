@@ -25,3 +25,21 @@ page {
   width: 50rpx;
 }
 
+.write_post {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: black;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform: translateY(-30rpx);
+}
+
+.write_post image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+
+}
+

@@ -142,10 +142,7 @@ Page({
     return true
   },
   priceCheck() {
-    let priceNow = this.data.price.match(/[0-9]{1,6}/g); //对价格栏正则筛选
-    this.setData({
-      price: priceNow[0],
-    });
+    //废弃了，价格是任意字符串
   },
   releaseItem() {
     if (!this.canRelease()) return
@@ -180,13 +177,6 @@ Page({
     const location = this.data.location;
     const price = this.data.price;
     const avatar = app.globalData.userInfo.avatarId;
-    console.log(title)
-    console.log(content)
-    console.log(tag)
-    console.log(location)
-    console.log(price)
-    console.log(avatar)
-    console.log(filelist)
 
     const res = await releaseNewItem({
       fileid: String(filelist),
@@ -198,7 +188,6 @@ Page({
       tag: tag,
     });
 
-    console.log(res,String(filelist));
   }
 
   // }

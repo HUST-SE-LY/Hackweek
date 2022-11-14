@@ -46,6 +46,7 @@ function cloudUploadFile(cloudPath, filePath) {
         env: 'prod-7gigvlg43eb566e9' // 微信云托管环境ID
       },
       success: (res) => {
+        console.log(res)
         resolve(res)
       },
       fail: (err) => {

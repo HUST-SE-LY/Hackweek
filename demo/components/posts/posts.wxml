@@ -8,14 +8,8 @@
     <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-fileid="{{item.Fileid}}" data-title="{{item.Title}}" data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
   </view>
   <view class="second-line">
+    <view class="price">{{item.Price}}</view>
     <view class="title">{{item.Title}}</view>
-    <view class="right">
-      <view class="contact" catchtap="showContactInfo" data-qq="{{item.QQ}}" data-wx="{{item.Wx}}">
-        <image src="../../static/contact.svg"></image>
-        <text>联系</text>
-      </view>
-      <view class="price">{{item.Price}}</view>
-    </view>
   </view>
   <view class="content">
     {{item.Content}}</view>
@@ -24,10 +18,14 @@
     <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>
   </view>
   <view class="footer">
-    <button catchtap="sharePost" class="share item" open-type='share' data-id="{{item.ID}}" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}">
+    <view class="contact" catchtap="showContactInfo" data-qq="{{item.QQ}}" data-wx="{{item.Wx}}">
+        <image src="../../static/contact.svg"></image>
+        <text>联系</text>
+  </view>
+    <!-- <button catchtap="sharePost" class="share item" open-type='share' data-id="{{item.ID}}" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}">
       <image src="../../static/share.svg"></image>
       <text>分享</text>
-    </button>
+    </button> -->
     <view class="right">
       <view class="follow item" data-id="{{item.ID}}" data-index="{{index}}" catchtap="toggleFollow">
         <image src="{{item.isFollow?'../../static/followed.svg':'../../static/follow.svg'}}">

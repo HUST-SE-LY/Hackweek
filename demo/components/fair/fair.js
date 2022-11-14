@@ -23,7 +23,7 @@ Component({
     isSortByTime: true, //排列方式
     postList: [],
     serachHistory: ["暂无搜索记录"],
-    tagImage: ['../../static/phone.png', "../../static/book.png", '../../static/daily.png', '../../static/clothes.png', '../../static/other.png', '../../static/phone1.png', '../../static/book1.png', '../../static/daily1.png', '../../static/clothes1.png', '../../static/other1.png'],
+    tagImage: ['../../static/phone.svg', "../../static/book.svg", '../../static/daily.svg', '../../static/clothes.svg', '../../static/other.svg', '../../static/phone1.svg', '../../static/book1.svg', '../../static/daily1.svg', '../../static/clothes1.svg', '../../static/other1.svg'],
     isLoading: false,
     noPost: false,
   },
@@ -91,18 +91,6 @@ Component({
         selectedIndex: index
       });
       this.selectByTag();
-
-    },
-    navigateToWritePage() {
-      if (app.globalData.userInfo.travelMode) {
-        wx.reLaunch({
-          url: '../../pages/login/login',
-        })
-      } else {
-        wx.navigateTo({
-          url: '/pages/index/newItem/newItem',
-        })
-      }
 
     },
     bottomFresh() {

@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 
@@ -27,6 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 
@@ -56,6 +58,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 
@@ -93,6 +96,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 .four view {
@@ -136,6 +140,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 .five .image_container_0 {
@@ -223,6 +228,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 .six view {
@@ -280,6 +286,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 .seven .image_container_0 {
@@ -385,6 +392,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap:5px;
+  padding:0 50rpx;
 }
 
 .eight view {

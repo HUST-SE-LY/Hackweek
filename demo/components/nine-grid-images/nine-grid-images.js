@@ -41,7 +41,6 @@ Component({
       this.setData({
         images:this.properties.images,
       })
-      console.log(this.properties.images)
       switch(this.data.images.length) {
         case 0:
           break;
@@ -86,8 +85,6 @@ Component({
           })
           break;
       }
-
-      console.log(this.data.container_mode)
     }
   },
   lifetimes: {
@@ -95,7 +92,6 @@ Component({
       this.setData({
         images:this.properties.images,
       })
-      console.log(this.properties.images)
       switch(this.data.images.length) {
         case 0:
           break;
@@ -140,8 +136,6 @@ Component({
           })
           break;
       }
-
-      console.log(this.data.container_mode)
     }
   }
 })

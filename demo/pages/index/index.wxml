@@ -6,6 +6,9 @@
     </image>
     <view style="color: {{selectedTabBarIndex==0?'rgb(255,248,29)':'white'}};">集市</view>
   </view>
+  <view class="write_post">
+    <image src="/static/write_post.svg" bindtap="navigateToWritePage"></image>
+  </view>
   <view class="tabbar-item" bindtap="switchTab" data-index="1">
     <image src="{{selectedTabBarIndex==1?'/static/my_active.svg':'/static/my.svg'}}"></image>
     <view style="color: {{selectedTabBarIndex==1?'rgb(255,248,29)':'white'}};">我的</view>

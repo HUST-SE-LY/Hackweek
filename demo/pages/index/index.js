@@ -4,6 +4,17 @@ Page({
   data: {
     selectedTabBarIndex: 0
   },
+  navigateToWritePage() {
+    if (app.globalData.userInfo.travelMode) {
+      wx.reLaunch({
+        url: '../../pages/login/login',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/index/newItem/newItem',
+      })
+    }
+  },
   switchTab(e) {
     const {
       index

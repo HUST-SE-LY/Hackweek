@@ -1,20 +1,14 @@
 page {
-  background-color: #121212;
+  background-color: black;
 }
 
-.header {
-  width: 100vw;
-  height: 8vh;
-  background-color:rgb(255,248,29) ;
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  border-radius: 0 0 60rpx 60rpx;
-  box-shadow: lightgray 0 2px 10px;
+.main_container {
+  background-color: #f5f5f5;
+  border-radius: 40rpx 40rpx 0 0;
+  min-height: 100vh;
 }
 
 .head_container {
-  background:#121212;
   padding: 10rpx 0 0 0;
 
 }
@@ -34,6 +28,7 @@ page {
   top: 4vw;
   border-radius: 15px;
   background-color: #FFFFFF;
+  margin-bottom: 60rpx;
 }
 
 
@@ -59,7 +54,7 @@ page {
 
 .searchHistoryContainer {
   position: fixed;
-  top: 0;
+  top: calc(30px + 4vw + 30rpx);
   bottom: 0;
   left: 0;
   right: 0;
@@ -69,7 +64,7 @@ page {
 
 .searchHistory {
   background-color: white;
-  padding: 20vw 40rpx 40px 40rpx;
+  padding: 40rpx 40rpx 40px 40rpx;
   z-index: 99;
 }
 
@@ -102,9 +97,8 @@ swiper {
 .tag-bar {
   display: flex;
   flex-wrap: nowrap;
-  color: white;
+  color: #333333;
   margin-bottom: 30rpx;
-  background-color: #121212;
 }
 
 .tagsScroll {
@@ -147,7 +141,7 @@ swiper-item {
 }
 
 .posts-container {
-  background-color: #121212;
+  background-color: #f5f5f5;
 }
 
 .no_post {
@@ -157,12 +151,10 @@ swiper-item {
 }
 
 .sort-type-bar {
-  width: 720rpx;
   display: flex;
   justify-content: flex-end;
   line-height: 40rpx;
   font-size: 28rpx;
-  background-color: #121212;
   padding: 10rpx 30rpx 10rpx 0;
   margin-bottom: 0rpx;
   color: #999999;
@@ -199,7 +191,7 @@ swiper-item {
   width: 80rpx;
   height: 80rpx;
   position: relative;
-  background:  -webkit-linear-gradient(white,white,white,transparent,transparent);
+  background:  -webkit-linear-gradient(#333333,#333333,#333333,transparent,transparent);
   margin: 30rpx auto;
   border-radius: 50%;
   box-sizing: border-box;
@@ -213,5 +205,5 @@ swiper-item {
   width: 70rpx;
   height: 70rpx;
   border-radius: 50%;
-  background-color: black;
+  background-color: #f5f5f5;
 }
