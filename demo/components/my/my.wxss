@@ -3,81 +3,83 @@
   display: block;
 
 }
+
 .background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgb(255,252,109);
+  background-color: rgb(255, 252, 109);
   height: 35vh;
   z-index: 1;
 }
 
 .background_image {
-  height: 80%;
+  height: 100%;
   display: block;
   margin: 0 auto;
 }
 
 .user-bar {
   position: relative;
-  margin: 30vh 50rpx 0 50rpx;
-  background-color: rgba(199, 199, 199, 0.93);
+  margin-top: 20vh;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 6rpx 10rpx rgba(0, 0, 0, 0.4);
+  box-shadow: 5rpx 0 15rpx 2rpx rgba(0, 0, 0);
   border-radius: 20rpx;
-  z-index: 10;
+  z-index: 1;
 }
 
 .user-bar .header {
   position: relative;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 8vh;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80rpx;
 }
 
-.user-bar .header image {
-  position: absolute;
-  top: -70rpx;
-  right: 250rpx;
+.user-bar .header .avatar {
+  margin-left: 70rpx;
   width: 150rpx;
   height: 150rpx;
   border-radius: 50%;
+  transform: translateY(-40rpx);
 }
 
-.user-bar .header .contactInfo {
-  margin: 20rpx 50rpx;
-  width: 150rpx;
-  line-height: 50rpx;
-  font-size: 26rpx;
-  text-align: center;
-  border: 2rpx solid rgba(0, 0, 0, 0.5);
-  border-radius: 20rpx;
-}
-
-.user-bar .username {
+.user-bar .header .username {
+  margin-left: 30rpx;
   font-size: 36rpx;
   font-weight: bold;
   align-self: center;
 }
 
+.user-bar .header .right-arrow {
+  margin-left: auto;
+  margin-right: 30rpx;
+  width: 35rpx;
+  height: 35rpx;
+}
+
 .user-bar .my-items {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .user-bar .my-items .item {
-  display: flex;
   margin: 50rpx 20rpx;
   font-size: 26rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .user-bar .my-items image {
-  height: 45rpx;
-  width: 45rpx;
-  margin-right: 20rpx;
+  height: 55rpx;
+  width: 55rpx;
+  border-radius: 50%;
+  background-color: black;
+  padding: 15rpx;
 }
 
 .user-bar .my-items .item view {
@@ -88,33 +90,26 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-.user-bar .footer {
-  margin-bottom: 30rpx;
-  align-self: flex-end;
-  font-size: 26rpx;
-  color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-}
-
-.user-bar .footer image {
-  margin-left: 20rpx;
-  margin-right: 50rpx;
-  align-self: flex-end;
-  width: 40rpx;
-  height: 40rpx;
+.user-bar .swiper {
+  height: 80rpx;
+  background-color: #9CD8F2;
+  width: 600rpx;
+  margin: 0 auto 80rpx;
+  border-radius: 50rpx;
 }
 
 .messages-bar {
-  background-color: white;
-  margin: 40rpx 50rpx;
-  width: 650rpx;
-  border-radius: 20rpx;
+  width: 750rpx;
+  border-radius: 50rpx;
+  margin-top: -40rpx;
+  position: relative;
+  z-index: 1;
+  box-shadow: 5rpx 0 15rpx 2rpx rgba(0, 0, 0);
 }
 
 .messages-bar .container {
   padding: 30rpx 45rpx;
-  background-color: rgb(169,169,169);
+  background-color: white;
   border-radius: 20rpx;
   box-sizing: border-box;
   color: #333333;
@@ -123,21 +118,15 @@
 .messages-bar .header {
   padding-bottom: 10rpx;
   padding: 30rpx 0;
+  display: flex;
 }
 
-.messages-bar .replies .divider {
-  border-bottom: 2rpx solid rgba(0, 0, 0, 0.1);
+.messages-bar .header image {
+  margin-left: 20rpx;
+  height: 45rpx;
+  width: 45rpx;
 }
 
-.messages-bar .replies .content {
-  margin: 20rpx 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  /* 换行问题 */
-  word-break: break-all;
-}
 .bottom-devider {
   width: 100vw;
   height: 10vh;
