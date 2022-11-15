@@ -252,7 +252,7 @@ Component({
         })
         const res = await getPostsList({
           mode: this.data.isSortByTime ? "Time" : "Hot",
-          limit: 20,
+          limit: 10,
           offset: startId,
         })
         this.setData({

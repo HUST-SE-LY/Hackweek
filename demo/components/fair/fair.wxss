@@ -10,6 +10,7 @@ page {
 
 .head_container {
   padding: 10rpx 0 0 0;
+  box-sizing: border-box;
 
 }
 .ad_picture {
@@ -21,14 +22,12 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 600rpx;
-  height: 30px;
-  margin: 0 auto;
+  width: 306px;
+  height: 32px;
+  margin: 12px auto;
   position: relative;
-  top: 4vw;
   border-radius: 15px;
   background-color: #FFFFFF;
-  margin-bottom: 60rpx;
 }
 
 
@@ -53,8 +52,8 @@ page {
 }
 
 .searchHistoryContainer {
-  position: fixed;
-  top: calc(30px + 4vw + 30rpx);
+  position: absolute;
+  top: 56px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -66,6 +65,7 @@ page {
   background-color: white;
   padding: 40rpx 40rpx 40px 40rpx;
   z-index: 99;
+  border-radius: 0 0 10px 10px;
 }
 
 
@@ -97,14 +97,14 @@ swiper {
 .tag-bar {
   display: flex;
   flex-wrap: nowrap;
-  color: #333333;
-  margin-bottom: 30rpx;
+  margin-bottom: 16px;
   z-index: 1;
 }
 
 .tagsScroll {
   white-space: nowrap;
   margin: 0 50rpx;
+  font-size: 11px;
 }
 
 .scroll-item {
@@ -112,7 +112,7 @@ swiper {
   margin-left: 5rpx;
   margin-right: 20rpx;
   text-align: center;
-  font-size: 26rpx;
+  font-size: 11px;
 }
 
 .selected-item {
@@ -124,8 +124,8 @@ swiper-item {
 }
 
 .tag-bar .tagsScroll .scroll-item .img_border {
-  height: 110rpx;
-  width: 110rpx;
+  height: 66px;
+  width: 66px;
   border-radius: 50%;
   margin-bottom: 5px;
 }
@@ -154,8 +154,8 @@ swiper-item {
   display: flex;
   justify-content: flex-end;
   line-height: 40rpx;
-  font-size: 28rpx;
-  padding: 10rpx 30rpx 10rpx 0;
+  font-size: 12px;
+  padding: 5rpx 5rpx 10rpx 0;
   margin-bottom: 0rpx;
   color: #999999;
 }
