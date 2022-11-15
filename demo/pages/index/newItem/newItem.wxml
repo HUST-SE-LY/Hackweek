@@ -18,15 +18,19 @@
   <view class="detail_tip">最多只能上传九张图片哦</view>
 </view>
 <view class="choose_container">
-  <view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag">{{tag}}</view>
+  <view class="input_container">
+  <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
+</view>
+<view class="line"></view>
+<view class="input_container">
+  <image src="../../../static/tag.svg" class="price_svg"></image>
+  <view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag" style="padding-left: 20rpx;"s>{{tag}}</view>
+</view>
+  
 <view class="line"></view>
 <view class="input_container">
   <image src='../../../static/location.svg' class="price_svg"></image>
   <view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation" style="padding-left: 20rpx;">{{location}}</view>
-</view>
-<view class="line"></view>
-<view class="input_container">
-  <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
 </view>
 <view class="line"></view>
 </view>

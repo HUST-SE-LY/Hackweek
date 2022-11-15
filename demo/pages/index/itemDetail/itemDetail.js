@@ -13,6 +13,7 @@ import {
 // pages/index/itemDetail/itemDetail.js
 Page({
   data: {
+    postList:null,
     isLogin: false, //是否登录
     id: "", //帖子唯一id，从点入时传入
     responseid: "",
@@ -214,11 +215,12 @@ Page({
       qq: options.qq,
       wx: options.wx,
       avatar: options.avatar,
-      imageList: options.Fileid
+      imageList: options.Fileid,
+      postList:[JSON.parse(options.post)],
     })
+    console.log(this.data.postList)
+    
     this.getComments(id); //获取评论列表(后端可能要修改一下增加offset和limit)
-    this.selectComponent(".nine_grid_images").fresh();
-
   },
 
   /**

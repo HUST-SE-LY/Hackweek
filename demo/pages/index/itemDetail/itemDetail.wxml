@@ -1,47 +1,6 @@
 <!--帖子-->
-<view class="post-container">
-  <view class="header">
-    <view class="left">
-      <image src="{{avatar}}" ></image>
-      <text>{{userName}}</text>
-    </view>
-    <image class="more" src="../../../static/more.svg"></image>
-  </view>
-  <view class="second-line">
-    <view class="title">{{title}}</view>
-    <view class="right">
-      <view class="contact" bindtap="ContactInfo">
-        <image src="../../../static/contact.svg"></image>
-        <text>联系</text>
-      </view>
-      <view class="price">{{price}}</view>
-    </view>
-  </view>
-  <view class="content">
-    {{content}}</view>
-  <nine-grid-images images="{{imageList}}" class="nine_grid_images"></nine-grid-images>
-  <view class="location">
-    <text>{{location}} </text><text> {{createAt}}</text>
-  </view>
-  <view class="footer">
-    <button class="share item" open-type='share' data-id="{{id}}" data-content='{{content}}' data-username='{{userName}}' data-title="{{title}}" data-time='{{createAt}}' data-price='{{price}}' data-location='{{location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{follow}}' data-thumb='{{thumb}}' data-reply='{{reply}}' data-qq='{{qq}}' data-wx="{{wx}}" data-avatar="{{avatar}}">
-      <image src="../../../static/share.svg"></image>
-      <text>分享</text>
-    </button>
-    <view class="right">
-      <view class="follow item" bindtap="Follow">
-        <image src="{{isFollow?'../../../static/followed.svg':'../../../static/follow.svg'}}">
-        </image><text>{{follow}}</text>
-      </view>
-      <view class="reply item">
-        <image src="{{isReplied?'../../../static/replied.svg':'../../../static/reply.svg'}}"></image><text>{{reply}}</text>
-      </view>
-      <view class="thumb item" bindtap="Thumb">
-        <image src="{{isThumb?'../../../static/thumbed.svg':'../../../static/thumb.svg'}}"></image><text>{{thumb}}</text>
-      </view>
-    </view>
-  </view>
-</view>
+<Posts postList="{{postList}}"></Posts>
+<view class="comment_head">全部评论</view>
 <view class="commentsContainer" wx:if="{{isLogin}}">
   <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" id="comments"></comments>
 </view>

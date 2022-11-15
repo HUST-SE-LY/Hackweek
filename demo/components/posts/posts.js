@@ -26,6 +26,10 @@ Component({
       type:Boolean,
       value:false
     },
+    isInDetail: {
+      type:Boolean,
+      value:false,
+    }
   },
   lifetimes: {
     ready() {
@@ -39,8 +43,9 @@ Component({
           url: '../../pages/login/login',
         })
       } else {
+        console.log(e.currentTarget.dataset.post)
         wx.navigateTo({
-          url: `../../pages/index/itemDetail/itemDetail?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&username=${e.currentTarget.dataset.username}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&time=${e.currentTarget.dataset.time}&location=${e.currentTarget.dataset.location}&isFollow=${e.currentTarget.dataset.isfollow}&isThumb=${e.currentTarget.dataset.isthumb}&isReplied=${e.currentTarget.dataset.isreplied}&follow=${e.currentTarget.dataset.follow}&reply=${e.currentTarget.dataset.reply}&thumb=${e.currentTarget.dataset.thumb}&qq=${e.currentTarget.dataset.qq}&wx=${e.currentTarget.dataset.wx}&avatar=${e.currentTarget.dataset.avatar}`,
+          url: `../../pages/index/itemDetail/itemDetail?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&username=${e.currentTarget.dataset.username}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&time=${e.currentTarget.dataset.time}&location=${e.currentTarget.dataset.location}&isFollow=${e.currentTarget.dataset.isfollow}&isThumb=${e.currentTarget.dataset.isthumb}&isReplied=${e.currentTarget.dataset.isreplied}&follow=${e.currentTarget.dataset.follow}&reply=${e.currentTarget.dataset.reply}&thumb=${e.currentTarget.dataset.thumb}&qq=${e.currentTarget.dataset.qq}&wx=${e.currentTarget.dataset.wx}&avatar=${e.currentTarget.dataset.avatar}&post=${JSON.stringify(e.currentTarget.dataset.post)}`,
         })
       }
       

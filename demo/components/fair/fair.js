@@ -201,7 +201,7 @@ Component({
       try {
         this.setData({
           isLoading: true,
-          noPost: false
+          noPost: false,
           postList: []
         })
         const res = await searchByTitle({
@@ -268,6 +268,7 @@ Component({
           this.setData({
             postList: res.data
           })
+          console.log(this.data.postList)
         } else {
           this.setData({
             postList: this.data.postList.concat(res.data)
