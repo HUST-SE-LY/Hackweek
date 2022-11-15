@@ -1,52 +1,46 @@
-
 <view class="background">
-  <image src="../../static/myBackground.png" class="background_image" mode="heightFix"></image>
+  <image src="../../static/my/background.png" class="background_image" mode="heightFix"></image>
 </view>
 <view class="page_contatiner">
-<view class="user-bar">
-  <view class="header">
-    <image src="{{avatar?avatar:'/static/default-avatar.svg'}}"></image>
-  </view>
-  <view class="username">{{userName}}</view>
-  <view class="my-items">
-    <view class="item" bindtap="navigateToMyFollowPage">
-      <image src="/static/followed.svg"></image>
-      <view class="words">
-        <view>我的收藏</view>
-        <view class="number">{{followNum}}</view>
+  <view class="user-bar">
+    <view class="header">
+      <image class="avatar" src="{{avatar?avatar:'/static/default-avatar.svg'}}"></image>
+      <view class="username">{{userName}}</view>
+      <image class="right-arrow" bindtap="navigateToEditPage" src="/static/my/arrow-right.png"></image>
+    </view>
+    <view class="my-items">
+      <view class="item" bindtap="navigateToMyPostPage">
+        <image src="/static/my/shouye1.svg"></image>
+        <view>
+          <view>我的闲置</view>
+          <!-- <view class="number">{{itemNum}}</view> -->
+        </view>
+      </view>
+      <view class="item" bindtap="navigateToMyFollowPage">
+        <image src="/static/my/shoucangjia.svg"></image>
+        <view class="words">
+          <view>我的收藏</view>
+          <!-- <view class="number">{{followNum}}</view> -->
+        </view>
+      </view>
+      <view class="item" bindtap="navigateToMyReplyPage">
+        <image src="/static/my/pinglun.svg"></image>
+        <view class="words">
+          <view>我的评论</view>
+          <!-- <view class="number">{{replyNum}}</view> -->
+        </view>
       </view>
     </view>
-    <view class="item" bindtap="navigateToMyReplyPage">
-      <image src="/static/replied.svg"></image>
-      <view class="words">
-        <view>我的评论</view>
-        <view class="number">{{replyNum}}</view>
+    <view class="swiper"></view>
+  </view>
+  <view class="messages-bar">
+    <view class="container">
+      <view class="header"><text style="font-weight: bold;">回复我的</text>
+        <image src="/static/my/message.png"></image>
       </view>
-    </view>
-    <view class="item" bindtap="navigateToMyPostPage">
-      <image src="/static/my-post.svg"></image>
-      <view>
-        <view>我的闲置</view>
-        <view class="number">{{itemNum}}</view>
-      </view>
+      <replymeItems messageList="{{messageList}}"></replymeItems>
     </view>
   </view>
-  <view class="footer">
-    <text bindtap="navigateToEditPage">编辑资料</text>
-    <image bindtap="navigateToEditPage" src="/static/edit.svg"></image>
-  </view>
-</view>
-<view class="messages-bar">
-  <view class="container">
-    <view class="header"><text style="font-weight: bold;">我的消息</text>{{messageNum}}</view>
-    <view class="replies">
-      <view class="message" wx:for="{{messageList}}" wx:key="index" bindtap="toDetailPage" data-postid="{{item.ID}}">
-      <view class="divider"></view>
-      <view class="content">{{item.UserName}}：{{item.Content}}</view>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="bottom-devider"></view>
+  <view class="bottom-devider"></view>
 
 </view>

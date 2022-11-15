@@ -1,5 +1,7 @@
 {
   "component": true,
-  "usingComponents": {},
+  "usingComponents": {
+    "replymeItems": "/components/my/replymeItem/replyMe"
+  },
   "backgroundColor": "#000000"
 }

@@ -6,7 +6,6 @@ import {
   getUserPostNum,
   getUserReplyNum,
   getUserFollowNum,
-  getPostById,
 } from "../../utils/request/";
 const App = getApp();
 Component({
@@ -58,9 +57,6 @@ Component({
       });
       this.getMessage();
       this.getMyAvatar();
-
-
-
       //把更新userInfo放这了，就不放App.js里了
       App.globalData.userInfo = Object.assign(App.globalData.userInfo, {
         userid:res.ID,
@@ -101,16 +97,7 @@ Component({
       that.setData({
         messageNum:this.data.messageList.length
       })
-    },
-    async toDetailPage(e) {
-      const postid=e.currentTarget.dataset.postid;
-      const res=await getPostById({
-        postid:postid,
-      })
-      await wx.navigateTo({
-        url: `../../pages/index/itemDetail/itemDetail?id=${res.data.ID}&content=${res.data.Content}&username=${res.data.UserName}&price=${res.data.Price}&title=${res.data.Title}&time=${res.data.CreatedAt}&location=${res.data.Location}&isFollow=${res.data.isFollow}&isThumb=${res.data.isThumb}&isReplied=${res.data.isReplied}&follow=${res.data.Follow}&reply=${res.data.Reply}&thumb=${res.data.Thumb}&qq=${res.data.QQ}&wx=${res.data.Wx}&avatar=${res.data.Avatar}`,
-      })   
-    },
+    }
   },
   pageLifetimes: {
     show() {

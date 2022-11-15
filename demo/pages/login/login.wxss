@@ -1,6 +1,6 @@
 /* pages/login/login.wxss */
 page {
-  background-color: #252505;
+  background-color: white;
 }
 
 @keyframes transYbottom {
@@ -54,7 +54,7 @@ page {
 
 .logo {
   border-radius: 50%;
-  border: 1px solid #8696a7;
+  border: 1px solid #0b0f14;
   color: #8696a7;
   width: 5rem;
   height: 5rem;
@@ -64,31 +64,39 @@ page {
   background-color: white;
 }
 
-.head_content {
-  font-weight: 400;
-  line-height: 5rem;
-  font-size: 1.5rem;
-  color: #8696a7;
-  text-align: center;
-  width: 100vw;
-
-}
-
 .head {
   display: flex;
-  margin-top: 30vh;
+  margin-top: calc(50vh - 33vw);
+}
+
+.key-input-show {
+  margin-top: calc(50vh - 36vw);
+}
+
+.head_content {
+  animation: transYbottom 1s forwards;
+  font-weight: bold;
+  font-size: 44rpx;
+  color: black;
+  text-align: center;
+  width: 100vw;
+}
+
+.prewords {
+  color: black;
+  font-size: 30rpx;
+  font-weight: bold;
 }
 
 .email_container {
   animation: transYbottom 1s forwards;
-  margin-left: 2rem;
-  line-height: 2rem;
+  margin-left: 125rpx;
   position: relative;
 }
 
 .email_input {
-  width: 70%;
-  height: 2rem;
+  width: 65%;
+  height: 40rpx;
   text-decoration: none;
   border-bottom: black 1px solid;
   padding-left: 1rem;
@@ -97,27 +105,24 @@ page {
 }
 
 .email_input_false {
-  width: 70%;
-  height: 2rem;
-  text-decoration: none;
+  padding-left: 0;
   border-bottom: red 1px solid;
-  padding-left: 1rem;
-  box-sizing: border-box;
-  position: relative;
 }
 
 .email_input::after {
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   right: 0;
   content: "@hust.edu.cn";
   color: black;
-  height: 2rem;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  font-weight: 500;
 }
 
 .key_container {
-  margin-top: 2rem;
-  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-left: 95rpx;
   line-height: 2rem;
 }
 
@@ -131,16 +136,14 @@ page {
 }
 
 .submit_button {
-  background-color: #e0e5df;
-  color: #7b8b6f;
-  width: 50%;
-  height: 4rem;
-  margin-top: 2rem;
-  border-radius: 2rem;
-  font-size: 1.25rem;
+  background-color: #333333;
+  color: #FFF9F9;
+  width: 230rpx;
+  margin: 2.5rem auto 0;
+  border-radius: 20rpx;
+  font-size: 26rpx;
   text-align: center;
-  padding: 0;
-  line-height: 4rem;
+  line-height: 50rpx;
   font-weight: normal;
   letter-spacing: 1px;
   box-shadow: #ececea 1px 1px 5px;
@@ -162,15 +165,16 @@ page {
 .travel_mode {
   text-align: center;
   margin-top: 40rpx;
-  color: #656565;
+  color: #797979;
+  font-size: 24rpx;
 }
 
 .backImage {
   position: absolute;
-  z-index: 10;
-  width: 140vw;
-  left: -17vw;
-  top: 35vw;
+  z-index: -10;
+  width: 138vw;
+  left: -19vw;
+  top: calc(50vh - 69vw);
   transition: all 0.3s;
   opacity: 1;
 }
@@ -183,9 +187,9 @@ page {
 .backImage1 {
   position: absolute;
   z-index: -10;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
+  width: 138vw;
+  left: -19vw;
+  top: 35vw;
 }
 
 .fresh_button {
@@ -193,5 +197,4 @@ page {
   margin-top: 40rpx;
   color: #656565;
   font-size: small;
-
 }

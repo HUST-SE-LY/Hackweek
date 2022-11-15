@@ -1,22 +1,21 @@
-<image src="../../static/loginBackground.png" class="backImage {{loginPage?'backImage_out':''}}" bindtap="logoOut" mode="widthFix"></image>
-<image src="../../static/loginBackground1.png" class="backImage1" mode="widthFix"></image>
+<image src="../../static/login/background.png" class="backImage" bindtap="logoOut" mode="widthFix"></image>
 <view class="login_page" wx:if="{{loginPage}}">
-<view class="back">
-  <view class="head">
-  <view class="head_content">登录&注册</view>
-</view>
-<form class="form">
-  <view style="display: flex;" class="email_container">
-    <view style="color: black; font-size: large;">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱':'请输入正确的邮箱号'}}" name="Email_address" class="{{emailTrue?'email_input':'email_input_false'}}"  model:value="{{email}}"/>
-  </view>
-    <view style="display: {{keyInputShow?'flex':'none'}};" class="key_container">
-      <view style="color: #7b8b6f; font-size: large;">验证码：</view><input placeholder="{{verifyCodeTrue?'输入验证码':'验证码错误，请重新输入'}}" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
+  <view class="back">
+    <view class="head  {{keyInputShow?'key-input-show':''}}">
+      <view class="head_content">登录&注册</view>
     </view>
-    <button class="submit_button main_button" bindtap="getKey" style="display: {{getKeyShow?'block':'none'}};">获取验证码</button>
-    <button class="submit_button" style="display: {{timeIntervalShow?'block':'none'}};">{{time}}s</button>
-    <button bindtap="login" class="submit_button" style="display: {{loginShow?'block':'none'}};">登录&注册</button>
-  </form>
-</view>
-<view class="travel_mode" bindtap="travelMode" wx:if="{{!canFresh}}">游客模式</view>
-<view class="fresh_button" bindtap="freshPage" wx:if="{{canFresh}}">没有收到验证码？</view>
+    <form class="form">
+      <view style="display: flex;" class="email_container">
+        <view class="prewords">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱':'请输入正确的邮箱号'}}" 	placeholder-style="font-size:24rpx" name="Email_address" class="email_input {{emailTrue?'':'email_input_false'}}" model:value="{{email}}" />
+      </view>
+      <view style="display: {{keyInputShow?'flex':'none'}};" class="key_container">
+        <view class="prewords">验证码：</view><input placeholder="{{verifyCodeTrue?'输入验证码':'验证码错误，请重新输入'}}" 	placeholder-style="font-size:24rpx" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
+      </view>
+      <div class="submit_button main_button" bindtap="getKey" style="display: {{getKeyShow?'block':'none'}};">获取验证码</div>
+      <div class="submit_button" style="display: {{timeIntervalShow?'block':'none'}}; margin-top:1rem">{{time}}s</div>
+      <div bindtap="login" class="submit_button" style="display: {{loginShow?'block':'none'}};  margin-top:1rem">登录&注册</div>
+    </form>
+  </view>
+  <view class="travel_mode" bindtap="travelMode" wx:if="{{!canFresh}}">游客模式</view>
+  <view class="fresh_button" bindtap="freshPage" wx:if="{{canFresh}}">没有收到验证码？</view>
 </view>
