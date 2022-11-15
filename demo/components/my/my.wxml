@@ -10,21 +10,21 @@
     </view>
     <view class="my-items">
       <view class="item" bindtap="navigateToMyPostPage">
-        <image src="/static/my/post.png"></image>
+        <image src="/static/my/shouye1.svg"></image>
         <view>
           <view>我的闲置</view>
           <!-- <view class="number">{{itemNum}}</view> -->
         </view>
       </view>
       <view class="item" bindtap="navigateToMyFollowPage">
-        <image src="/static/followed.svg"></image>
+        <image src="/static/my/shoucangjia.svg"></image>
         <view class="words">
           <view>我的收藏</view>
           <!-- <view class="number">{{followNum}}</view> -->
         </view>
       </view>
       <view class="item" bindtap="navigateToMyReplyPage">
-        <image src="/static/replied.svg"></image>
+        <image src="/static/my/pinglun.svg"></image>
         <view class="words">
           <view>我的评论</view>
           <!-- <view class="number">{{replyNum}}</view> -->
