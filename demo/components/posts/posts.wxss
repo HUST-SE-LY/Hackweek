@@ -158,7 +158,6 @@
   top: 37vh;
   left: 50rpx;
   width: 650rpx;
-  height: 15vh;
   background-color: #fff;
   border-radius: 15rpx;
   display: flex;
@@ -167,7 +166,7 @@
 }
 
 .contactInfoContainer .contactInfo .content {
-  line-height: 6vh;
+  line-height: 8vh;
   margin: 5rpx 30rpx;
   font-size: 28rpx;
   display: flex;
@@ -176,13 +175,37 @@
 }
 
 .contactInfoContainer .contactInfo .content .copy {
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
   width: 100rpx;
   line-height: 4vh;
   text-align: center;
-  border-radius: 15rpx;
+  border-radius: 20rpx;
 }
 
 .contactInfoContainer .contactInfo .divider {
+  width: 80%;
+  margin-left: 10%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.contactInfo_head {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.contactInfo_head image {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  border: #9CD8F2 solid 1px;
+}
+
+.info_container {
+  background-color: #F5F5F5;
+  margin: 10rpx 30rpx 50rpx 30rpx;
+  border-radius: 15rpx;
+  
+}
+

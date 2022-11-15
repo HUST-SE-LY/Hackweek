@@ -12,7 +12,7 @@ Component({
     // 点击联系按钮出现的联系信息
     contactInfoShow: false,
     contactInfo: {
-      qq: 1175526477,
+      qq: null,
       wx: null
     },
     content:"",
@@ -114,13 +114,17 @@ Component({
     showContactInfo(e) {
       const {
         qq,
-        wx
+        wx,
+        avatar,
+        username
       } = e.currentTarget.dataset;
       this.setData({
         contactInfoShow: true,
         contactInfo: {
           qq,
-          wx
+          wx,
+          avatar,
+          username
         }
       })
     },
