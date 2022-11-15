@@ -159,7 +159,6 @@ page {
   width: 5vw;
   height: 5vw;
   position: absolute;
-  background-color: gray;
   right: 0px;
   top: 0px;
 }

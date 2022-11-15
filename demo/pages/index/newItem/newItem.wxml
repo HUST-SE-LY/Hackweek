@@ -11,7 +11,7 @@
   <view class="image_container">
     <view wx:for="{{imageList}}" wx:key="index" style="position: relative;">
       <image mode="aspectFill" src="{{item}}" class="image" wx:if="{{imageList.length}}" bindtap="imgLarge" data-url="{{item}}" ></image>
-      <view class="image_delete" bindtap="deleteImage" data-index="{{index}}"></view>
+      <image class="image_delete" bindtap="deleteImage" data-index="{{index}}" src="../../../static/delete.svg"></image>
     </view>
     <view class="upload_image" bindtap="uploadImg"><view class="add_icon"></view></view>
   </view>
