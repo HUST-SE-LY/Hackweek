@@ -1,6 +1,6 @@
 .post-container {
   background-color: white;
-  margin-bottom: 30rpx;
+  margin-bottom: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

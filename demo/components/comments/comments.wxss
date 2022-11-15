@@ -14,13 +14,13 @@ view {
 .comment_container {
   display: flex;
   box-sizing: border-box;
-  padding-top: 5%;
+  padding-top: 15px;
   padding-bottom: 5%;
   border-bottom: lightgray 1px solid;
 }
 
 .main_container {
-  margin-left: 50rpx;
+  margin-left: 15px;
   flex:auto;
 }
 
@@ -31,37 +31,40 @@ view {
 }
 
 .avatar {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50rpx;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   background-color: #CAE9F7;
   flex-shrink: 0;
 }
 
 .username {
+  font-size: 12px;
 }
 
 .contact {
-  width: 180rpx;
-  height: 80rpx;
-  border-radius: 25rpx;
+  width: 96px;
+  height: 34px;
+  border-radius: 10px;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #F5F5F5;
   color:black;
+  font-size: 13px;
   font-weight: 100;
   margin-left: auto;
 }
 
 .main_content {
-  margin-top: 25rpx;
+  margin-top: 4px;
+  font-size: 12px;
 }
 
 .contact image {
-  height: 36rpx;
-  width: 36rpx;
+  height: 20px;
+  width: 20px;
   margin-right: 10rpx;
 }
 
@@ -84,6 +87,8 @@ view {
 }
 .noComment {
   text-align: center;
+  font-size: 12px;
+  padding-top: 10px;
 }
 .reply_username {
   color: #02A7F0;
@@ -94,6 +99,8 @@ view {
 
 .second_single {
   margin-bottom: 20rpx;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .second_content {

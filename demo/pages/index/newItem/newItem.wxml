@@ -24,13 +24,13 @@
 <view class="line"></view>
 <view class="input_container">
   <image src="../../../static/tag.svg" class="price_svg"></image>
-  <view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag" style="padding-left: 20rpx;"s>{{tag}}</view>
+  <view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag">{{tag}}</view>
 </view>
   
 <view class="line"></view>
 <view class="input_container">
   <image src='../../../static/location.svg' class="price_svg"></image>
-  <view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation" style="padding-left: 20rpx;">{{location}}</view>
+  <view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation">{{location}}</view>
 </view>
 <view class="line"></view>
 </view>
