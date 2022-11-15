@@ -198,3 +198,13 @@ page {
   color: #656565;
   font-size: small;
 }
+
+.footer {
+  position: absolute;
+  width: 100vw;
+  bottom: 10vh;
+  text-align: center;
+  font-size: 13px;
+
+
+}

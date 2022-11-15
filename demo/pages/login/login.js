@@ -8,7 +8,7 @@ let isGettingKey;
 Page({
   data: {
     canFresh:false,
-    loginPage:false,//判断是否logo是否消失以及登录界面出现
+    loginPage:true,//判断是否logo是否消失以及登录界面出现
     email: "", //email框内输入的内容
     keyValue: "", //验证码框内输入的内容
     emailTrue: true, //判断邮箱格式是否正确

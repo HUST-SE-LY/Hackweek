@@ -1,4 +1,4 @@
-<image src="../../static/login/background.png" class="backImage" bindtap="logoOut" mode="widthFix"></image>
+<image src="../../static/login/background.png" class="backImage" mode="widthFix"></image>
 <view class="login_page" wx:if="{{loginPage}}">
   <view class="back">
     <view class="head  {{keyInputShow?'key-input-show':''}}">
@@ -19,3 +19,4 @@
   <view class="travel_mode" bindtap="travelMode" wx:if="{{!canFresh}}">游客模式</view>
   <view class="fresh_button" bindtap="freshPage" wx:if="{{canFresh}}">没有收到验证码？</view>
 </view>
+<view class="footer">————不期而喻小程序团队————</view>
