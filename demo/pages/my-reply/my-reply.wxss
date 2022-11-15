@@ -1,4 +1,7 @@
 /* pages/my-follow/my-reply.wxss */
+view {
+  word-break: break-all;
+}
 .header {
   font-size: large;
   text-align: right;

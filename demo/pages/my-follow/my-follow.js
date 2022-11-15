@@ -31,6 +31,10 @@ Page({
         offset: startId
       })
       isGettingList = false;
+      res.data.forEach((post) => {
+        post.Fileid = typeof post.Fileid === 'string'?post.Fileid.split(","):post.Fileid;
+      })
+
       if (startId === 0) {
         this.setData({
           postList: res.data

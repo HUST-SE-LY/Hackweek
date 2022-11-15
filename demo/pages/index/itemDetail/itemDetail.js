@@ -184,6 +184,10 @@ Page({
    */
   async onLoad(options) { //获取id和其他数据
     console.log(options)
+    const post = JSON.parse(options.post) ;
+    if(typeof post.Fileid === 'string') {
+      post.Fileid = post.Fileid.split(',');
+    }
     let id = options.id;
     console.log("ok")
     if (wx.getStorageSync('token')) {
@@ -216,8 +220,9 @@ Page({
       wx: options.wx,
       avatar: options.avatar,
       imageList: options.Fileid,
-      postList:[JSON.parse(options.post)],
+      postList:[post],
     })
+
     console.log(this.data.postList)
     
     this.getComments(id); //获取评论列表(后端可能要修改一下增加offset和limit)

@@ -1,30 +1,41 @@
-<!--pages/my-post/editPost/editPost.wxml-->
-<view class="release_container">
-<view class="head_container">
-  <view>标题：</view>
-  <input placeholder="填写标题" model:value="{{title}}" class="haed_input" placeholder-class="head_input" maxlength="20"/>
+<view class="title">
+  <image src="../../../static/release_logo.svg"></image>
+  <view>发布闲置</view>
 </view>
-  <textarea name="" id=""  class="detail {{detailInput?'':'detail_clear'}}" bindtap="clearContent" model:value="{{detail}}" placeholder="出：品牌/新旧/入手渠道/转手原因 \n收：需求/其他说明" bindblur="showPlaceholder" maxlength="1000"></textarea>
+<view class="head_container">
+  <input placeholder="先写标题哦(必填)" model:value="{{title}}" class="head_input" placeholder-class="head_input" maxlength="20" />
+</view>
+<view class="release_container">
+  <textarea name="" id="" class="detail {{detailInput?'':'detail_clear'}}" bindtap="clearContent" model:value="{{detail}}" placeholder="详细描述一下您的闲置...(必填)" bindblur="showPlaceholder" maxlength="1000"></textarea>
   <view class="image_container">
     <view wx:for="{{imageList}}" wx:key="index" style="position: relative;">
-      <image mode="aspectFill" src="{{item}}" class="image" wx:if="{{imageList.length}}" bindtap="imgLarge" data-url="{{item}}" ></image>
-      <view class="image_delete" bindtap="deleteImage" data-index="{{index}}"></view>
+      <image mode="aspectFill" src="{{item}}" class="image" wx:if="{{imageList.length}}" bindtap="imgLarge" data-url="{{item}}"></image>
+      <image class="image_delete" bindtap="deleteImage" data-index="{{index}}" src="../../../static/delete.svg"></image>
     </view>
-    <view class="upload_image" bindtap="uploadImg"><view class="add_icon"></view></view>
+    <view class="upload_image" bindtap="uploadImg">
+      <view class="add_icon"></view>
+    </view>
   </view>
+  <view class="detail_tip">最多只能上传九张图片哦</view>
 </view>
-<view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag">{{tag}}</view>
-<view class="line"></view>
-<view class="input_container">
-  <image src='../../../static/location.svg' class="price_svg"></image>
-  <view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation" style="padding-left: 20rpx;">{{location}}</view>
+<view class="choose_container">
+  <view class="input_container">
+    <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6" />
+  </view>
+  <view class="line"></view>
+  <view class="input_container">
+    <image src="../../../static/tag.svg" class="price_svg"></image>
+    <view class="choose {{isChooseTag?'':'noChoose'}}" bindtap="chooseTag" style="padding-left: 20rpx;" s>{{tag}}</view>
+  </view>
+
+  <view class="line"></view>
+  <view class="input_container">
+    <image src='../../../static/location.svg' class="price_svg"></image>
+    <view class="choose {{isChooseLocation?'':'noChoose'}}" bindtap="chooseLocation" style="padding-left: 20rpx;">{{location}}</view>
+  </view>
+  <view class="line"></view>
 </view>
-<view class="line"></view>
-<view class="input_container">
-  <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6"/>
-</view>
-<view class="line"></view>
 <view class="release {{title.length&&detail.length&&isChooseTag&&isChooseLocation&&price.length&&(wx.length||qq.length)?'':'cannotRelease'}}" bindtap="releaseItem">确认修改</view>
-<view class="delete" bindtap="deletePost">删除帖子</view>
-<image  mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
+<image mode="widthFix" src="{{imgLargeUrl}}" class="largeImg" wx:if="{{imgLargeUrl}}"></image>
 <view class="gray_back" wx:if="{{imgLargeUrl}}" bindtap="imageLargeClose"></view>
+<view class="delete" bindtap="deletePost">删除帖子</view>
