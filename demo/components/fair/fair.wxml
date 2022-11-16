@@ -43,11 +43,11 @@
       <text class="divider"></text>
       <text style="color:{{!isSortByTime?'#000000':''}};font-weight:  {{!isSortByTime?'bold':''}} ;" bindtap="getPostsByHot">热度</text>
     </view>
+    <view wx:if="{{noPost}}" class="no_post">好像什么也没有呢，要不要发个帖子？</view>
+    <Posts postList="{{postList}}" class="post_list" />
     <view wx:if="{{isLoading}}" class="loading_container">
       <view class="loading_hider"></view>
     </view>
-    <view wx:if="{{noPost}}" class="no_post">好像什么也没有呢，要不要发个帖子？</view>
-    <Posts postList="{{postList}}" class="post_list" />
     <view class="bottom_divider"></view>
   </view>
 </view>

@@ -14,6 +14,8 @@ Page({
   data: {
     replyList: [],
     username: "",
+    isloading:false,
+    noPost:false,
   },
   //生命周期函数--监听页面加载
   onLoad: function (options) {
@@ -53,18 +55,31 @@ Page({
   },
   async getMyReply() {
     console.log(startId)
+
     if (isGettingList) return
     isGettingList = true
     try {
+      this.setData({
+        isLoading:true,
+        noPost:false,
+      })
       const res = await getUserComments({
         limit:20,
         offset:startId,
+      })
+      this.setData({
+        isLoading:false,
       })
       isGettingList = false;
       if (startId === 0) {
         this.setData({
           replyList: res.data
         })
+        if(res.data.length === 0) {
+          this.setData({
+            noPost:true,
+          })
+        }
       } else {
         this.setData({
           replyList: this.data.replyList.concat(res.data)

@@ -1,6 +1,7 @@
 <view class="header">
   我的评论
 </view>
+<view class="no_post" wx:if="{{noPost}}">这里空空如也...</view>
 <view wx:for="{{replyList}}" class="reply_container" >
   <view class="reply" bindtap="navigateToPost" data-id="{{item.postid}}">
     <view class="content">{{username}}: {{item.content}}</view>
@@ -10,3 +11,7 @@
     删除
   </view>
 </view>
+<view wx:if="{{isLoading}}" class="loading_container">
+  <view class="loading_hider"></view>
+</view>
+

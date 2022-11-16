@@ -1,2 +1,6 @@
 <!-- 还是用原生的吧 -->
+<view class="no_post" wx:if="{{noPost}}">这里空空如也...</view>
 <Posts postList="{{postList}}"></Posts>
+<view wx:if="{{isLoading}}" class="loading_container">
+  <view class="loading_hider"></view>
+</view>

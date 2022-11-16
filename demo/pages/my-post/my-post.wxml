@@ -1,2 +1,6 @@
 <!--pages/my-post.wxml-->
+<view class="no_post" wx:if="{{noPost}}">这里空空如也...</view>
 <Post postList="{{postList}}" editMode='true' ></Post>
+<view wx:if="{{isLoading}}" class="loading_container">
+  <view class="loading_hider"></view>
+</view>

@@ -6,7 +6,9 @@ let startId = 0;
 let isGettingList = false;
 Page({
   data: {
-    postList: []
+    postList: [],
+    noPost:false,
+    isLoading:false,
   },
   //生命周期函数--监听页面加载
   onLoad: function (options) {
@@ -22,13 +24,19 @@ Page({
     this.getMyFollowPost()
   },
   async getMyFollowPost() {
-    console.log(startId)
     if (isGettingList) return
     isGettingList = true
     try {
+      this.setData({
+        isLoading: true,
+        noPost: false,
+      })
       const res = await getUserFollow({
         limit: 20,
         offset: startId
+      })
+      this.setData({
+        isLoading:false,
       })
       isGettingList = false;
       res.data.forEach((post) => {
@@ -36,6 +44,11 @@ Page({
       })
 
       if (startId === 0) {
+        if(res.data.length===0) {
+          this.setData({
+            noPost:true,
+          })
+        }
         this.setData({
           postList: res.data
         })

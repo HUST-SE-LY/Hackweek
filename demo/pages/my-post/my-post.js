@@ -9,7 +9,9 @@ let startId = 0;
 let isGettingList = false;
 Page({
   data: {
-    postList: []
+    postList: [],
+    noPost:false,
+    isLoading:false,
   },
   //生命周期函数--监听页面加载
   onShow: function () {
@@ -29,10 +31,17 @@ Page({
     isGettingList = true
     try {
       console.log(startId);
+      this.setData({
+        isLoading:true,
+        noPost:false,
+      })
       const res = await getMyPost({
         offset: startId,
         limit: 10,
       });
+      this.setData({
+        isLoading:false,
+      })
       res.data.map((item) => {
         item.CreatedAt = correctTime(item.CreatedAt)
         if (item.Fileid == "") item.Fileid = []
@@ -40,10 +49,15 @@ Page({
       })
       isGettingList = false;
       if (startId === 0) {
+        if(res.data.length === 0) {
+          this.setData({
+            noPost:true,
+          })
+        }
         this.setData({
           postList: res.data,
         })
-
+        
       } else {
         this.setData({
           postList: this.data.postList.concat(res.data)

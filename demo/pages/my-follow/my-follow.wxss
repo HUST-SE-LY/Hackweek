@@ -1,3 +1,39 @@
 page {
   background-color:#f5f5f5;
 }
+
+.no_post {
+  text-align: center;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  background-color: white;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+.loading_container {
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  background:  -webkit-linear-gradient(#333333,#333333,#333333,transparent,transparent);
+  margin: 30rpx auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: loading 1s infinite linear;
+ 
+}
+.loading_hider {
+  position: absolute;
+  top: 10rpx;
+  left: 2rpx;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+}
