@@ -8,50 +8,55 @@ page {
   justify-content: center;
   font-weight: bold;
   gap:5rpx;
+  height: 35px;
   width: 100vw;
+  font-size: 13px;
+  box-sizing: border-box;
   padding: 20rpx 0;
   background-color: white;
 }
 
 .head_input {
-  height: 2em;
-  line-height: 2em;
+  line-height: 25px;
   text-align: center;
+  font-size: 13px;
 }
 
 .title image {
-  height: 40rpx;
-  width: 40rpx;
+  height: 20px;
+  width: 20px;
 }
 .release_container {
   width: 90vw;
   margin-left: 5vw;
   background-color: white;
   border-radius: 15rpx;
-  padding: 5% 5%;
+  padding: 15px 20px;
   box-sizing: border-box;
 }
 .price_svg {
-  height: 50rpx;
-  width: 50rpx;
+  height: 20px;
+  width: 20px;
 }
 .input_container {
+  height: 50px;
   display: flex;
   align-items: center;
-  padding-left: 10%;
+  padding-left: 20px;
 }
 
 .head_container {
   width: 90vw;
-  margin: 25rpx auto;
+  margin: 7px auto;
   background-color: #FFFDE1;
-  height: 2em;
+  height: 25px;
   border-radius: 1em;
 }
 
 .detail {
   width: 100%;
-  height: 8em;
+  height: 7em;
+  font-size: 12px;
   white-space: pre-line
 }
 .detail_clear {
@@ -85,7 +90,9 @@ page {
 }
 .detail_tip {
   color: gray;
-  margin-top: 20rpx;
+  margin-top: 17px;
+  font-size: 11px;
+  margin-bottom: 2px;
 }
 
 .choose_container {
@@ -97,10 +104,10 @@ page {
 }
 
 .choose {
-  font-size: large;
+  font-size: 12px;
   height: 3em;
   line-height: 3em;
-  padding-left: 10%;
+  padding-left: 15px;
   box-sizing: border-box;
   position: relative;
 }
@@ -113,40 +120,22 @@ page {
   color: gray;
 }
 .price {
-  font-size: large;
-  height: 3em;
-  line-height: 3em;
-  padding-left: 20rpx;
+  font-size: 12px;
+  padding-left: 15px;
   box-sizing: border-box;
 }
 .release {
   margin-top: 2em;
-  width: 10em;
-  height: 3em;
-  line-height: 3em;
+  width: 138px;
+  height: 39px;
+  line-height: 39px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2em;
-  font-size: larger;
+  font-size: 13px;
   text-align: center;
   font-weight: 700;
   border-radius: 1.5em;
   background-color: #FFFDE1;
-}
-.delete {
-  margin-top: 2em;
-  width: 10em;
-  height: 3em;
-  line-height: 3em;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2em;
-  font-size: larger;
-  text-align: center;
-  font-weight: 700;
-  border-radius: 1.5em;
-  background-color: white;
-  color: #AB545A;
 }
 .cannotRelease {
   background-color: white;
@@ -175,4 +164,19 @@ page {
   position: absolute;
   right: 0px;
   top: 0px;
+}
+
+.delete {
+  margin-top: 2em;
+  width: 138px;
+  height: 39px;
+  line-height: 39px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13px;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 1.5em;
+  background-color: white;
+  color: #AB545A;
 }

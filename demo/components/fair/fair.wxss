@@ -103,7 +103,8 @@ swiper {
 
 .tagsScroll {
   white-space: nowrap;
-  margin: 0 50rpx;
+  width: auto;
+  margin: 0 auto;
   font-size: 11px;
 }
 

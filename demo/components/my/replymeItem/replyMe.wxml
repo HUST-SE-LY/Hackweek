@@ -4,7 +4,7 @@
     <view class="item">
       <image  src="{{item.avatar?item.avatar:'/static/default-avatar.svg'}}"></image>
       <view class="content">
-        <view>{{item.UserName}}回复了我的{{item.ReplyComments?"我的评论":'我的帖子'}}</view>
+        <view>{{item.UserName}}回复了我的{{item.ReplyComments?"评论":'帖子'}}</view>
         <view>{{item.Content}}</view>
       </view>
     </view>

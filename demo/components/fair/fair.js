@@ -287,8 +287,8 @@ Component({
       }
     }
   },
-  pageLifetimes: {
-    show() {
+  lifetimes: {
+    ready() {
       this.setData({
         postList: []
       })

@@ -188,6 +188,9 @@ Page({
     if(typeof post.Fileid === 'string') {
       post.Fileid = post.Fileid.split(',');
     }
+    if(post.Fileid=="") {
+      post.Fileid=null;
+    }
     let id = options.id;
     console.log("ok")
     if (wx.getStorageSync('token')) {

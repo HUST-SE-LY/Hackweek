@@ -9,6 +9,7 @@ import {
 let app=getApp();
 Component({
   data: {
+    showMore:false,
     // 点击联系按钮出现的联系信息
     contactInfoShow: false,
     contactInfo: {
@@ -136,6 +137,16 @@ Component({
     hideContactInfo() {
       this.setData({
         contactInfoShow: false
+      })
+    },
+    showMore() {
+      this.setData({
+        showMore:true,
+      })
+    },
+    hideMore() {
+      this.setData({
+        showMore:false,
       })
     },
     // 举报

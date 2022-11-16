@@ -4,7 +4,7 @@
       <image src="{{item.Avatar}}"></image>
       <text class="username">{{item.UserName}}</text>
     </view>
-    <image wx:if="{{!editMode}}" class="more" src="../../static/more.svg" catchtap="reportPost" data-id="{{item.ID}}"></image>
+    <image wx:if="{{!editMode}}" class="more" src="../../static/more.svg" catchtap="reportPost" data-id="{{item.ID}}" catchtap="showMore"></image>
     <view class="edit" wx:if="{{editMode}}" catchtap="navigateToEditPage" data-id="{{item.ID}}" data-content='{{item.Content}}' data-fileid="{{item.Fileid}}" data-title="{{item.Title}}" data-price='{{item.Price}}' data-location='{{item.Location}}' data-tag="{{item.Tag}}">修改</view>
   </view>
   <view class="second-line">
@@ -18,10 +18,10 @@
     <text>{{item.Location}} </text><text> {{item.CreatedAt}}</text>
   </view>
   <view class="footer">
-    <view class="contact" catchtap="showContactInfo" data-qq="{{item.QQ}}" data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}" data-username = "{{item.UserName}}">
-        <image src="../../static/contact.svg"></image>
-        <text>联系</text>
-  </view>
+    <view class="contact" catchtap="showContactInfo" data-qq="{{item.QQ}}" data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}" data-username="{{item.UserName}}">
+      <image src="../../static/contact.svg"></image>
+      <text>联系</text>
+    </view>
     <!-- <button catchtap="sharePost" class="share item" open-type='share' data-id="{{item.ID}}" data-content='{{item.Content}}' data-username='{{item.UserName}}' data-title="{{item.Title}}" data-time='{{item.CreatedAt}}' data-price='{{item.Price}}' data-location='{{item.Location}}' data-isFollow='{{false}}' data-isThumb='{{false}}' data-isReplied='{{false}}' data-follow='{{item.Follow}}' data-thumb='{{item.Thumb}}' data-reply='{{item.Reply}}' data-qq='{{item.QQ}}' data-wx="{{item.Wx}}" data-avatar="{{item.Avatar}}">
       <image src="../../static/share.svg"></image>
       <text>分享</text>
@@ -48,15 +48,22 @@
     </view>
     <view class="info_container">
       <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq?contactInfo.qq:'用户未设置'}}</text>
-      <text class="copy" wx:if="{{contactInfo.qq}}">copy</text>
+        <text class="copy" wx:if="{{contactInfo.qq}}">copy</text>
+      </view>
+      <view class="divider"></view>
+      <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.wx}}" data-type="wx">
+        <view>微信： {{contactInfo.wx?contactInfo.wx:"用户未设置"}}</view>
+        <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
+      </view>
     </view>
-    <view class="divider"></view>
-    <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.wx}}" data-type="wx">
-      <view>微信： {{contactInfo.wx?contactInfo.wx:"用户未设置"}}</view>
-      <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
-    </view>
-    </view>
-    
+
+  </view>
+</view>
+<view class="more_container overlay" bindtap="hideMore" wx:if="{{showMore}}">
+  <view class="more_main">
+    <view class="more_title">举报</view>
+    <textarea class="more_content" catchtap='sharePost' placeholder="输入举报理由" maxlength="500" model:value="{{moreContent}}"></textarea>
+    <view class="submit_more" catchtap="reportPost">提交</view>
   </view>
 </view>
 <!-- <view class="reportContainer overlay"></view> -->
