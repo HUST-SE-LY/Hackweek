@@ -6,7 +6,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-      
+    noComment:{
+      value:false,
+      type:Boolean,
+    },
   },
 
 
@@ -67,7 +70,6 @@ Component({
   },
   lifetimes: {
     attached() {
-      //这里要写初始化时拉取10条评论
     }
   }
 })

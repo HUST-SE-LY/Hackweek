@@ -166,3 +166,7 @@ export function followPost(data) {
 export function cancelFollowPost(data) {
   return request("/follow/deletefollow", data, 'delete');
 }
+//举报帖子
+export function reportPost(data) {
+  return request("/report/report",data,'post')
+}

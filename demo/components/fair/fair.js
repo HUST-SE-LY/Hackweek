@@ -26,6 +26,7 @@ Component({
     tagImage: ['../../static/phone.svg', "../../static/book.svg", '../../static/daily.svg', '../../static/clothes.svg', '../../static/other.svg', '../../static/phone1.svg', '../../static/book1.svg', '../../static/daily1.svg', '../../static/clothes1.svg', '../../static/other1.svg'],
     isLoading: false,
     noPost: false,
+
   },
   methods: {
     // 搜索框变化
@@ -138,6 +139,9 @@ Component({
     },
     searchTitle() {
       startIdTitle = 0;
+      this.setData({
+        postList: [],
+      })
       if (app.globalData.userInfo.travelMode) {
         wx.reLaunch({
           url: '../../pages/login/login',
@@ -202,7 +206,6 @@ Component({
         this.setData({
           isLoading: true,
           noPost: false,
-          postList: []
         })
         const res = await searchByTitle({
           mode: this.data.isSortByTime ? "Time" : "Hot",

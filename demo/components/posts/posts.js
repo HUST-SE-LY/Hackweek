@@ -5,10 +5,13 @@ import {
   followPost,
   cancelFollowPost,
   toggleLikePost,
+  reportPost,
 } from "../../utils/request";
 let app=getApp();
 Component({
   data: {
+    moreContent:"",//举报框内容
+    postid:null,//举报的postid
     showMore:false,
     // 点击联系按钮出现的联系信息
     contactInfoShow: false,
@@ -139,9 +142,10 @@ Component({
         contactInfoShow: false
       })
     },
-    showMore() {
+    showMore(e) {
       this.setData({
         showMore:true,
+        postid:e.currentTarget.dataset.id,
       })
     },
     hideMore() {
@@ -150,10 +154,15 @@ Component({
       })
     },
     // 举报
-    reportPost(e) {
-      const {
-        id
-      } = e.currentTarget.dataset;
+    async reportPost(e) {
+      console.log(this.data.postid)
+      console.log(this.data.moreContent)
+      const res =await reportPost({
+        postid:this.data.postid,
+        content:this.data.moreContent,
+      })
+      console.log(res)
+      
     },
     sharePost() {
       //阻止事件冒泡

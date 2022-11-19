@@ -87,7 +87,7 @@ page {
   width: 90vw;
   margin-left: 5vw;
   margin-top: 30rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 12px;
 }
 
 swiper {
@@ -97,8 +97,9 @@ swiper {
 .tag-bar {
   display: flex;
   flex-wrap: nowrap;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   z-index: 1;
+
 }
 
 .tagsScroll {
@@ -110,8 +111,6 @@ swiper {
 
 .scroll-item {
   display: inline-block;
-  margin-left: 5rpx;
-  margin-right: 20rpx;
   text-align: center;
   font-size: 11px;
 }
@@ -128,7 +127,7 @@ swiper-item {
   height: 66px;
   width: 66px;
   border-radius: 50%;
-  margin-bottom: 5px;
+  margin-bottom: -11px;
 }
 
 .tag-bar .tagsScroll .scroll-item .img_border image {

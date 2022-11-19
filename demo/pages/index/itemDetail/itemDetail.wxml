@@ -2,7 +2,7 @@
 <Posts postList="{{postList}}"></Posts>
 <view class="comment_head">全部评论</view>
 <view class="commentsContainer" wx:if="{{isLogin}}">
-  <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" id="comments"></comments>
+  <comments inputData="{{inputContent}}" commentsList="{{commentsList}}" noComment="{{noComment}}" id="comments"></comments>
 </view>
 <view class="noLogin">
   <text class="plaseLogin" bindtap="toLoginPage" wx:if="{{!isLogin}}">登录后查看&发表评论</text>

@@ -41,6 +41,7 @@ Page({
     imgLargeUrl: null, //放大后的图片url
     commentsList: [],
     contactInfoShow: false,
+    noComment:false,
   },
   releaseComment() { //正常回复
     if (this.data.inputContent) {
@@ -105,6 +106,9 @@ Page({
       postid: id
     });
     if(!res.data) {
+      this.setData({
+        noComment:true,
+      })
       return ;
     }
     for (let data of res.data) {
