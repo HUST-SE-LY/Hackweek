@@ -1,6 +1,9 @@
 import {
   getUserFollow
 } from '../../utils/request'
+import {
+  correctTime
+} from "../../utils/util";
 let startId = 0;
 //节流
 let isGettingList = false;
@@ -39,8 +42,10 @@ Page({
         isLoading:false,
       })
       isGettingList = false;
-      res.data.forEach((post) => {
-        post.Fileid = typeof post.Fileid === 'string'?post.Fileid.split(","):post.Fileid;
+      res.data.map((item) => {
+        item.CreatedAt = correctTime(item.CreatedAt);
+        if (item.Fileid == "") item.Fileid = []
+        else item.Fileid = item.Fileid.split(",")
       })
 
       if (startId === 0) {
