@@ -40,7 +40,7 @@ page {
 .search-bar input {
   margin-left: 15rpx;
   font-size: 24rpx;
-  width: 120rpx;
+  width: 135rpx;
 }
 
 .search-bar-focused {
