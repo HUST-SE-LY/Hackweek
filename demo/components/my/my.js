@@ -69,14 +69,14 @@ Component({
     },
     async getMyAvatar() {
       wx.cloud.getTempFileURL({
-        fileList: [`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/avatar/avatar-${this.data.id}`], // 文件唯一标识符 cloudID, 可通过上传文件接口获取
+        fileList: [`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/avatar/avatar-${this.data.id}`], // 文件唯一标识符 cloudID, 可通过上传文件接口获取
         success: (res)=>{
           console.log(res)
           this.setData({
             avatar:res.fileList[0].tempFileURL,
           });
           App.globalData.userInfo.avatar=this.data.avatar;
-          App.globalData.userInfo.avatarId=`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/avatar/avatar-${this.data.id}`;
+          App.globalData.userInfo.avatarId=`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/avatar/avatar-${this.data.id}`;
 
         },
         fail: console.error

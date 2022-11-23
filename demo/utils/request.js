@@ -43,7 +43,7 @@ function cloudUploadFile(cloudPath, filePath) {
       cloudPath, // 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
       filePath, // 微信本地文件，通过选择图片，聊天文件等接口获取
       config: {
-        env: 'prod-7gigvlg43eb566e9' // 微信云托管环境ID
+        env: 'prod-8gfid1gkc77d5f7d' // 微信云托管环境ID
       },
       success: (res) => {
         console.log(res)

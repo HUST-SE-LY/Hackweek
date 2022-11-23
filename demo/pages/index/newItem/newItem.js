@@ -164,7 +164,7 @@ Page({
     let time;
     for (let i = 0; i < this.data.imageList.length; i++) {
       time = (new Date()).getTime();
-      filelist.push(`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/${time}`);
+      filelist.push(`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/${time}`);
       //加个await保证时间戳不同
       await updateImg({
         filePath: this.data.imageList[i],
