@@ -1,3 +1,4 @@
+const App = getApp()
 import {
   releasePostComment,
   getPostComments,
@@ -13,7 +14,7 @@ import {
 // pages/index/itemDetail/itemDetail.js
 Page({
   data: {
-    postList:null,
+    postList: null,
     isLogin: false, //是否登录
     id: "", //帖子唯一id，从点入时传入
     responseid: "",
@@ -41,7 +42,7 @@ Page({
     imgLargeUrl: null, //放大后的图片url
     commentsList: [],
     contactInfoShow: false,
-    noComment:false,
+    noComment: false,
   },
   releaseComment() { //正常回复
     if (this.data.inputContent) {
@@ -105,11 +106,11 @@ Page({
     let res = await getPostComments({
       postid: id
     });
-    if(!res.data) {
+    if (!res.data) {
       this.setData({
-        noComment:true,
+        noComment: true,
       })
-      return ;
+      return;
     }
     for (let data of res.data) {
       if (data.ReplyComments === null) {
@@ -133,6 +134,7 @@ Page({
       postid: parseInt(id),
       content: content,
       responseid: responseid,
+      fileid: App.globalData.avatarId
     });
     this.setData({ //情空输入框
       inputContent: "",
@@ -188,12 +190,12 @@ Page({
    */
   async onLoad(options) { //获取id和其他数据
     console.log(options)
-    const post = JSON.parse(options.post) ;
-    if(typeof post.Fileid === 'string') {
+    const post = JSON.parse(options.post);
+    if (typeof post.Fileid === 'string') {
       post.Fileid = post.Fileid.split(',');
     }
-    if(post.Fileid=="") {
-      post.Fileid=null;
+    if (post.Fileid == "") {
+      post.Fileid = null;
     }
     let id = options.id;
     console.log("ok")
@@ -227,11 +229,11 @@ Page({
       wx: options.wx,
       avatar: options.avatar,
       imageList: options.Fileid,
-      postList:[post],
+      postList: [post],
     })
 
     console.log(this.data.postList)
-    
+
     this.getComments(id); //获取评论列表(后端可能要修改一下增加offset和limit)
   },
 

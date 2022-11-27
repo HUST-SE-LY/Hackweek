@@ -17,7 +17,7 @@ Component({
   data: {
     isSearchBarFoucus: false, //用于标记以改变搜索栏排版
     searchWords: "",
-    swiperContent: ["cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/1665590208097", "cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/1665590209959", "cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/1665590210480", "cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/1665590211822"], //感觉正常情况幻灯片参数内容应该是背景图片和对应的商品id
+    swiperContent: ["cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/1669387084500", "cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/1669387085850"], //感觉正常情况幻灯片参数内容应该是背景图片和对应的商品id
     tags: ["电子产品", "文具书籍", "生活用品", "服饰衣物", "其他"],
     selectedIndex: -1,
     isSortByTime: true, //排列方式

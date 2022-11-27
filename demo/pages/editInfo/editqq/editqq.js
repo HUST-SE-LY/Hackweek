@@ -3,7 +3,7 @@ import {
   showToast
 } from "../../../utils/wx-event"
 import {
-  editUserName
+  editUserInfo
 } from "../../../utils/request";
 Page({
   data: {
@@ -27,7 +27,7 @@ Page({
     })
   },
   async save() {
-    await editUserName({qq:this.data.qq});
+    await editUserInfo({qq:this.data.qq});
     App.globalData.userInfo.qq = this.data.qq
     wx.navigateBack()
     showToast("修改成功")

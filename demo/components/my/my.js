@@ -1,4 +1,3 @@
-
 import {
   getAvatar,
   getMyMessage,
@@ -6,6 +5,7 @@ import {
   getUserPostNum,
   getUserReplyNum,
   getUserFollowNum,
+  editUserName
 } from "../../utils/request/";
 const App = getApp();
 Component({
@@ -13,8 +13,8 @@ Component({
 
   },
   data: {
-    id:null,//用户id
-    avatar:null,
+    id: null, //用户id
+    avatar: null,
     messageNum: 0,
     messageList: [],
     userName: "",
@@ -49,59 +49,43 @@ Component({
       const reply = (await getUserReplyNum()).data.count;
       const post = (await getUserPostNum()).data.count;
       this.setData({
-        id:res.ID,
+        id: res.ID,
         userName: res.Name,
         followNum: follow,
         replyNum: reply,
         itemNum: post,
+        avatar: res.fileid,
       });
       this.getMessage();
-      this.getMyAvatar();
       //把更新userInfo放这了，就不放App.js里了
       App.globalData.userInfo = Object.assign(App.globalData.userInfo, {
-        userid:res.ID,
-        avatar: this.data.avatar,
+        userid: res.ID,
+        avatar: res.fileid,
         userName: res.Name,
         qq: res.QQ,
         wx: res.Wx,
         userid: res.ID
       })
     },
-    async getMyAvatar() {
-      wx.cloud.getTempFileURL({
-        fileList: [`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/avatar/avatar-${this.data.id}`], // 文件唯一标识符 cloudID, 可通过上传文件接口获取
-        success: (res)=>{
-          console.log(res)
-          this.setData({
-            avatar:res.fileList[0].tempFileURL,
-          });
-          App.globalData.userInfo.avatar=this.data.avatar;
-          App.globalData.userInfo.avatarId=`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/avatar/avatar-${this.data.id}`;
-
-        },
-        fail: console.error
-      })
-      
-    },
     async getMessage() {
-      let that=this;
-      const res=await getMyMessage({
-        offset:0,
-        limit:20,
+      let that = this;
+      const res = await getMyMessage({
+        offset: 0,
+        limit: 20,
       });
       that.setData({
-        messageList:res.data.filter((value)=>{
-          return value.UserName!==App.globalData.userInfo.userName;
+        messageList: res.data.filter((value) => {
+          return value.UserName !== App.globalData.userInfo.userName;
         }),
       })
       that.setData({
-        messageNum:this.data.messageList.length
+        messageNum: this.data.messageList.length
       })
     }
   },
   pageLifetimes: {
     show() {
-    this.getUser();
+      this.getUser();
     }
   }
 })

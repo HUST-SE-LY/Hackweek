@@ -1,6 +1,7 @@
 const App = getApp()
 import {
-  uploadAvatar
+  uploadAvatar,
+  editUserInfo
 } from '../../utils/request'
 Page({
   data: {
@@ -71,14 +72,20 @@ Page({
     wx.chooseMedia({
       mediaType: 'image',
       count: 1,
-      success(res) {
+      success: async (res) => {
         that.setData({
           avatar: res.tempFiles[0].tempFilePath,
         });
         console.log(that.data.avatar)
-        uploadAvatar({
+        const avatar = await uploadAvatar({
           filePath: res.tempFiles[0].tempFilePath,
           userid: App.globalData.userInfo.userid
+        })
+        console.log({
+          fileid: avatar
+        })
+        editUserInfo({
+          fileid: avatar.fileID
         })
       }
     })

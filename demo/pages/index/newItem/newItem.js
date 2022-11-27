@@ -165,6 +165,7 @@ Page({
     for (let i = 0; i < this.data.imageList.length; i++) {
       time = (new Date()).getTime();
       filelist.push(`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/${time}`);
+      console.log("tupian")
       //加个await保证时间戳不同
       await updateImg({
         filePath: this.data.imageList[i],
@@ -177,9 +178,9 @@ Page({
     const location = this.data.location;
     const price = this.data.price;
     const avatar = app.globalData.userInfo.avatarId;
-
+    console.log(filelist)
     const res = await releaseNewItem({
-      fileid: String(filelist),
+      fileids: String(filelist),
       avatar: avatar,
       title: title,
       content: content,

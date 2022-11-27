@@ -46,7 +46,6 @@ function cloudUploadFile(cloudPath, filePath) {
         env: 'prod-8gfid1gkc77d5f7d' // 微信云托管环境ID
       },
       success: (res) => {
-        console.log(res)
         resolve(res)
       },
       fail: (err) => {
@@ -75,7 +74,7 @@ export function getUserComments(data) {
   return request("/comment/getCommentListByUser", data)
 }
 //编辑用户信息，三个参数都是可选的
-export function editUserName(data) {
+export function editUserInfo(data) {
   return request("/user/updateUserDetail", data, 'put');
 }
 //上传头像
