@@ -44,8 +44,6 @@ Page({
       isGettingList = false;
       res.data.map((item) => {
         item.CreatedAt = correctTime(item.CreatedAt);
-        if (item.Fileid == "") item.Fileid = []
-        else item.Fileid = item.Fileid.split(",")
       })
 
       if (startId === 0) {

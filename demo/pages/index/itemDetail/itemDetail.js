@@ -209,8 +209,6 @@ Page({
       options.isFollow = res.data.isFollow ? 'true' : 'false';
       options.isReplied = res.data.isReplied ? 'true' : "false";
       options.isThumb = res.data.isThumb ? 'true' : "false";
-      if (res.data.Fileid == "") options.Fileid = []
-      else options.Fileid = res.data.Fileid.split(",")
     }
     this.setData({
       content: options.content,

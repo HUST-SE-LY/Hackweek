@@ -36,8 +36,8 @@ Page({
           location:options.location,
           price:options.price,
           postid:options.id,
-          originListLength:options.fileid.split(",")[0]?options.fileid.split(",").length:0,
-          imageList:options.fileid.split(",")[0]?options.fileid.split(","):[],
+          originListLength:options.fileid.length,
+          imageList:options.fileid,
           wx:app.globalData.userInfo.wx,
           qq:app.globalData.userInfo.qq,        })
           console.log(this.data.imageList)

@@ -6,7 +6,7 @@ import {
   getUserReplyNum,
   getUserFollowNum,
   editUserName
-} from "../../utils/request/";
+} from "../../utils/request";
 const App = getApp();
 Component({
   properties: {
@@ -14,7 +14,7 @@ Component({
   },
   data: {
     id: null, //用户id
-    avatar: null,
+    avatar: "",
     messageNum: 0,
     messageList: [],
     userName: "",
@@ -74,9 +74,9 @@ Component({
         limit: 20,
       });
       that.setData({
-        messageList: res.data.filter((value) => {
+        messageList: res.data?res.data.filter((value) => {
           return value.UserName !== App.globalData.userInfo.userName;
-        }),
+        }):[],
       })
       that.setData({
         messageNum: this.data.messageList.length

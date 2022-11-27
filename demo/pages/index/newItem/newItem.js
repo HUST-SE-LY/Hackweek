@@ -31,6 +31,7 @@ Page({
       wx:app.globalData.userInfo.wx,
       qq:app.globalData.userInfo.qq,
     })
+    console.log(app.globalData)
   },
   clearContent() { //点击后清除placeholder
     this.setData({
@@ -77,8 +78,6 @@ Page({
     })
   },
   chooseLocation() { //选择校区函数
-    console.log(this.data.qq)
-    console.log(this.data.wx)
     let that = this;
     wx.showActionSheet({
       itemList: this.data.locationList,
@@ -177,10 +176,10 @@ Page({
     const tag = this.data.tag;
     const location = this.data.location;
     const price = this.data.price;
-    const avatar = app.globalData.userInfo.avatarId;
-    console.log(filelist)
+    const avatar = app.globalData.userInfo.avatar;
+    console.log(filelist,String(filelist))
     const res = await releaseNewItem({
-      fileids: String(filelist),
+      fileids:filelist,
       avatar: avatar,
       title: title,
       content: content,

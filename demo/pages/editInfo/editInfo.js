@@ -3,6 +3,9 @@ import {
   uploadAvatar,
   editUserInfo
 } from '../../utils/request'
+import {
+  formatTime
+} from "../../utils/util"
 Page({
   data: {
     avatar: "",
@@ -76,14 +79,13 @@ Page({
         that.setData({
           avatar: res.tempFiles[0].tempFilePath,
         });
-        console.log(that.data.avatar)
+        const timestamp = formatTime(new Date())
+        console.log(res.tempFiles[0].tempFilePath, timestamp.match(/\w/g).join(""))
         const avatar = await uploadAvatar({
           filePath: res.tempFiles[0].tempFilePath,
-          userid: App.globalData.userInfo.userid
+          userid: App.globalData.userInfo.userid + timestamp.match(/\w/g).join("")
         })
-        console.log({
-          fileid: avatar
-        })
+        console.log(avatar)
         editUserInfo({
           fileid: avatar.fileID
         })

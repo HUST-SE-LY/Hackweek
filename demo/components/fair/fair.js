@@ -173,8 +173,6 @@ Component({
         isSearchingByTag = false;
         res.data.map((item) => {
           item.CreatedAt = correctTime(item.CreatedAt);
-          if (item.Fileid == "") item.Fileid = []
-          else item.Fileid = item.Fileid.split(",")
         })
         if (startIdTag === 0) {
           this.setData({
@@ -221,8 +219,6 @@ Component({
         isSearchingByTitle = false;
         res.data.map((item) => {
           item.CreatedAt = correctTime(item.CreatedAt)
-          if (item.Fileid == "") item.Fileid = []
-          else item.Fileid = item.Fileid.split(",")
         })
         if (startIdTitle === 0) {
           this.setData({
@@ -264,8 +260,6 @@ Component({
         isGettingList = false;
         res.data.map((item) => {
           item.CreatedAt = correctTime(item.CreatedAt)
-          if (item.Fileid == "") item.Fileid = []
-          else item.Fileid = item.Fileid.split(",")
         })
         if (startId === 0) {
           this.setData({

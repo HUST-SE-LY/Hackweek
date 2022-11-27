@@ -44,8 +44,6 @@ Page({
       })
       res.data.map((item) => {
         item.CreatedAt = correctTime(item.CreatedAt)
-        if (item.Fileid == "") item.Fileid = []
-        else item.Fileid = item.Fileid.split(",")
       })
       isGettingList = false;
       if (startId === 0) {
@@ -69,6 +67,5 @@ Page({
       console.log(err)
       isGettingList = false
     }
-    console.log(this.data.postList)
   }
 })
