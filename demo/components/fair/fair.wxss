@@ -13,13 +13,16 @@ page {
   box-sizing: border-box;
 
 }
-
+swiper {
+  border-radius: 20px;
+}
 .ad_picture {
-  margin-top: 20rpx;
   width: 700rpx;
   height: 258rpx;
+  height: 100%;
   display: block;
-  border-radius: 18px;
+  border-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .search-bar {
@@ -93,10 +96,6 @@ page {
   margin-top: 30rpx;
 }
 
-swiper {
-  border-radius: 20px;
-}
-
 .tag-bar {
   display: flex;
   flex-wrap: nowrap;
@@ -122,7 +121,7 @@ swiper {
 }
 
 swiper-item {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .tag-bar .tagsScroll .scroll-item .img_border {
