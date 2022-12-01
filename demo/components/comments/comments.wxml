@@ -22,4 +22,18 @@
 
     </view>
   </view>
+  <view class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
+    <view class="contactInfo">
+      <view class="info_container">
+        <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq?contactInfo.qq:'用户未设置'}}</text>
+          <text class="copy" wx:if="{{contactInfo.qq}}">copy</text>
+        </view>
+        <view class="divider"></view>
+        <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.wx}}" data-type="wx">
+          <view>微信： {{contactInfo.wx?contactInfo.wx:"用户未设置"}}</view>
+          <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

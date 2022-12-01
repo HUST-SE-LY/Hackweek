@@ -6,7 +6,7 @@ import {
 import {
   showToast
 } from "../../../utils/wx-event.js"
-const app=getApp();
+const app = getApp();
 
 
 Page({
@@ -25,22 +25,25 @@ Page({
     imgLargeUrl: null, //放大后的图片url
     price: "", //期望价格
     canUpload: false, //判断条件是否填写完必要
-    qq:app.globalData.userInfo.qq,
-    wx:app.globalData.userInfo.wx,
+    qq: app.globalData.userInfo.qq,
+    wx: app.globalData.userInfo.wx,
   },
   onLoad(options) {
-        this.setData({
-          title:options.title,
-          detail:options.content,
-          tag:options.tag,
-          location:options.location,
-          price:options.price,
-          postid:options.id,
-          originListLength:options.fileid.length,
-          imageList:options.fileid,
-          wx:app.globalData.userInfo.wx,
-          qq:app.globalData.userInfo.qq,        })
-          console.log(this.data.imageList)
+    let imageList = options.fileid
+    if(imageList=="null") imageList = []
+    else imageList = imageList.split(",")
+    this.setData({
+      title: options.title,
+      detail: options.content,
+      tag: options.tag,
+      location: options.location,
+      price: options.price,
+      postid: options.id,
+      originListLength: imageList.length,
+      imageList: imageList,
+      wx: app.globalData.userInfo.wx,
+      qq: app.globalData.userInfo.qq,
+    })
   },
   clearContent() { //点击后清除placeholder
     this.setData({
@@ -145,7 +148,7 @@ Page({
       showToast("请填写期望售价")
       return false
     }
-    if(!(this.data.qq.length||this.data.wx.length)) {
+    if (!(this.data.qq.length || this.data.wx.length)) {
       showToast("请至少完善一种联系方式")
       return false
     }
@@ -155,19 +158,21 @@ Page({
     //已废弃
   },
   async deletePost() {
-        const postid=this.data.postid;
-        wx.showModal({
-          title:'确认删除？',
-          success(res) {
-            if(res.confirm) {
-              const res=deleteMyPost({postid:postid});
-              wx.navigateBack({
-                delta: 0,
-              })
-            }
-          }
-        });
-      },
+    const postid = this.data.postid;
+    wx.showModal({
+      title: '确认删除？',
+      success(res) {
+        if (res.confirm) {
+          const res = deleteMyPost({
+            postid: postid
+          });
+          wx.navigateBack({
+            delta: 0,
+          })
+        }
+      }
+    });
+  },
 
   releaseItem() {
     if (!this.canRelease()) return
@@ -186,7 +191,7 @@ Page({
     //   })
     // } else {
     let filelist = [];
-    for(let i = 0 ;i < this.data.originListLength;i++) {
+    for (let i = 0; i < this.data.originListLength; i++) {
       filelist.push(this.data.imageList[i]);
     }
     let time;
@@ -207,8 +212,8 @@ Page({
     const avatar = app.globalData.userInfo.avatarId;
     console.log(filelist)
     const res = await editMyPost({
-      postid:this.data.postid,
-      fileid: filelist,
+      postid: this.data.postid,
+      fileids: filelist,
       avatar: avatar,
       title: title,
       content: content,
@@ -216,7 +221,7 @@ Page({
       location: location,
       tag: tag,
     });
-    console.log(res);
+    showToast("修改成功")
   }
 
   // }

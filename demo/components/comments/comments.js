@@ -1,4 +1,7 @@
 const App = getApp();
+import {
+  showToast
+} from "../../utils/wx-event"
 // components/comments/comments.js
 
 Component({
@@ -76,6 +79,42 @@ Component({
         isfooter: true,
         isReplyOthers: false
       }); //隐藏二级评论输入框，显示一级评论输入框
+    },
+    showContactInfo(e) {
+      const {
+        qq,
+        wx,
+        avatar,
+        username
+      } = e.currentTarget.dataset;
+      this.setData({
+        contactInfoShow: true,
+        contactInfo: {
+          qq,
+          wx,
+          avatar,
+          username
+        }
+      })
+    },
+    copyContactInfo(e) {
+      const type = e.currentTarget.dataset.type;
+      const info = e.currentTarget.dataset.info
+      console.log(e.currentTarget.dataset)
+      wx.setClipboardData({
+        data: String(info),
+        success(res) {
+          if (type === "qq")
+            showToast("QQ号已复制")
+          else
+            showToast("微信号已复制")
+        }
+      })
+    },
+    hideContactInfo() {
+      this.setData({
+        contactInfoShow: false
+      })
     },
   },
   lifetimes: {

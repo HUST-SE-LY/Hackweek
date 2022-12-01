@@ -30,7 +30,6 @@ function request(path, data, method, contentType, header) {
         reject(res)
       }
     }).catch((err) => {
-      showToast(err.errMsg);
       console.log(err)
       reject(err)
     });

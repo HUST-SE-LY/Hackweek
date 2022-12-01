@@ -7,12 +7,12 @@
   <view style="font-weight: 700;">昵称</view>
   <view>{{userName}}</view>
 </view>
-<view class="qq item" bindtap="navigateToEditQQ">
+<view class="qq item {{highLightInfo?'highLight':''}}" bindtap="navigateToEditQQ">
   <view style="font-weight: 700;">QQ</view>
   <view>{{qq}}</view>
 </view>
 <view class="divider"></view>
-<view class="wx item" bindtap="navigateToEditWx">
+<view class="wx item {{highLightInfo?'highLight':''}}" bindtap="navigateToEditWx">
   <view style="font-weight: 700;">微信</view>
   <view>{{wx}}</view>
 </view>

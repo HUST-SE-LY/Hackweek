@@ -11,10 +11,20 @@ Page({
     avatar: "",
     userName: "小明",
     qq: "null",
-    wx: "null"
+    wx: "null",
+    highLightInfo: false
   },
-  onShow: function () {
+  onShow() {
     this.loadInfo()
+    if (!(App.globalData.userInfo.qq.length || App.globalData.userInfo.wx.length)) {
+      this.setData({
+        highLightInfo: true
+      })
+    } else {
+      this.setData({
+        highLightInfo: false
+      })
+    }
   },
   // 下面有一次复用，所以写成了函数
   loadInfo() {
@@ -80,12 +90,10 @@ Page({
           avatar: res.tempFiles[0].tempFilePath,
         });
         const timestamp = formatTime(new Date())
-        console.log(res.tempFiles[0].tempFilePath, timestamp.match(/\w/g).join(""))
         const avatar = await uploadAvatar({
           filePath: res.tempFiles[0].tempFilePath,
           userid: App.globalData.userInfo.userid + timestamp.match(/\w/g).join("")
         })
-        console.log(avatar)
         editUserInfo({
           fileid: avatar.fileID
         })

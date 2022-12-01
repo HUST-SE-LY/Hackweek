@@ -6,7 +6,6 @@ import {
   followPost,
   cancelFollowPost,
   getPostById,
-
 } from "../../../utils/request";
 import {
   showToast

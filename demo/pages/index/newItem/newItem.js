@@ -31,7 +31,6 @@ Page({
       wx:app.globalData.userInfo.wx,
       qq:app.globalData.userInfo.qq,
     })
-    console.log(app.globalData)
   },
   clearContent() { //点击后清除placeholder
     this.setData({
@@ -151,7 +150,6 @@ Page({
     });
   },
   async releaseNewItem() {
-
     // if(app.globalData.userInfo.wx===""&&app.globalData.userInfo.qq==="") {//完善联系方式才能发帖
     //   wx.showToast({
     //     title: '请完善联系方式',
@@ -177,7 +175,6 @@ Page({
     const location = this.data.location;
     const price = this.data.price;
     const avatar = app.globalData.userInfo.avatar;
-    console.log(filelist,String(filelist))
     const res = await releaseNewItem({
       fileids:filelist,
       avatar: avatar,
@@ -187,8 +184,5 @@ Page({
       location: location,
       tag: tag,
     });
-
   }
-
-  // }
 })

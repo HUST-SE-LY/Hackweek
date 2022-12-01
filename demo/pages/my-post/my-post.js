@@ -55,7 +55,7 @@ Page({
         this.setData({
           postList: res.data,
         })
-        
+        console.log(this.data.postList)
       } else {
         this.setData({
           postList: this.data.postList.concat(res.data)

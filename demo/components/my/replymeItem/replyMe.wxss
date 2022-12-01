@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.replies .item image {
+.replies .item .avatar image {
   height: 80rpx;
   width: 80rpx;
   border-radius: 50%;
