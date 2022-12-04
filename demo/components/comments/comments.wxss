@@ -121,6 +121,16 @@ view {
   width: auto;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
 .contactInfoContainer .contactInfo {
   position: fixed;
   top: 37vh;
@@ -156,12 +166,31 @@ view {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 2;
+.contactInfo_head {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
 }
+
+.contactInfo_head .username {
+  margin-left: 10px;
+} 
+
+.contactInfo_head image {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  border: #9CD8F2 solid 1px;
+}
+
+.info_container {
+  background-color: #F5F5F5;
+  margin: 10rpx 30rpx 50rpx 30rpx;
+  border-radius: 15rpx;
+}
+
+
+
+
+
