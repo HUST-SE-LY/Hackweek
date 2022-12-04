@@ -2,7 +2,9 @@
   <view class="message" bindtap="toDetailPage" wx:for="{{messageList}}" wx:key="index" data-postid="{{item.ID}}">
     <view class="divider"></view>
     <view class="item">
-      <image  src="{{item.avatar?item.avatar:'/static/default-avatar.svg'}}"></image>
+      <view class="avatar">
+        <image src="{{item.Fileid?item.Fileid:'/static/default-avatar.svg'}}"></image>
+      </view>
       <view class="content">
         <view>{{item.UserName}}回复了我的{{item.ReplyComments?"评论":'帖子'}}</view>
         <view>{{item.Content}}</view>

@@ -13,11 +13,18 @@ page {
   box-sizing: border-box;
 
 }
-.ad_picture {
-  width: 100%;
-  display: block;
-  margin-top: -20px;
+swiper {
+  border-radius: 20px;
 }
+.ad_picture {
+  width: 700rpx;
+  height: 258rpx;
+  height: 100%;
+  display: block;
+  border-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
 .search-bar {
   display: flex;
   justify-content: center;
@@ -87,11 +94,6 @@ page {
   width: 90vw;
   margin-left: 5vw;
   margin-top: 30rpx;
-  margin-bottom: 12px;
-}
-
-swiper {
-  border-radius: 20px;
 }
 
 .tag-bar {
@@ -99,7 +101,6 @@ swiper {
   flex-wrap: nowrap;
   margin-bottom: 14px;
   z-index: 1;
-
 }
 
 .tagsScroll {
@@ -120,7 +121,7 @@ swiper {
 }
 
 swiper-item {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .tag-bar .tagsScroll .scroll-item .img_border {
@@ -147,7 +148,8 @@ swiper-item {
 .no_post {
   margin-top: 20rpx;
   text-align: center;
-  color: white;
+  color: black;
+  line-height: 40vh;
 }
 
 .sort-type-bar {
@@ -180,24 +182,29 @@ swiper-item {
   width: 100vw;
   height: 10vh;
 }
+
 @keyframes loading {
   from {
     transform: rotate(0deg);
-  } to {
+  }
+
+  to {
     transform: rotate(360deg);
   }
 }
+
 .loading_container {
   width: 80rpx;
   height: 80rpx;
   position: relative;
-  background:  -webkit-linear-gradient(#333333,#333333,#333333,transparent,transparent);
+  background: -webkit-linear-gradient(#333333, #333333, #333333, transparent, transparent);
   margin: 30rpx auto;
   border-radius: 50%;
   box-sizing: border-box;
   animation: loading 1s infinite linear;
- 
+
 }
+
 .loading_hider {
   position: absolute;
   top: 10rpx;

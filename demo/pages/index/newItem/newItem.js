@@ -77,8 +77,6 @@ Page({
     })
   },
   chooseLocation() { //选择校区函数
-    console.log(this.data.qq)
-    console.log(this.data.wx)
     let that = this;
     wx.showActionSheet({
       itemList: this.data.locationList,
@@ -152,7 +150,6 @@ Page({
     });
   },
   async releaseNewItem() {
-
     // if(app.globalData.userInfo.wx===""&&app.globalData.userInfo.qq==="") {//完善联系方式才能发帖
     //   wx.showToast({
     //     title: '请完善联系方式',
@@ -164,7 +161,8 @@ Page({
     let time;
     for (let i = 0; i < this.data.imageList.length; i++) {
       time = (new Date()).getTime();
-      filelist.push(`cloud://prod-7gigvlg43eb566e9.7072-prod-7gigvlg43eb566e9-1313093695/postImg/${time}`);
+      filelist.push(`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/${time}`);
+      console.log("tupian")
       //加个await保证时间戳不同
       await updateImg({
         filePath: this.data.imageList[i],
@@ -176,10 +174,9 @@ Page({
     const tag = this.data.tag;
     const location = this.data.location;
     const price = this.data.price;
-    const avatar = app.globalData.userInfo.avatarId;
-
+    const avatar = app.globalData.userInfo.avatar;
     const res = await releaseNewItem({
-      fileid: String(filelist),
+      fileids:filelist,
       avatar: avatar,
       title: title,
       content: content,
@@ -187,8 +184,5 @@ Page({
       location: location,
       tag: tag,
     });
-
   }
-
-  // }
 })

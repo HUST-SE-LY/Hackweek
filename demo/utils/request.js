@@ -7,12 +7,12 @@ function request(path, data, method, contentType, header) {
   return new Promise((resolve, reject) => {
     wx.cloud.callContainer({
       config: {
-        env: 'prod-7gigvlg43eb566e9', // 微信云托管的环境ID
+        env: 'prod-8gfid1gkc77d5f7d', // 微信云托管的环境ID
       },
       path, // 填入业务自定义路径和参数，根目录，就是 / 
       method: method || "get", // 按照自己的业务开发，选择对应的方法
       header: header || {
-        'X-WX-SERVICE': 'demo1', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
+        'X-WX-SERVICE': 'buqieryu', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
         // 用storage来存登录时后端给的token
         'Content-Type': contentType || 'application/json; charset=UTF-8',
         'Authorization': "Bearer " + wx.getStorageSync('token'),
@@ -30,7 +30,6 @@ function request(path, data, method, contentType, header) {
         reject(res)
       }
     }).catch((err) => {
-      showToast(err.errMsg);
       console.log(err)
       reject(err)
     });
@@ -43,10 +42,9 @@ function cloudUploadFile(cloudPath, filePath) {
       cloudPath, // 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
       filePath, // 微信本地文件，通过选择图片，聊天文件等接口获取
       config: {
-        env: 'prod-7gigvlg43eb566e9' // 微信云托管环境ID
+        env: 'prod-8gfid1gkc77d5f7d' // 微信云托管环境ID
       },
       success: (res) => {
-        console.log(res)
         resolve(res)
       },
       fail: (err) => {
@@ -75,7 +73,7 @@ export function getUserComments(data) {
   return request("/comment/getCommentListByUser", data)
 }
 //编辑用户信息，三个参数都是可选的
-export function editUserName(data) {
+export function editUserInfo(data) {
   return request("/user/updateUserDetail", data, 'put');
 }
 //上传头像

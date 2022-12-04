@@ -3,7 +3,7 @@ import {
   showToast
 } from "../../../utils/wx-event";
 import {
-  editUserName
+  editUserInfo
 } from "../../../utils/request";
 Page({
   data: {
@@ -21,7 +21,9 @@ Page({
     })
   },
   async edit() {
-    const res=await editUserName({name:this.data.userName});
+    const res = await editUserInfo({
+      name: this.data.userName
+    });
     console.log(res);
   },
   save() {

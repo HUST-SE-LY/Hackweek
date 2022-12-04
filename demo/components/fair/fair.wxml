@@ -1,27 +1,27 @@
 <view class="search-bar {{isSearchBarFoucus?'search-bar-focused':''}}">
-    <image class="button" src="../../static/search.svg"></image>
-    <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle" confirm-type="search" contenteditable="true"></input>
+  <image class="button" src="../../static/search.svg"></image>
+  <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle" confirm-type="search" contenteditable="true"></input>
 </view>
 <view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
-      <view class="searchHistory" catchtap="searchBarFocus">
-        <view class="headbar">
-          <view>搜索历史</view>
-          <view class="clear" catchtap="clearHistory">清空</view>
-        </view>
-        <view wx:for="{{serachHistory}}" wx:key="index" class="historyItem" data-content="{{item}}" catchtap="chooseSearchHistory">
-          <text>
-            {{item}}
-          </text>
-        </view>
+  <view class="searchHistory" catchtap="searchBarFocus">
+    <view class="headbar">
+      <view>搜索历史</view>
+      <view class="clear" catchtap="clearHistory">清空</view>
     </view>
+    <view wx:for="{{serachHistory}}" wx:key="index" class="historyItem" data-content="{{item}}" catchtap="chooseSearchHistory">
+      <text>
+        {{item}}
+      </text>
+    </view>
+  </view>
 
-    </view>
+</view>
 <view class="main_container">
-  <view class="head_container"> 
+  <view class="head_container">
     <view class="swiper">
-      <swiper indicator-dots="true" autoplay="true" circular="true">
+      <swiper autoplay="true" circular="true">
         <swiper-item wx:for="{{swiperContent}}" wx:key="index">
-        <image src="{{item}}" mode="widthFix" class="ad_picture"></image>
+          <image src="{{item}}" class="ad_picture"></image>
         </swiper-item>
       </swiper>
     </view>

@@ -1,8 +1,10 @@
 <!--components/comments/comments.wxml-->
-<view wx:if="{{noComment}}" class="noComment">还没有评论呢</view>
+<view wx:if="{{!commentsList.length}}" class="noComment">还没有评论呢</view>
 
 <view wx:for="{{commentsList}}" wx:key="{{item.id}}" class="comment_container" wx:for-index="firstIndex">
-  <view class="avatar"></view>
+  <view class="avatar">
+    <image src="{{item.Fileid.length?item.Fileid:'/static/default-avatar.svg'}}"></image>
+  </view>
   <view class="main_container">
     <view class="comment_head">
       <view class="username" bindtap="replyOthers" data-name="{{item.UserName}}" data-id="{{item.ID}}" data-index="{{firstIndex}}">{{item.UserName}}</view>
@@ -18,6 +20,20 @@
         <view class="second_content"><text>{{items.Content}}</text></view>
       </view>
 
+    </view>
+  </view>
+  <view class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
+    <view class="contactInfo">
+      <view class="info_container">
+        <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq?contactInfo.qq:'用户未设置'}}</text>
+          <text class="copy" wx:if="{{contactInfo.qq}}">copy</text>
+        </view>
+        <view class="divider"></view>
+        <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.wx}}" data-type="wx">
+          <view>微信： {{contactInfo.wx?contactInfo.wx:"用户未设置"}}</view>
+          <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
+        </view>
+      </view>
     </view>
   </view>
 </view>

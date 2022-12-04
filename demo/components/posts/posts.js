@@ -7,19 +7,19 @@ import {
   toggleLikePost,
   reportPost,
 } from "../../utils/request";
-let app=getApp();
+let app = getApp();
 Component({
   data: {
-    moreContent:"",//举报框内容
-    postid:null,//举报的postid
-    showMore:false,
+    moreContent: "", //举报框内容
+    postid: null, //举报的postid
+    showMore: false,
     // 点击联系按钮出现的联系信息
     contactInfoShow: false,
     contactInfo: {
       qq: null,
       wx: null
     },
-    content:"",
+    content: "",
   },
   properties: {
     postList: {
@@ -27,12 +27,12 @@ Component({
       value: []
     },
     editMode: {
-      type:Boolean,
-      value:false
+      type: Boolean,
+      value: false
     },
     isInDetail: {
-      type:Boolean,
-      value:false,
+      type: Boolean,
+      value: false,
     }
   },
   lifetimes: {
@@ -42,7 +42,7 @@ Component({
   },
   methods: {
     intoDetailPage(e) {
-      if(app.globalData.userInfo.travelMode) {
+      if (app.globalData.userInfo.travelMode) {
         wx.reLaunch({
           url: '../../pages/login/login',
         })
@@ -52,7 +52,7 @@ Component({
           url: `../../pages/index/itemDetail/itemDetail?id=${e.currentTarget.dataset.id}&content=${e.currentTarget.dataset.content}&username=${e.currentTarget.dataset.username}&price=${e.currentTarget.dataset.price}&title=${e.currentTarget.dataset.title}&time=${e.currentTarget.dataset.time}&location=${e.currentTarget.dataset.location}&isFollow=${e.currentTarget.dataset.isfollow}&isThumb=${e.currentTarget.dataset.isthumb}&isReplied=${e.currentTarget.dataset.isreplied}&follow=${e.currentTarget.dataset.follow}&reply=${e.currentTarget.dataset.reply}&thumb=${e.currentTarget.dataset.thumb}&qq=${e.currentTarget.dataset.qq}&wx=${e.currentTarget.dataset.wx}&avatar=${e.currentTarget.dataset.avatar}&post=${JSON.stringify(e.currentTarget.dataset.post)}`,
         })
       }
-      
+
     },
     navigateToEditPage(e) {
       console.log(e.currentTarget.dataset.fileid)
@@ -110,15 +110,16 @@ Component({
         info,
         type
       } = e.currentTarget.dataset;
-      wx.setClipboardData({
-        data: String(info),
-        success(res) {
-          if (type === "qq")
-            showToast("QQ号已复制")
-          else
-            showToast("微信号已复制")
-        }
-      })
+      if (info.length)
+        wx.setClipboardData({
+          data: String(info),
+          success(res) {
+            if (type === "qq")
+              showToast("QQ号已复制")
+            else
+              showToast("微信号已复制")
+          }
+        })
     },
     showContactInfo(e) {
       const {
@@ -144,25 +145,25 @@ Component({
     },
     showMore(e) {
       this.setData({
-        showMore:true,
-        postid:e.currentTarget.dataset.id,
+        showMore: true,
+        postid: e.currentTarget.dataset.id,
       })
     },
     hideMore() {
       this.setData({
-        showMore:false,
+        showMore: false,
       })
     },
     // 举报
     async reportPost(e) {
       console.log(this.data.postid)
       console.log(this.data.moreContent)
-      const res =await reportPost({
-        postid:this.data.postid,
-        content:this.data.moreContent,
+      const res = await reportPost({
+        postid: this.data.postid,
+        content: this.data.moreContent,
       })
       console.log(res)
-      
+
     },
     sharePost() {
       //阻止事件冒泡

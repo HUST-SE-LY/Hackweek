@@ -23,24 +23,20 @@
           <!-- <view class="number">{{followNum}}</view> -->
         </view>
       </view>
-      <view class="item" bindtap="navigateToMyReplyPage">
-        <image src="/static/my/pinglun.svg"></image>
-        <view class="words">
-          <view>我的评论</view>
-          <!-- <view class="number">{{replyNum}}</view> -->
-        </view>
-      </view>
     </view>
-    <view class="swiper"></view>
+    <view class="swiper">
+      <image class="swiper-item" src="cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/1669389138095"></image>
+    </view>
   </view>
   <view class="messages-bar">
     <view class="container">
       <view class="header"><text style="font-weight: bold;">回复我的</text>
         <image src="/static/my/message.png"></image>
       </view>
-      <replymeItems messageList="{{messageList}}"></replymeItems>
+      <replymeItems wx:if="{{messageList.length}}" messageList="{{messageList}}"></replymeItems>
+      <view wx:else class="default-cotent">
+        还没有收到回复哦~</view>
     </view>
   </view>
   <view class="bottom-devider"></view>
-
 </view>

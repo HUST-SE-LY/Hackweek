@@ -1,16 +1,30 @@
 const App = getApp()
 import {
-  uploadAvatar
+  uploadAvatar,
+  editUserInfo
 } from '../../utils/request'
+import {
+  formatTime
+} from "../../utils/util"
 Page({
   data: {
     avatar: "",
     userName: "小明",
     qq: "null",
-    wx: "null"
+    wx: "null",
+    highLightInfo: false
   },
-  onShow: function () {
+  onShow() {
     this.loadInfo()
+    if (!(App.globalData.userInfo.qq.length || App.globalData.userInfo.wx.length)) {
+      this.setData({
+        highLightInfo: true
+      })
+    } else {
+      this.setData({
+        highLightInfo: false
+      })
+    }
   },
   // 下面有一次复用，所以写成了函数
   loadInfo() {
@@ -71,14 +85,17 @@ Page({
     wx.chooseMedia({
       mediaType: 'image',
       count: 1,
-      success(res) {
+      success: async (res) => {
         that.setData({
           avatar: res.tempFiles[0].tempFilePath,
         });
-        console.log(that.data.avatar)
-        uploadAvatar({
+        const timestamp = formatTime(new Date())
+        const avatar = await uploadAvatar({
           filePath: res.tempFiles[0].tempFilePath,
-          userid: App.globalData.userInfo.userid
+          userid: App.globalData.userInfo.userid + timestamp.match(/\w/g).join("")
+        })
+        editUserInfo({
+          fileid: avatar.fileID
         })
       }
     })
