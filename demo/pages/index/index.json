@@ -3,5 +3,7 @@
     "Fair": "/components/fair/fair",
     "My": "/components/my/my"
   },
-  "navigationBarBackgroundColor": "#F8F8F8"
+  "navigationBarBackgroundColor": "#F8F8F8",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

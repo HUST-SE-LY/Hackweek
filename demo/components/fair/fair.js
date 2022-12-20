@@ -28,7 +28,7 @@ Component({
     noPost: false,
 
   },
-  methods: {
+  methods: {  
     // 搜索框变化
     searchBarFocus() {
       const serachHistory = wx.getStorageSync('serachHistory')
@@ -93,6 +93,19 @@ Component({
       });
       this.selectByTag();
 
+    },
+    topFresh() {
+      startId = 0;
+      startIdTitle = 0;
+      startIdTag = 0;
+      if (this.data.selectedIndex >= 0) {
+        this.selectByTag();
+      } else if (this.data.searchWords !== "") {
+        this.selectByTitle();
+      } else {
+        console.log(startId)
+        this.getPostsList();
+      }
     },
     bottomFresh() {
       if (this.data.selectedIndex >= 0) {

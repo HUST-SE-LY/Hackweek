@@ -14,10 +14,12 @@ Page({
       })
     } else {
       if (!(app.globalData.userInfo.qq.length || app.globalData.userInfo.wx.length)) {
-        wx.navigateTo({
-          url: "/pages/editInfo/editInfo?needInfo=true"
-        })
         showToast("请至少完善一种用户联系方式~")
+        setTimeout(() => {
+          wx.navigateTo({
+            url: "/pages/editInfo/editInfo?needInfo=true"
+          })
+        },1000)
       } else {
         wx.navigateTo({
           url: '/pages/index/newItem/newItem',
@@ -40,6 +42,10 @@ Page({
   },
   onReachBottom() {
     this.selectComponent("#fair").bottomFresh();
+  },
+  onPullDownRefresh() {
+    this.selectComponent("#fair").topFresh();
+    wx.stopPullDownRefresh();
   },
   onShareAppMessage(e) {
     console.log(e)
