@@ -98,6 +98,9 @@ Component({
       startId = 0;
       startIdTitle = 0;
       startIdTag = 0;
+      this.setData({
+        postList:[],
+      })
       if (this.data.selectedIndex >= 0) {
         this.selectByTag();
       } else if (this.data.searchWords !== "") {

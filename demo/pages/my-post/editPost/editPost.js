@@ -30,7 +30,7 @@ Page({
   },
   onLoad(options) {
     let imageList = options.fileid
-    if(imageList=="null") imageList = []
+    if(!imageList) imageList = []
     else imageList = imageList.split(",")
     this.setData({
       title: options.title,

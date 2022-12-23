@@ -20,8 +20,12 @@ Page({
   },
   //页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
+    this.setData({
+      postList:[],
+    })
     startId = 0;
-    this.getMyFollowPost()
+    this.getMyFollowPost();
+    wx.stopPullDownRefresh();
   },
   onReachBottom: function () {
     this.getMyFollowPost()

@@ -2,5 +2,7 @@
   "usingComponents": {
     "Post": "/components/posts/posts"
   },
-  "navigationBarTitleText": "我的闲置"
+  "navigationBarTitleText": "我的闲置",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
