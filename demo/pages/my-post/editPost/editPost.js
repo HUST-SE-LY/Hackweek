@@ -198,11 +198,10 @@ Page({
     for (let i = this.data.originListLength; i < this.data.imageList.length; i++) {
       time = (new Date()).getTime();
       filelist.push(`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/${time}`);
-      //加个await保证时间戳不同
-      await updateImg({
-        filePath: this.data.imageList[i],
-        fileName: time,
-      })
+      // await updateImg({
+      //   filePath: this.data.imageList[i],
+      //   fileName: time,
+      // })
     }
     const title = this.data.title;
     const content = this.data.detail;

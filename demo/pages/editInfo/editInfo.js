@@ -90,10 +90,10 @@ Page({
           avatar: res.tempFiles[0].tempFilePath,
         });
         const timestamp = formatTime(new Date())
-        const avatar = await uploadAvatar({
-          filePath: res.tempFiles[0].tempFilePath,
-          userid: App.globalData.userInfo.userid + timestamp.match(/\w/g).join("")
-        })
+        // const avatar = await uploadAvatar({
+        //   filePath: res.tempFiles[0].tempFilePath,
+        //   userid: App.globalData.userInfo.userid + timestamp.match(/\w/g).join("")
+        // })
         editUserInfo({
           fileid: avatar.fileID
         })
