@@ -5,52 +5,33 @@ import {
 //使用Promise封装的意义在于：wx提供的原生接口是通过给success和false属性值来实现回调，如果想要做一些异步操作的话只能把异步操作的一大串代码当成参数传到函数里，然后函数再把这些参数作为success的属性值，不是很美观）而用Promise封装一下就可以使用传统的then或者async await来处理异步操作。同时统一封装也可以统一掉envId、Content-Type这种共用的参数
 function request(path, data, method, contentType, header) {
   return new Promise((resolve, reject) => {
-    wx.cloud.callContainer({
-      config: {
-        env: 'prod-8gfid1gkc77d5f7d', // 微信云托管的环境ID
-      },
-      path, // 填入业务自定义路径和参数，根目录，就是 / 
-      method: method || "get", // 按照自己的业务开发，选择对应的方法
-      header: header || {
-        'X-WX-SERVICE': 'buqieryu', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
-        // 用storage来存登录时后端给的token
-        'Content-Type': contentType || 'application/json; charset=UTF-8',
-        'Authorization': "Bearer " + wx.getStorageSync('token'),
-      },
-      data: data
-      // dataType:'text', // 默认不填是以 JSON 形式解析返回结果，若不想让 SDK 自己解析，可以填text
-      // 其余参数同 wx.request
-    }).then((res) => {
-      console.log(res)
-      if (res.statusCode >= 200 && res.statusCode < 300) {
-        resolve(res.data)
-      } else {
-        // 这个看后端有没有好好写errMsg，好好写的话可以统一拿errMsg做toast内容
-        // showToast(res.errMsg);
-        reject(res)
+    wx.request({
+      url: `https://1037buqieryu.cn${path}`,
+      data,
+      method,
+      success(res) {
+        resolve(res)
       }
-    }).catch((err) => {
-      console.log(err)
-      reject(err)
-    });
-  })
+    })
+  }
+  ).then((res) => {
+    console.log(res)
+    if (res.statusCode >= 200 && res.statusCode < 300) {
+      resolve(res.data)
+    } else {
+      // 这个看后端有没有好好写errMsg，好好写的话可以统一拿errMsg做toast内容
+      // showToast(res.errMsg);
+      reject(res)
+    }
+  }).catch((err) => {
+    console.log(err)
+    reject(err)
+  });
 }
 
 function cloudUploadFile(cloudPath, filePath) {
   return new Promise((resolve, reject) => {
-    wx.cloud.uploadFile({
-      cloudPath, // 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
-      filePath, // 微信本地文件，通过选择图片，聊天文件等接口获取
-      config: {
-        env: 'prod-8gfid1gkc77d5f7d' // 微信云托管环境ID
-      },
-      success: (res) => {
-        resolve(res)
-      },
-      fail: (err) => {
-        reject(err)
-      },
-    })
+    
   })
 }
 
@@ -166,5 +147,5 @@ export function cancelFollowPost(data) {
 }
 //举报帖子
 export function reportPost(data) {
-  return request("/report/report",data,'post')
+  return request("/report/report", data, 'post')
 }
