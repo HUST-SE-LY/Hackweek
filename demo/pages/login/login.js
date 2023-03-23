@@ -3,12 +3,12 @@ import {
   verifyCodeMatch
 } from "../../utils/request";
 // pages/login/login.js
-let app=getApp();
+let app = getApp();
 let isGettingKey;
 Page({
   data: {
-    canFresh:false,
-    loginPage:true,//判断是否logo是否消失以及登录界面出现
+    canFresh: false,
+    loginPage: true, //判断是否logo是否消失以及登录界面出现
     email: "", //email框内输入的内容
     keyValue: "", //验证码框内输入的内容
     emailTrue: true, //判断邮箱格式是否正确
@@ -29,13 +29,15 @@ Page({
     })
   },
   travelMode() {
-    app.globalData.userInfo.travelMode=true;
+    app.globalData.userInfo.travelMode = true;
     wx.navigateTo({
       url: '../index/index',
     })
   },
   logoOut() {
-    this.setData({loginPage:true,});
+    this.setData({
+      loginPage: true,
+    });
   },
   freshPage() {
     wx.redirectTo({
@@ -43,16 +45,16 @@ Page({
     })
   },
   async getKey() { //点击获取验证码按钮时触发
-    if(isGettingKey) {
-      return isGettingKey=true;
+    if (isGettingKey) {
+      return isGettingKey = true;
     }
-    isGettingKey=true;
-    let that=this
+    isGettingKey = true;
+    let that = this
     if (this.data.email && this.data.email.match(/(^[A-z])[0-9]{9,9}/)) { //判断格式是否正确
       this.setData({
         firstEmail: this.data.email,
         emailTrue: true,
-        time:600,
+        time: 600,
       }) //设置firstEmail;
       try {
         await sendVerifyCode({
@@ -63,9 +65,9 @@ Page({
           keyInputShow: true, //出现验证码输入框
           timeIntervalShow: true, //出现60s间隔按钮
           getKeyShow: false, //隐藏获取验证码按钮
-          canFresh:true,
+          canFresh: true,
         });
-        isGettingKey=false;
+        isGettingKey = false;
         let i = 600;
         i--;
         let interval = setInterval(() => {
@@ -78,10 +80,10 @@ Page({
               timeIntervalShow: false, //60s按钮隐藏
               getKeyShow: true, //获取验证码按钮出现
               keyInputShow: false,
-              keyValue:"",
-              verifyCodeTrue:true,
-              loginShow:false,
-              canFresh:false,
+              keyValue: "",
+              verifyCodeTrue: true,
+              loginShow: false,
+              canFresh: false,
             })
             clearInterval(interval);
           }
@@ -90,7 +92,7 @@ Page({
 
       }
     } else {
-      isGettingKey=false;
+      isGettingKey = false;
       this.setData({
         emailTrue: false,
         email: null, //清空输入框
@@ -120,33 +122,32 @@ Page({
     }
   },
   async login() {
-    let that=this;
+    let that = this;
     this.setData({
       secondEmail: this.data.email
     });
     if (this.data.firstEmail == this.data.secondEmail) { //判断两次输入的邮箱是否为同一个
-     try{
-      const res = await verifyCodeMatch({
-        email: that.data.secondEmail+ "@hust.edu.cn", 
-        code: that.data.keyValue,
-      })
-      console.log(res)
-      if(res.code==200) {
-        wx.setStorageSync('token', res.data);
-        app.globalData.userInfo.travelMode=false;
-        wx.redirectTo({
-         url: `../index/index`, //登陆成功跳转到index
+      try {
+        const res = await verifyCodeMatch({
+          email: that.data.secondEmail + "@hust.edu.cn",
+          code: that.data.keyValue,
+        })
+        if (res.code == 200) {
+          wx.setStorageSync('token', res.data);
+          app.globalData.userInfo.travelMode = false;
+          wx.redirectTo({
+            url: `../index/index`, //登陆成功跳转到index
+          })
+        }
+      } catch (err) {
+        this.setData({
+          verifyCodeTrue: false,
+          keyValue: "",
+          loginShow: false,
+          timeIntervalShow: true,
         })
       }
-     } catch(err) {
-       this.setData({
-         verifyCodeTrue:false,
-         keyValue:"",
-         loginShow: false,
-        timeIntervalShow: true,
-       })
-     }
-      
+
     }
   }
 })
