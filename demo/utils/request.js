@@ -99,7 +99,7 @@ export function searchByTag(data) {
 }
 //获取帖子的评论列表
 export function getPostComments(data) {
-  return request("comment/getCommentListByPost", data)
+  return request("/comment/getCommentListByPost", data)
 }
 //在帖子里发表评论
 export function releasePostComment(data) {
