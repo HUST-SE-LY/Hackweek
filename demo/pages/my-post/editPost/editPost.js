@@ -30,7 +30,7 @@ Page({
   },
   onLoad(options) {
     let imageList = options.fileid
-    if(!imageList) imageList = []
+    if (!imageList) imageList = []
     else imageList = imageList.split(",")
     this.setData({
       title: options.title,
@@ -183,45 +183,39 @@ Page({
   },
   async releaseNewItem() {
 
-    // if(app.globalData.userInfo.wx===""&&app.globalData.userInfo.qq==="") {//完善联系方式才能发帖
-    //   wx.showToast({
-    //     title: '请完善联系方式',
-    //     icon:"none",
-    //     duration:2000,
-    //   })
-    // } else {
-    let filelist = [];
-    for (let i = 0; i < this.data.originListLength; i++) {
-      filelist.push(this.data.imageList[i]);
+    if (app.globalData.userInfo.wx === "" && app.globalData.userInfo.qq === "") { //完善联系方式才能发帖
+      wx.showToast({
+        title: '请完善联系方式',
+        icon: "none",
+        duration: 2000,
+      })
+    } else {
+      let filelist = [];
+      for (let i = 0; i < this.data.originListLength; i++) {
+        filelist.push(this.data.imageList[i]);
+      }
+      for (let i = this.data.originListLength; i < this.data.imageList.length; i++) {
+        await updateImg({
+          filePath: this.data.imageList[i],
+          postId: this.data.postid,
+        })
+      }
+      const title = this.data.title;
+      const content = this.data.detail;
+      const tag = this.data.tag;
+      const location = this.data.location;
+      const price = this.data.price;
+      const avatar = app.globalData.userInfo.avatarId;
+      const res = await editMyPost({
+        postid: this.data.postid,
+        avatar: avatar,
+        title: title,
+        content: content,
+        price: price,
+        location: location,
+        tag: tag,
+      });
+      showToast("修改成功")
     }
-    let time;
-    for (let i = this.data.originListLength; i < this.data.imageList.length; i++) {
-      time = (new Date()).getTime();
-      filelist.push(`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/${time}`);
-      // await updateImg({
-      //   filePath: this.data.imageList[i],
-      //   fileName: time,
-      // })
-    }
-    const title = this.data.title;
-    const content = this.data.detail;
-    const tag = this.data.tag;
-    const location = this.data.location;
-    const price = this.data.price;
-    const avatar = app.globalData.userInfo.avatarId;
-    console.log(filelist)
-    const res = await editMyPost({
-      postid: this.data.postid,
-      fileids: filelist,
-      avatar: avatar,
-      title: title,
-      content: content,
-      price: price,
-      location: location,
-      tag: tag,
-    });
-    showToast("修改成功")
   }
-
-  // }
 })

@@ -69,21 +69,40 @@ export function getUserComments(data) {
 }
 //编辑用户信息，三个参数都是可选的
 export function editUserInfo(data) {
-  return request("/user/updateUserDetail", data, 'put');
+  return request("/user/updateUserDetail", data, 'post');
 }
 //上传头像
-export function uploadAvatar(data) {
-  return cloudUploadFile(`avatar/avatar-${data.userid}`, data.filePath)
+export function uploadAvatar(filePath) {
+  return wx.uploadFile({
+    filePath: filePath,
+    name: 'file',
+    url: 'https://1037buqieryu.cn/user/updateUserAvatar',
+    header: {
+      'Authorization': "Bearer " + wx.getStorageSync('token'),
+    }
+  })
 }
-
 
 //发帖子
 export function releaseNewItem(data) {
   return request('/post/create', data, "post")
 }
 //发帖子时传图片
-export function updateImg(data) {
-  return cloudUploadFile(`postImg/${data.fileName}`, data.filePath)
+export function updateImg({
+  filePath,
+  postId
+}) {
+  return wx.uploadFile({
+    filePath: filePath,
+    name: 'file',
+    url: 'https://1037buqieryu.cn/post/uploadImage',
+    header: {
+      'Authorization': "Bearer " + wx.getStorageSync('token'),
+    },
+    formData: {
+      postid: postId
+    }
+  })
 }
 //获取帖子列表
 export function getPostsList(data) {

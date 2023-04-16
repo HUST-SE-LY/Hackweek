@@ -1,7 +1,6 @@
 const App = getApp()
 import {
-  uploadAvatar,
-  editUserInfo
+  uploadAvatar
 } from '../../utils/request'
 import {
   formatTime
@@ -89,14 +88,7 @@ Page({
         that.setData({
           avatar: res.tempFiles[0].tempFilePath,
         });
-        const timestamp = formatTime(new Date())
-        // const avatar = await uploadAvatar({
-        //   filePath: res.tempFiles[0].tempFilePath,
-        //   userid: App.globalData.userInfo.userid + timestamp.match(/\w/g).join("")
-        // })
-        editUserInfo({
-          fileid: avatar.fileID
-        })
+        uploadAvatar(res.tempFiles[0].tempFilePath)
       }
     })
   }

@@ -23,13 +23,13 @@ Page({
     imgLargeUrl: null, //放大后的图片url
     price: "", //期望价格
     canUpload: false, //判断条件是否填写完必要
-    qq:app.globalData.userInfo.qq,
-    wx:app.globalData.userInfo.wx,
+    qq: app.globalData.userInfo.qq,
+    wx: app.globalData.userInfo.wx,
   },
   onLoad() {
     this.setData({
-      wx:app.globalData.userInfo.wx,
-      qq:app.globalData.userInfo.qq,
+      wx: app.globalData.userInfo.wx,
+      qq: app.globalData.userInfo.qq,
     })
   },
   clearContent() { //点击后清除placeholder
@@ -133,7 +133,7 @@ Page({
       showToast("请填写期望售价")
       return false
     }
-    if(!(this.data.qq.length||this.data.wx.length)) {
+    if (!(this.data.qq.length || this.data.wx.length)) {
       showToast("请至少完善一种联系方式")
       return false
     }
@@ -150,38 +150,35 @@ Page({
     });
   },
   async releaseNewItem() {
-    // if(app.globalData.userInfo.wx===""&&app.globalData.userInfo.qq==="") {//完善联系方式才能发帖
-    //   wx.showToast({
-    //     title: '请完善联系方式',
-    //     icon:"none",
-    //     duration:2000,
-    //   })
-    // } else {
-    let filelist = [];
-    let time;
-    for (let i = 0; i < this.data.imageList.length; i++) {
-      time = (new Date()).getTime();
-      filelist.push(`cloud://prod-8gfid1gkc77d5f7d.7072-prod-8gfid1gkc77d5f7d-1315290407/postImg/${time}`);
-      console.log("tupian")
-      // await updateImg({
-      //   filePath: this.data.imageList[i],
-      //   fileName: time,
-      // })
+    if (app.globalData.userInfo.wx === "" && app.globalData.userInfo.qq === "") { //完善联系方式才能发帖
+      wx.showToast({
+        title: '请完善联系方式',
+        icon: "none",
+        duration: 2000,
+      })
+    } else {
+      let filelist = [];
+      let time;
+      const title = this.data.title;
+      const content = this.data.detail;
+      const tag = this.data.tag;
+      const location = this.data.location;
+      const price = this.data.price;
+      const avatar = app.globalData.userInfo.avatar;
+      const res = await releaseNewItem({
+        avatar: avatar,
+        title: title,
+        content: content,
+        price: price,
+        location: location,
+        tag: tag,
+      });
+      for (let i = 0; i < this.data.imageList.length; i++) {
+        await updateImg({
+          filePath: this.data.imageList[i],
+          postId: res.data.ID,
+        })
+      }
     }
-    const title = this.data.title;
-    const content = this.data.detail;
-    const tag = this.data.tag;
-    const location = this.data.location;
-    const price = this.data.price;
-    const avatar = app.globalData.userInfo.avatar;
-    const res = await releaseNewItem({
-      fileids:filelist,
-      avatar: avatar,
-      title: title,
-      content: content,
-      price: price,
-      location: location,
-      tag: tag,
-    });
   }
 })
