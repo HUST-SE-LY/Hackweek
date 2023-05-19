@@ -28,7 +28,7 @@ Component({
     noPost: false,
 
   },
-  methods: {  
+  methods: {
     // 搜索框变化
     searchBarFocus() {
       const serachHistory = wx.getStorageSync('serachHistory')
@@ -61,14 +61,15 @@ Component({
     },
     saveSearchHistory() {
       let serachHistory = wx.getStorageSync('serachHistory')
-      console.log(serachHistory)
       if (!serachHistory) serachHistory = []
       //仅保存5条
-      if (serachHistory.length == 5) {
-        serachHistory.pop()
+      if (!serachHistory.includes(this.data.searchWords)) {
+        if (serachHistory.length == 5) {
+          serachHistory.pop()
+        }
+        serachHistory.unshift(this.data.searchWords)
+        wx.setStorageSync('serachHistory', serachHistory)
       }
-      serachHistory.unshift(this.data.searchWords)
-      wx.setStorageSync('serachHistory', serachHistory)
       this.setData({
         serachHistory
       })
@@ -99,7 +100,7 @@ Component({
       startIdTitle = 0;
       startIdTag = 0;
       this.setData({
-        postList:[],
+        postList: [],
       })
       if (this.data.selectedIndex >= 0) {
         this.selectByTag();
