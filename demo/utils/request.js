@@ -16,7 +16,6 @@ function request(path, data, method, contentType, header) {
       },
       data,
       success(req) {
-        console.log(req);
         if (req.statusCode >= 200 && req.statusCode < 300) {
           resolve(req.data);
         } else {

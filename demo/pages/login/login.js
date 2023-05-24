@@ -21,6 +21,7 @@ Page({
     time: 60, //60s间隔按钮的剩余时间
     firstEmail: "", //用户第一次(获取验证码)的email
     secondEmail: "", //用户第二次(点击登录按钮)的email
+    dialogShow: false
   },
   onLoad() {
     wx.loadFontFace({
@@ -40,8 +41,13 @@ Page({
     });
   },
   freshPage() {
-    wx.redirectTo({
-      url: './login',
+    this.setData({
+      dialogShow: true
+    })
+  },
+  closeDialog() {
+    this.setData({
+      dialogShow: false
     })
   },
   async getKey() { //点击获取验证码按钮时触发

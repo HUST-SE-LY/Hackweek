@@ -6,17 +6,34 @@
     </view>
     <form class="form">
       <view style="display: flex;" class="email_container">
-        <view class="prewords">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱':'请输入正确的邮箱号'}}" 	placeholder-style="font-size:24rpx" name="Email_address" class="email_input {{emailTrue?'':'email_input_false'}}" model:value="{{email}}" />
+        <view class="prewords">邮箱：</view><input placeholder="{{emailTrue?'HUST校园邮箱':'请输入正确的邮箱号'}}" placeholder-style="font-size:24rpx" name="Email_address" class="email_input {{emailTrue?'':'email_input_false'}}" model:value="{{email}}" />
       </view>
       <view style="display: {{keyInputShow?'flex':'none'}};" class="key_container">
-        <view class="prewords">验证码：</view><input placeholder="{{verifyCodeTrue?'输入验证码':'验证码错误，请重新输入'}}" 	placeholder-style="font-size:24rpx" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
+        <view class="prewords">验证码：</view><input placeholder="{{verifyCodeTrue?'输入验证码':'验证码错误，请重新输入'}}" placeholder-style="font-size:24rpx" name="Email_address" class="{{keyTrue?'key_input':'key_input_false'}}" model:value="{{keyValue}}" bindinput="keyJudge" />
       </view>
       <div class="submit_button main_button" bindtap="getKey" style="display: {{getKeyShow?'block':'none'}};">获取验证码</div>
       <div class="submit_button" style="display: {{timeIntervalShow?'block':'none'}}; margin-top:1rem">{{time}}s</div>
       <div bindtap="login" class="submit_button" style="display: {{loginShow?'block':'none'}};  margin-top:1rem">登录&注册</div>
     </form>
   </view>
-  <view class="travel_mode" bindtap="travelMode" wx:if="{{!canFresh}}">游客模式</view>
+  <view class="travel_mode" bindtap="freshPage" wx:if="{{!canFresh}}">游客模式</view>
   <view class="fresh_button" bindtap="freshPage" wx:if="{{canFresh}}">没有收到验证码？</view>
 </view>
 <view class="footer">————不期而喻小程序团队————</view>
+<view class="dialog" wx:if="{{dialogShow}}">
+  <view class="content">
+    <view class="title">没有收到验证码？</view>
+    <view class="words">
+      1、请确保您的hust邮箱账户处于正常状态，长期未使用邮箱可能会被冻结
+
+      2、如果通过微校园/企业微信没有收到验证码通知，请<text style="color: blue;">登录邮箱</text>查看
+
+      3、若仍然无法收到，请联系我们
+    </view>
+    <div class="image-container">
+      <image src="../../static/login/officialCode.png"></image>
+    </div>
+    <view class="button" bindtap="closeDialog">
+      我知道了</view>
+  </view>
+</view>

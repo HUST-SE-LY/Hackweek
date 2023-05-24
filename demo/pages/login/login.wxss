@@ -205,6 +205,55 @@ page {
   bottom: 10vh;
   text-align: center;
   font-size: 13px;
+}
 
+.dialog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(200, 200, 200, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.dialog .content {
+  background-color: white;
+  width: 60vw;
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.dialog .title {
+  display: flex;
+  justify-content: center;
+}
+
+.dialog .words {
+  word-break: break-all;
+  white-space: pre-line;
+}
+
+.dialog .image-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.dialog .image-container image {
+  height: 30vw;
+  width: 30vw;
+}
+
+.dialog .button {
+  width: 100px;
+  text-align: center;
+  margin: 10px auto 0;
+  padding: 9px 20px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
 }
