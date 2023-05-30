@@ -59,6 +59,7 @@ Component({
         isReplyOthers: true,
         placeHolderName: this.data.name,
         responseid: e.currentTarget.dataset.id,
+        isreplysecond: e.currentTarget.dataset.isreplysecond
       });
     },
     reply1(content) { //二级评论的渲染

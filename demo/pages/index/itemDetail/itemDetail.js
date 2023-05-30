@@ -42,6 +42,7 @@ Page({
     commentsList: [],
     contactInfoShow: false,
     noComment: false,
+    isreplysecond: false
   },
   releaseComment() { //正常回复
     if (this.data.inputContent) {
@@ -126,15 +127,17 @@ Page({
     })
   },
   async Comment(responseid) {
-    console.log(responseid);
+    console.log(this.data.isreplysecond);
     const id = this.data.id;
     const content = this.data.inputContent;
-    const res = await releasePostComment({
+    const params = {
       postid: parseInt(id),
       content: content,
       responseid: responseid,
       fileid: App.globalData.avatarId
-    });
+    }
+    if (this.data.isreplysecond) params.responseUserName = this.data.placeHolderName
+    const res = await releasePostComment(params);
     this.setData({ //情空输入框
       inputContent: "",
     })
