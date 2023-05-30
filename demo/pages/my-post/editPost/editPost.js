@@ -7,10 +7,9 @@ import {
   showToast
 } from "../../../utils/wx-event.js"
 const app = getApp();
-
+let deleteImageIdx = []
 
 Page({
-
   data: {
     title: "", //帖子标题
     detail: "", //帖子正文（模拟placeHolder内容）
@@ -123,6 +122,7 @@ Page({
     let id = index.currentTarget.dataset.index;
     let list = this.data.imageList;
     list.splice(id, 1);
+    deleteImageIdx.push(id)
     this.setData({
       imageList: list,
     }); //更新图片url
@@ -182,7 +182,6 @@ Page({
     });
   },
   async releaseNewItem() {
-
     if (app.globalData.userInfo.wx === "" && app.globalData.userInfo.qq === "") { //完善联系方式才能发帖
       wx.showToast({
         title: '请完善联系方式',
@@ -206,6 +205,25 @@ Page({
       const location = this.data.location;
       const price = this.data.price;
       const avatar = app.globalData.userInfo.avatarId;
+      const deleteImageTemp = new Array(deleteImageIdx.length).fill(0)
+      for (let i = 0; i < deleteImageTemp.length; i++) {
+        let idx = -1
+        const n = deleteImageIdx[i]
+        while (n >= 0) {
+          for (let j = 0; j < deleteImageTemp.length; j++) {
+            idx++
+            if (deleteImageTemp[j] == 0) {
+              n--
+              if (n == -1) break
+            }
+          }
+        }
+        deleteImageTemp[idx] = 1
+      }
+      let deleteImage = []
+      for (let i = 0; i < deleteImageTemp.length; i++) {
+        if (deleteImageTemp[i] === 1) deleteImage.push(i)
+      }
       const res = await editMyPost({
         postid: this.data.postid,
         avatar: avatar,
@@ -214,6 +232,7 @@ Page({
         price: price,
         location: location,
         tag: tag,
+        deleteImage
       });
       showToast("修改成功")
     }

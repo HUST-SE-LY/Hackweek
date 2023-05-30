@@ -103,9 +103,6 @@ view {
   padding-top: 10px;
 }
 
-.reply_username {
-  color: #02A7F0;
-}
 
 .content {
   padding: 20rpx;

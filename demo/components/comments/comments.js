@@ -66,7 +66,6 @@ Component({
         Content: content,
         UserName: App.globalData.userInfo.userName,
       };
-      console.log(content)
       let array = this.properties.commentsList[this.data.index].ReplyComments;
       array.push(commentRend);
       this.setData({

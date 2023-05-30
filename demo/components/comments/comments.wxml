@@ -16,29 +16,31 @@
     <view class="main_content">{{item.Content}}</view>
     <view class="second_container" wx:if="{{item.ReplyComments.length}}">
       <view wx:for="{{item.ReplyComments}}" wx:for-item="items" class="second_single">
-        <view class="reply_username" catchtap="showContactInfo" data-avatar="{{items.Fileid}}" data-qq="{{items.QQ}}" data-username="{{items.UserName}}" data-wx='{{items.Wx}}'>{{items.UserName}}：</view>
+        <view class="reply_username" catchtap="replyOthers" data-qq="{{items.QQ}}" data-wx="{{items.Wx}}" data-name="{{items.UserName}}" data-id='{{items.ID}}' data-index="{{firstIndex}}">
+          <span style="color: #02A7F0;">{{items.UserName}}</span>
+          <span>{{items.isThirdReply?' 回复 ' +items.replyName:''}}</span>：
+        </view>
         <view class="second_content"><text>{{items.Content}}</text></view>
       </view>
 
     </view>
   </view>
   <view class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">
-  <view class="contactInfo">
-    <view class="contactInfo_head">
-      <image src="{{contactInfo.avatar}}"></image>
-      <text class="username">{{contactInfo.username}}</text>
-    </view>
-    <view class="info_container">
-      <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq?contactInfo.qq:'用户未设置'}}</text>
-        <text class="copy" wx:if="{{contactInfo.qq}}">copy</text>
+    <view class="contactInfo">
+      <view class="contactInfo_head">
+        <image src="{{contactInfo.avatar}}"></image>
+        <text class="username">{{contactInfo.username}}</text>
       </view>
-      <view class="divider"></view>
-      <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.wx}}" data-type="wx">
-        <view>微信： {{contactInfo.wx?contactInfo.wx:"用户未设置"}}</view>
-        <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
+      <view class="info_container">
+        <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.qq}}" data-type="qq"><text>Q Q： {{contactInfo.qq?contactInfo.qq:'用户未设置'}}</text>
+          <text class="copy" wx:if="{{contactInfo.qq}}">copy</text>
+        </view>
+        <view class="divider"></view>
+        <view class="content" catchtap="copyContactInfo" data-info="{{contactInfo.wx}}" data-type="wx">
+          <view>微信： {{contactInfo.wx?contactInfo.wx:"用户未设置"}}</view>
+          <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
+        </view>
       </view>
     </view>
-
   </view>
-</view>
 </view>

@@ -13,13 +13,13 @@ Page({
         url: '../../pages/login/login',
       })
     } else {
-      if (!(app.globalData.userInfo.qq.length || app.globalData.userInfo.wx.length)) {
+      if (!(app.globalData.userInfo.qq && app.globalData.userInfo.qq.length || app.globalData.userInfo.qq && app.globalData.userInfo.wx.length)) {
         showToast("请至少完善一种用户联系方式~")
         setTimeout(() => {
           wx.navigateTo({
             url: "/pages/editInfo/editInfo?needInfo=true"
           })
-        },1000)
+        }, 1000)
       } else {
         wx.navigateTo({
           url: '/pages/index/newItem/newItem',

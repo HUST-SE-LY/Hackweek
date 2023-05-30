@@ -56,7 +56,6 @@
         <text class="copy" wx:if="{{contactInfo.wx}}">copy</text>
       </view>
     </view>
-
   </view>
 </view>
 <view class="more_container overlay" bindtap="hideMore" wx:if="{{showMore}}">

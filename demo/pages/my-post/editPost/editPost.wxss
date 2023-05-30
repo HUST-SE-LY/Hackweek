@@ -7,7 +7,7 @@ page {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  gap:5rpx;
+  gap: 5rpx;
   height: 35px;
   width: 100vw;
   font-size: 13px;
@@ -26,6 +26,7 @@ page {
   height: 20px;
   width: 20px;
 }
+
 .release_container {
   width: 90vw;
   margin-left: 5vw;
@@ -34,10 +35,12 @@ page {
   padding: 15px 20px;
   box-sizing: border-box;
 }
+
 .price_svg {
   height: 20px;
   width: 20px;
 }
+
 .input_container {
   height: 50px;
   display: flex;
@@ -59,15 +62,18 @@ page {
   font-size: 12px;
   white-space: pre-line
 }
+
 .detail_clear {
   color: grey
 }
+
 .upload_image {
   width: 20vw;
   height: 20vw;
   background-color: #CAE9F7;
   box-sizing: border-box;
 }
+
 .image_container {
   display: flex;
   flex-wrap: wrap;
@@ -76,10 +82,12 @@ page {
   row-gap: 5vw;
   width: 100%;
 }
+
 .image {
   width: 20vw;
   height: 20vw;
 }
+
 .add_icon {
   background-image: url("data:image/svg+xml,%3Csvg t='1658902345799' class='icon' viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='2245' width='200' height='200'%3E%3Cpath d='M801.171 483.589H544V226.418c0-17.673-14.327-32-32-32s-32 14.327-32 32v257.171H222.83c-17.673 0-32 14.327-32 32s14.327 32 32 32H480v257.17c0 17.673 14.327 32 32 32s32-14.327 32-32v-257.17h257.171c17.673 0 32-14.327 32-32s-14.327-32-32-32z' fill='' p-id='2246'%3E%3C/path%3E%3C/svg%3E");
   width: 60%;
@@ -88,6 +96,7 @@ page {
   margin-left: 20%;
   margin-top: 20%;
 }
+
 .detail_tip {
   color: gray;
   margin-top: 17px;
@@ -111,19 +120,23 @@ page {
   box-sizing: border-box;
   position: relative;
 }
+
 .line {
   height: 1px;
   width: 90vw;
   background-color: #f5f5f5;
 }
+
 .noChoose {
   color: gray;
 }
+
 .price {
   font-size: 12px;
   padding-left: 15px;
   box-sizing: border-box;
 }
+
 .release {
   margin-top: 2em;
   width: 138px;
@@ -137,19 +150,22 @@ page {
   border-radius: 1.5em;
   background-color: #FFFDE1;
 }
+
 .cannotRelease {
   background-color: white;
   color: grey;
 }
+
 .largeImg {
   width: 80vw;
   position: absolute;
   top: 10vh;
   z-index: 10;
   left: 10vw;
-  
-  
+
+
 }
+
 .gray_back {
   width: 100vw;
   height: 100vh;
@@ -158,6 +174,7 @@ page {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
+
 .image_delete {
   width: 5vw;
   height: 5vw;
