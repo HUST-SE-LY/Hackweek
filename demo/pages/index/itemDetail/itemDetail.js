@@ -11,6 +11,9 @@ import {
   showToast
 } from "../../../utils/wx-event";
 // pages/index/itemDetail/itemDetail.js
+
+// 帖子id
+let id = 0
 Page({
   data: {
     postList: null,
@@ -48,6 +51,8 @@ Page({
     if (this.data.inputContent) {
       this.selectComponent("#comments").reply(this.data.inputContent); //找到组件触发组件reply
       this.Comment(0);
+      // 重新获取数据来正常回复自己发的回复
+      setTimeout(() => this.getComments(id), 1000)
     }
   },
   releaseReplyOthers() { //回复他人
@@ -59,6 +64,8 @@ Page({
       this.setData({
         inputContent: "", //清空输入框
       })
+      // 重新获取数据来正常回复自己发的回复
+      setTimeout(() => this.getComments(id), 1000)
     }
 
   },
@@ -120,7 +127,6 @@ Page({
     this.setData({
       commentList: res.data
     });
-    console.log(this.data.commentList)
     let commentComponent = this.selectComponent("#comments");
     commentComponent.setData({
       commentsList: this.data.commentList ? this.data.commentList : [],
@@ -191,7 +197,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) { //获取id和其他数据
-    console.log(options)
     const post = JSON.parse(options.post);
     if (typeof post.Fileid === 'string') {
       post.Fileid = post.Fileid.split(',');
@@ -199,8 +204,7 @@ Page({
     if (post.Fileid == "") {
       post.Fileid = null;
     }
-    let id = options.id;
-    console.log("ok")
+    id = options.id;
     if (wx.getStorageSync('token')) {
       this.setData({
         isLogin: true
@@ -231,8 +235,6 @@ Page({
       imageList: options.Fileid,
       postList: [post],
     })
-
-    console.log(this.data.postList)
 
     this.getComments(id); //获取评论列表(后端可能要修改一下增加offset和limit)
   },

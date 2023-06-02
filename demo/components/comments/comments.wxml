@@ -16,7 +16,8 @@
     <view class="main_content">{{item.Content}}</view>
     <view class="second_container" wx:if="{{item.ReplyComments.length}}">
       <view wx:for="{{item.ReplyComments}}" wx:for-item="items" class="second_single">
-        <view class="reply_username" catchtap="replyOthers" data-qq="{{items.QQ}}" data-wx="{{items.Wx}}" data-name="{{items.UserName}}" data-id='{{items.ID}}' data-index="{{firstIndex}}" data-isReplySecond="{{true}}">
+      <!-- 这里的id用的是第一级评论的id -->
+        <view class="reply_username" catchtap="replyOthers" data-qq="{{items.QQ}}" data-wx="{{items.Wx}}" data-name="{{items.UserName}}" data-id='{{item.ID}}' data-index="{{firstIndex}}" data-isReplySecond="{{true}}">
           <span style="color: #02A7F0;">{{items.UserName}}</span>
           <span>{{items.isThirdReply?' 回复 ' +items.replyName:''}}</span>：
         </view>

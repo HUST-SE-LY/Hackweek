@@ -39,13 +39,11 @@ Component({
       };
       let array = this.properties.commentsList;
       array.push(commentRend);
-      console.log(array)
       this.setData({
         commentsList: array
       });
     },
     replyOthers(e) { //点击用户名后触发显示回复框以及设置index和name
-      console.log(e.currentTarget.dataset)
       this.setData({
         id: e.currentTarget.dataset.id,
         name: e.currentTarget.dataset.name,
