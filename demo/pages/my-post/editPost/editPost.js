@@ -205,10 +205,11 @@ Page({
       const location = this.data.location;
       const price = this.data.price;
       const avatar = app.globalData.userInfo.avatarId;
-      const deleteImageTemp = new Array(deleteImageIdx.length).fill(0)
+      const deleteImageTemp = new Array(9).fill(0)
       for (let i = 0; i < deleteImageTemp.length; i++) {
         let idx = -1
         const n = deleteImageIdx[i]
+        console.log(n)
         while (n >= 0) {
           for (let j = 0; j < deleteImageTemp.length; j++) {
             idx++
@@ -218,12 +219,14 @@ Page({
             }
           }
         }
+        console.log(deleteImageTemp)
         deleteImageTemp[idx] = 1
       }
       let deleteImage = []
       for (let i = 0; i < deleteImageTemp.length; i++) {
         if (deleteImageTemp[i] === 1) deleteImage.push(i)
       }
+      deleteImageIdx = []
       const res = await editMyPost({
         postid: this.data.postid,
         avatar: avatar,

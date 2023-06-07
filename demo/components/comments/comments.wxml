@@ -19,7 +19,7 @@
       <!-- 这里的id用的是第一级评论的id -->
         <view class="reply_username" catchtap="replyOthers" data-qq="{{items.QQ}}" data-wx="{{items.Wx}}" data-name="{{items.UserName}}" data-id='{{item.ID}}' data-index="{{firstIndex}}" data-isReplySecond="{{true}}">
           <span style="color: #02A7F0;">{{items.UserName}}</span>
-          <span>{{items.isThirdReply?' 回复 ' +items.replyName:''}}</span>：
+          <span>{{items.responseUserName && items.responseUserName.length?' 回复 ' +items.responseUserName:''}}</span>：
         </view>
         <view class="second_content"><text>{{items.Content}}</text></view>
       </view>
