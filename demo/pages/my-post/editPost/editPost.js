@@ -208,8 +208,7 @@ Page({
       const deleteImageTemp = new Array(9).fill(0)
       for (let i = 0; i < deleteImageTemp.length; i++) {
         let idx = -1
-        const n = deleteImageIdx[i]
-        console.log(n)
+        let n = deleteImageIdx[i]
         while (n >= 0) {
           for (let j = 0; j < deleteImageTemp.length; j++) {
             idx++
