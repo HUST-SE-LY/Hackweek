@@ -12,7 +12,7 @@
       <image mode="aspectFill" src="{{item}}" class="image" wx:if="{{imageList.length}}" bindtap="imgLarge" data-url="{{item}}"></image>
       <image class="image_delete" bindtap="deleteImage" data-index="{{index}}" src="../../../static/delete.svg"></image>
     </view>
-    <view class="upload_image" bindtap="uploadImg">
+    <view class="upload_image" bindtap="uploadImg" wx:if="{{imageList.length<9}}">
       <view class="add_icon"></view>
     </view>
   </view>
@@ -20,7 +20,7 @@
 </view>
 <view class="choose_container">
   <view class="input_container">
-    <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6" />
+    <image src="../../../static/price.svg" class="price_svg"></image><input placeholder="期望售价，例如：10元、一杯奶茶" class="price" model:value="{{price}}" bindinput="priceCheck" maxlength="6" />
   </view>
   <view class="line"></view>
   <view class="input_container">

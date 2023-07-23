@@ -48,7 +48,7 @@ Page({
     let imgList = this.data.imageList; //获取图片url列表
     if (imgList.length < 9) { //图片数小于八才能选择
       wx.chooseImage({
-        count: 1,
+        count: 9 - imgList.length,
         success(res) {
           for (let i in res.tempFilePaths) {
             imgList.push(res.tempFilePaths[i]); //存放选择的图片的url

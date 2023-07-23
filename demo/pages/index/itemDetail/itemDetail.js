@@ -56,7 +56,6 @@ Page({
     }
   },
   releaseReplyOthers() { //回复他人
-    console.log(this.data.responseid)
     if (this.data.inputContent) {
       this.selectComponent("#comments").reply1(this.data.inputContent); //触发组件reply1
       const res = this.Comment(this.data.responseid);

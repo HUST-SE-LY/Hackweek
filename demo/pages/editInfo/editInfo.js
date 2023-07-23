@@ -61,16 +61,16 @@ Page({
       confirmColor: "black",
       success: (res) => {
         if (res.confirm) {
-          wx.setStorageSync('token', ""),
-            App.globalData.userInfo = {
-              travelMode: true,
-              avatar: "/static/my.png",
-              userName: "未登录",
-              qq: "未设置",
-              wx: "未设置",
-            }
+          // wx.setStorageSync('token', ""),
+          //   App.globalData.userInfo = {
+          //     travelMode: true,
+          //     avatar: "/static/my.png",
+          //     userName: "未登录",
+          //     qq: "未设置",
+          //     wx: "未设置",
+          //   }
           wx.navigateTo({
-            url: '../index/index',
+            url: '../login/login',
           })
         } else if (res.cancel) {
 

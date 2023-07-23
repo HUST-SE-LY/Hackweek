@@ -78,7 +78,7 @@ page {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  column-gap: 10vw;
+  column-gap: 9vw;
   row-gap: 5vw;
   width: 100%;
 }

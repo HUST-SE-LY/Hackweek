@@ -1,6 +1,9 @@
-<view class="search-bar {{isSearchBarFoucus?'search-bar-focused':''}}">
-  <image class="button" src="../../static/search.svg"></image>
-  <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle" confirm-type="search" contenteditable="true"></input>
+<view class="search-bar-container">
+  <view class="search-bar {{isSearchBarFoucus?'search-bar-focused':''}}">
+    <image class="button" src="../../static/search.svg"></image>
+    <input placeholder="搜搜你想要的" bindfocus="searchBarFocus" bindblur="searchBarBlur" model:value="{{searchWords}}" bindconfirm="searchTitle" confirm-type="search" contenteditable="true"></input>
+  </view>
+  <text bindtap="searchTitle" wx:if="{{isSearchBarFoucus}}" class="search-text">搜索</text>
 </view>
 <view class="searchHistoryContainer" wx:if="{{isSearchBarFoucus}}" bindtap="closeSearchHistory">
   <view class="searchHistory" catchtap="searchBarFocus">

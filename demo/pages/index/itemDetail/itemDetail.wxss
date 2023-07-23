@@ -2,13 +2,14 @@
 page {
   background-color: #f5f5f5;
 }
+
 .post-container {
   background-color: rgb(169, 169, 169);
   margin-bottom: 30rpx;
   padding: 0 50rpx;
   display: flex;
   flex-direction: column;
-  border-radius:40rpx 40rpx;
+  border-radius: 40rpx 40rpx;
   color: #333333;
   width: 90vw;
   margin-left: 5vw;
@@ -26,7 +27,7 @@ page {
 .header .left {
   display: flex;
   align-items: center;
-  gap:20rpx;
+  gap: 20rpx;
 }
 
 .header .left image {
@@ -94,12 +95,14 @@ page {
   font-size: 26rpx;
   color: rgba(0, 0, 0, 0.6);
 }
+
 .footer {
   display: flex;
   justify-content: space-between;
   margin-top: 20rpx;
   margin-bottom: 30rpx;
 }
+
 .footer .item {
   display: flex;
   align-items: center;
@@ -108,20 +111,24 @@ page {
   margin-right: 20rpx;
   margin-left: 0;
 }
+
 .footer image {
   height: 45rpx;
   width: 45rpx;
   margin-right: 10rpx;
 }
+
 .footer .right {
   display: flex;
 }
+
 .commentsContainer {
   width: 100vw;
   box-sizing: border-box;
   padding: 0 5% 5% 5%;
   background-color: white;
 }
+
 .devider {
   height: 10vh;
   width: 100vw;
@@ -146,42 +153,54 @@ page {
   background-color: black;
   box-sizing: border-box;
   color: #333333;
+  display: flex;
+  align-items: center;
 }
+
+.comment text {
+  color: white;
+  margin-right: 22px;
+}
+
 .comment_input {
   font-size: 12px;
   border-radius: 8px;
-  width: 335px;
   margin: 11px auto;
+  width: 75%;
   height: 31px;
   padding-left: 1em;
   background-color: #f5f5f5;
+}
 
-}
 .comment_reply {
- position: fixed;
- bottom: 0;
- width: 100vw;
- background-color: black;
- box-sizing: border-box;
- color: #333333;
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  box-sizing: border-box;
+  color: #333333;
 }
+
 .comment_input_display {
   display: none;
 }
+
 .comment_reply_display {
   display: none;
 }
+
 .image_list {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 10vw;
+  column-gap: 9vw;
   row-gap: 5vw;
   padding-top: 30rpx;
 }
+
 .image {
   width: 20vw;
   height: 20vw;
 }
+
 .contactInfoContainer .contactInfo {
   position: fixed;
   top: 37vh;
@@ -204,16 +223,19 @@ page {
   justify-content: space-between;
   align-items: center;
 }
-.contactInfoContainer .contactInfo .content .copy{
+
+.contactInfoContainer .contactInfo .content .copy {
   border: 1px solid rgba(0, 0, 0, 0.4);
   width: 100rpx;
   line-height: 4vh;
   text-align: center;
   border-radius: 15rpx;
 }
+
 .contactInfoContainer .contactInfo .divider {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .share {
   background: transparent;
   display: block;
@@ -222,9 +244,10 @@ page {
   box-sizing: border-box;
   text-align: left;
 }
+
 .noLogin {
   width: 100vw;
   text-align: center;
-  color:#d0d0d0;
+  color: #d0d0d0;
   margin-top: 50rpx;
 }

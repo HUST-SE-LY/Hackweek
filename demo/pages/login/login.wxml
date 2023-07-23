@@ -16,7 +16,7 @@
       <div bindtap="login" class="submit_button" style="display: {{loginShow?'block':'none'}};  margin-top:1rem">登录&注册</div>
     </form>
   </view>
-  <view class="travel_mode" bindtap="freshPage" wx:if="{{!canFresh}}">游客模式</view>
+  <view class="travel_mode" bindtap="travelMode" wx:if="{{!canFresh}}">游客模式</view>
   <view class="fresh_button" bindtap="freshPage" wx:if="{{canFresh}}">没有收到验证码？</view>
 </view>
 <view class="footer">————不期而喻小程序团队————</view>

@@ -10,10 +10,12 @@
 <view class="devider" wx:if="{{isLogin}}">
 </view>
 <view class="comment {{isfooter?'':'comment_input_display'}}" wx:if="{{isLogin}}">
-  <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" model:value="{{inputContent}}" bindconfirm="releaseComment" confirm-type="send"/>
+  <input class="comment_input" placeholder="发一条友善的评论~" maxlength="500" model:value="{{inputContent}}" bindconfirm="releaseComment" confirm-type="send" />
+  <text bindtap="releaseComment">发送</text>
 </view>
-<view class="comment_reply {{isReplyOthers?'':'comment_reply_display'}}" wx:if="{{isLogin}}">
-  <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" maxlength="500" model:value="{{inputContent}}" confirm-type="send" focus="{{isfocus}}" bindblur="closeInput" />
+<view class="comment {{isReplyOthers?'':'comment_reply_display'}}" wx:if="{{isLogin}}">
+  <input class="comment_input " bindconfirm="releaseReplyOthers" placeholder="回复{{placeHolderName}}" model:value="{{inputContent}}" confirm-type="send" focus="{{isfocus}}" bindblur="closeInput" />
+  <text bindtap="releaseReplyOthers">发送</text>
 </view>
 <view class="gray_back" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo"></view>
 <view class="contactInfoContainer overlay" wx:if="{{contactInfoShow}}" bindtap="hideContactInfo">

@@ -164,6 +164,9 @@ Component({
           url: '../../pages/login/login',
         })
       } else {
+        this.setData({
+          isSearchBarFoucus: false
+        })
         this.selectByTitle();
       }
 
